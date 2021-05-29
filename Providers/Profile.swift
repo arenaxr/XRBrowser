@@ -893,15 +893,15 @@ open class BrowserProfile: Profile {
 
             if constellationStateUpdate == nil {
                 constellationStateUpdate = NotificationCenter.default.addObserver(forName: .constellationStateUpdate, object: nil, queue: .main) { [weak self] notification in
-                    guard let accountManager = self?.profile.rustFxA.accountManager.peek(), let state = accountManager.deviceConstellation()?.state() else {
-                        return
-                    }
-                    guard let self = self else { return }
-                    let devices = state.remoteDevices.map { d -> RemoteDevice in
-                        let t = "\(d.deviceType)"
-                        return RemoteDevice(id: d.id, name: d.displayName, type: t, isCurrentDevice: d.isCurrentDevice, lastAccessTime: d.lastAccessTime, availableCommands: nil)
-                    }
-                    let _ = self.profile.remoteClientsAndTabs.replaceRemoteDevices(devices)
+//                    guard let accountManager = self?.profile.rustFxA.accountManager.peek(), let state = accountManager.deviceConstellation()?.state() else {
+//                        return
+//                    }
+//                    guard let self = self else { return }
+//                    let devices = state.remoteDevices.map { d -> RemoteDevice in
+//                        let t = "\(d.deviceType)"
+//                        return RemoteDevice(id: d.id, name: d.displayName, type: t, isCurrentDevice: d.isCurrentDevice, lastAccessTime: d.lastAccessTime, availableCommands: nil)
+//                    }
+//                    let _ = self.profile.remoteClientsAndTabs.replaceRemoteDevices(devices)
                 }
             }
 
