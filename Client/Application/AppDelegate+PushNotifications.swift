@@ -51,10 +51,10 @@ extension AppDelegate {
         // If we see our local device with a pushEndpointExpired flag, clear the APNS token and re-register.
         NotificationCenter.default.addObserver(forName: .constellationStateUpdate, object: nil, queue: nil) { notification in
             if let newState = notification.userInfo?["newState"] as? ConstellationState {
-                if newState.localDevice?.subscriptionExpired ?? false {
-                    KeychainWrapper.sharedAppContainerKeychain.removeObject(forKey: KeychainKey.apnsToken, withAccessibility: .afterFirstUnlock)
-                    NotificationCenter.default.post(name: .RegisterForPushNotifications, object: nil)
-                }
+//                if newState.localDevice?.subscriptionExpired ?? false {
+//                    KeychainWrapper.sharedAppContainerKeychain.removeObject(forKey: KeychainKey.apnsToken, withAccessibility: .afterFirstUnlock)
+//                    NotificationCenter.default.post(name: .RegisterForPushNotifications, object: nil)
+//                }
             }
         }
 
