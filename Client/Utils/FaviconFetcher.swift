@@ -115,41 +115,41 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
     fileprivate func parseHTMLForFavicons(_ url: URL) -> Deferred<Maybe<[Favicon]>> {
         return fetchDataForURL(url).bind({ result -> Deferred<Maybe<[Favicon]>> in
             var icons = [Favicon]()
-            guard let data = result.successValue, result.isSuccess,
-                let root = try? HTMLDocument(data: data as Data) else {
-                    return deferMaybe([])
-            }
-            var reloadUrl: URL?
-            for meta in root.xpath("//head/meta") {
-                if let refresh = meta["http-equiv"], refresh == "Refresh",
-                    let content = meta["content"],
-                    let index = content.range(of: "URL="),
-                    let url = NSURL(string: String(content[index.upperBound...])) {
-                    reloadUrl = url as URL
-                }
-            }
-
-            if let url = reloadUrl {
-                return self.parseHTMLForFavicons(url)
-            }
-
-            for link in root.xpath("//head//link[contains(@rel, 'icon')]") {
-                guard let href = link["href"] else {
-                    continue //Skip the rest of the loop. But don't stop the loop
-                }
-
-                if let iconUrl = NSURL(string: href, relativeTo: url as URL), let absoluteString = iconUrl.absoluteString {
-                    let icon = Favicon(url: absoluteString)
-                    icons = [icon]
-                }
-
-                // If we haven't got any options icons, then use the default at the root of the domain.
-                if let url = NSURL(string: "/favicon.ico", relativeTo: url as URL), icons.isEmpty, let absoluteString = url.absoluteString {
-                    let icon = Favicon(url: absoluteString)
-                    icons = [icon]
-                }
-
-            }
+//            guard let data = result.successValue, result.isSuccess,
+////                let root = try? HTMLDocument(data: data as Data) else {
+////                    return deferMaybe([])
+//            }
+//            var reloadUrl: URL?
+//            for meta in root.xpath("//head/meta") {
+//                if let refresh = meta["http-equiv"], refresh == "Refresh",
+//                    let content = meta["content"],
+//                    let index = content.range(of: "URL="),
+//                    let url = NSURL(string: String(content[index.upperBound...])) {
+//                    reloadUrl = url as URL
+//                }
+//            }
+//
+//            if let url = reloadUrl {
+//                return self.parseHTMLForFavicons(url)
+//            }
+//
+//            for link in root.xpath("//head//link[contains(@rel, 'icon')]") {
+//                guard let href = link["href"] else {
+//                    continue //Skip the rest of the loop. But don't stop the loop
+//                }
+//
+//                if let iconUrl = NSURL(string: href, relativeTo: url as URL), let absoluteString = iconUrl.absoluteString {
+//                    let icon = Favicon(url: absoluteString)
+//                    icons = [icon]
+//                }
+//
+//                // If we haven't got any options icons, then use the default at the root of the domain.
+//                if let url = NSURL(string: "/favicon.ico", relativeTo: url as URL), icons.isEmpty, let absoluteString = url.absoluteString {
+//                    let icon = Favicon(url: absoluteString)
+//                    icons = [icon]
+//                }
+//
+//            }
             return deferMaybe(icons)
         })
     }

@@ -74,31 +74,31 @@ class FxAWebViewModel {
                 guard let self = self else { return }
 
                 // Handle authentication with either the QR code login flow, email login flow, or settings page flow
-                switch self.pageType {
-                case .emailLoginFlow:
-                    accountManager.beginAuthentication { [weak self] result in
-                        guard let self = self else { return }
-
-                        if case .success(let url) = result {
-                            self.baseURL = url
-                            completion(self.makeRequest(url), .emailLogin)
-                        }
-                    }
-                case let .qrCode(url):
-                    accountManager.beginPairingAuthentication(pairingUrl: url) { [weak self] result in
-                        guard let self = self else { return }
-
-                        if case .success(let url) = result {
-                            self.baseURL = url
-                            completion(self.makeRequest(url), .qrPairing)
-                        }
-                    }
-                case .settingsPage:
-                    if case .success(let url) = result {
-                        self.baseURL = url
-                        completion(self.makeRequest(url), nil)
-                    }
-                }
+//                switch self.pageType {
+//                case .emailLoginFlow:
+//                    accountManager.beginAuthentication { [weak self] result in
+//                        guard let self = self else { return }
+//
+//                        if case .success(let url) = result {
+//                            self.baseURL = url
+//                            completion(self.makeRequest(url), .emailLogin)
+//                        }
+//                    }
+//                case let .qrCode(url):
+//                    accountManager.beginPairingAuthentication(pairingUrl: url) { [weak self] result in
+//                        guard let self = self else { return }
+//
+//                        if case .success(let url) = result {
+//                            self.baseURL = url
+//                            completion(self.makeRequest(url), .qrPairing)
+//                        }
+//                    }
+//                case .settingsPage:
+//                    if case .success(let url) = result {
+//                        self.baseURL = url
+//                        completion(self.makeRequest(url), nil)
+//                    }
+//                }
             }
         }
     }

@@ -242,8 +242,6 @@
 		B1029B12266B63C300799351 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B11266B63C300799351 /* SwiftyJSON */; };
 		B1029B14266B63C600799351 /* ObjcExceptionBridging in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B13266B63C600799351 /* ObjcExceptionBridging */; };
 		B1029B16266B63CA00799351 /* XCGLogger in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B15266B63CA00799351 /* XCGLogger */; };
-		B1029B33266B65F400799351 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B32266B65F400799351 /* Sentry */; };
-		B1029B47266B661A00799351 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B46266B661A00799351 /* Sentry */; };
 		B1029B64266B674D00799351 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B63266B674D00799351 /* SDWebImage */; };
 		B1029B66266B674D00799351 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B65266B674D00799351 /* SDWebImageMapKit */; };
 		B1029B70266B677100799351 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B6F266B677100799351 /* SDWebImage */; };
@@ -252,6 +250,7 @@
 		B1029BD3266B6D8A00799351 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BD2266B6D8A00799351 /* SwiftProtobuf */; };
 		B1029BD5266B6D8A00799351 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BD4266B6D8A00799351 /* SwiftProtobufPluginLibrary */; };
 		B1029BE9266B6E0B00799351 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BE8266B6E0B00799351 /* SnapKit */; };
+		B1E64376266B7E02000C5F69 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF403C221CBC9A00B38F28 /* MozillaAppServices.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
 		C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F44681D087DB600CB7EF0 /* TopTabsViewController.swift */; };
@@ -1456,7 +1455,6 @@
 				B1029B12266B63C300799351 /* SwiftyJSON in Frameworks */,
 				7BA4A94C1C4CF03B0091D032 /* SwiftKeychainWrapper.framework in Frameworks */,
 				B1029B16266B63CA00799351 /* XCGLogger in Frameworks */,
-				B1029B47266B661A00799351 /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1467,6 +1465,7 @@
 				C8E18F20222EDED000E30E52 /* SafariServices.framework in Frameworks */,
 				8EF9B56A24AF73C100B2A3C2 /* Leanplum.framework in Frameworks */,
 				B1029BBE266B6B6200799351 /* Fuzi in Frameworks */,
+				B1E64376266B7E02000C5F69 /* MozillaAppServices.framework in Frameworks */,
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
 				E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
@@ -1485,7 +1484,6 @@
 				E4B334881BBF23F3004E2BFF /* iAd.framework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				7BA4A94A1C4CEFC70091D032 /* OnePasswordExtension.framework in Frameworks */,
-				B1029B33266B65F400799351 /* Sentry in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				B1029BD5266B6D8A00799351 /* SwiftProtobufPluginLibrary in Frameworks */,
 				B1029BD3266B6D8A00799351 /* SwiftProtobuf in Frameworks */,
@@ -3119,7 +3117,6 @@
 				B1029B11266B63C300799351 /* SwiftyJSON */,
 				B1029B13266B63C600799351 /* ObjcExceptionBridging */,
 				B1029B15266B63CA00799351 /* XCGLogger */,
-				B1029B46266B661A00799351 /* Sentry */,
 				B1029B6F266B677100799351 /* SDWebImage */,
 			);
 			productName = Shared;
@@ -3256,7 +3253,6 @@
 				B1029AB4266B5E7C00799351 /* SwiftyJSON */,
 				B1029ABF266B5EFA00799351 /* ObjcExceptionBridging */,
 				B1029AC1266B5EFA00799351 /* XCGLogger */,
-				B1029B32266B65F400799351 /* Sentry */,
 				B1029B63266B674D00799351 /* SDWebImage */,
 				B1029B65266B674D00799351 /* SDWebImageMapKit */,
 				B1029BA8266B6A4E00799351 /* SnapKit */,
@@ -3350,7 +3346,6 @@
 			packageReferences = (
 				B1029AB3266B5E7C00799351 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */,
-				B1029B31266B65F400799351 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				B1029BA7266B6A4E00799351 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B1029BBC266B6B6200799351 /* XCRemoteSwiftPackageReference "Fuzi" */,
@@ -5138,14 +5133,6 @@
 				minimumVersion = 7.0.1;
 			};
 		};
-		B1029B31266B65F400799351 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getsentry/sentry-cocoa";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.3;
-			};
-		};
 		B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -5210,16 +5197,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */;
 			productName = XCGLogger;
-		};
-		B1029B32266B65F400799351 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029B31266B65F400799351 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
-		};
-		B1029B46266B661A00799351 /* Sentry */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029B31266B65F400799351 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
-			productName = Sentry;
 		};
 		B1029B63266B674D00799351 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -15,7 +15,7 @@ import Sync
 import CoreSpotlight
 import UserNotifications
 import Account
-import Glean
+//import Glean
 
 #if canImport(BackgroundTasks)
  import BackgroundTasks
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var receivedURLs = [URL]()
     var unifiedTelemetry: UnifiedTelemetry?
 
-    var glean = Glean.shared
+//    var glean = Glean.shared
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         //
@@ -114,11 +114,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         
         // Get legacy telemetry ID
         if let uuidString = UserDefaults.standard.string(forKey: "telemetry-key-prefix-clientId"), let uuid = UUID(uuidString: uuidString) {
-            GleanMetrics.LegacyIds.clientId.set(uuid)
+//            GleanMetrics.LegacyIds.clientId.set(uuid)
         }
         
         // Initialize Glean telemetry
-        glean.initialize(uploadEnabled: sendUsageData, configuration: Configuration(channel: AppConstants.BuildChannel.rawValue))
+//        glean.initialize(uploadEnabled: sendUsageData, configuration: Configuration(channel: AppConstants.BuildChannel.rawValue))
 
         // Set up a web server that serves us static content. Do this early so that it is ready when the UI is presented.
         setUpWebServer(profile)
@@ -475,7 +475,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
 
         if AppConstants.IsRunningTest {
-            registerHandlersForTestMethods(server: server.server)
+//            registerHandlersForTestMethods(server: server.server)
         }
 
         // Bug 1223009 was an issue whereby CGDWebserver crashed when moving to a background task
