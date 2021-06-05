@@ -40,7 +40,7 @@ open class Record<T: CleartextPayloadJSON> {
     //
     // @seealso EncryptedRecord.
     open class func payloadFromPayloadString(_ envelope: EnvelopeJSON, payload: String) -> T? {
-        return T(payload)
+        return nil //T(payload)
     }
 
     // TODO: consider using error tuples.

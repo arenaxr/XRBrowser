@@ -6,7 +6,7 @@ import Storage
 import Shared
 import XCGLogger
 import SDWebImage
-import Fuzi
+//import Fuzi
 import SwiftyJSON
 
 private let log = Logger.browserLogger

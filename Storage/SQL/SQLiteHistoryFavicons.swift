@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Foundation
-import Fuzi
+//import Fuzi
 import SDWebImage
 import SwiftyJSON
 import Shared
@@ -276,89 +276,89 @@ extension SQLiteHistory: Favicons {
 
         let deferred = CancellableDeferred<Maybe<URL>>()
 
-        getFaviconURLsFromWebPage(url: url).upon { result in
-            guard let faviconURLs = result.successValue,
-                let faviconURL = faviconURLs.first else {
-                deferred.fill(Maybe(failure: FaviconLookupError(siteURL: site.url)))
-                return
-            }
-
-            // Since we were able to scrape a favicon URL off the web page,
-            // insert it into the DB to avoid having to scrape again later.
-            let favicon = Favicon(url: faviconURL.absoluteString)
-            self.favicons.insertOrUpdateFavicon(favicon).upon { result in
-                if let faviconID = result.successValue {
-
-                    // Also, insert a row in `favicon_site_urls` so we can
-                    // look up this favicon later without requiring history.
-                    // This is primarily needed for bookmarks.
-                    _ = self.db.run("INSERT OR IGNORE INTO favicon_site_urls(site_url, faviconID) VALUES (?, ?)", withArgs: [site.url, faviconID])
-                }
-            }
-
-            deferred.fill(Maybe(success: faviconURL))
-        }
+//        getFaviconURLsFromWebPage(url: url).upon { result in
+//            guard let faviconURLs = result.successValue,
+//                let faviconURL = faviconURLs.first else {
+//                deferred.fill(Maybe(failure: FaviconLookupError(siteURL: site.url)))
+//                return
+//            }
+//
+//            // Since we were able to scrape a favicon URL off the web page,
+//            // insert it into the DB to avoid having to scrape again later.
+//            let favicon = Favicon(url: faviconURL.absoluteString)
+//            self.favicons.insertOrUpdateFavicon(favicon).upon { result in
+//                if let faviconID = result.successValue {
+//
+//                    // Also, insert a row in `favicon_site_urls` so we can
+//                    // look up this favicon later without requiring history.
+//                    // This is primarily needed for bookmarks.
+//                    _ = self.db.run("INSERT OR IGNORE INTO favicon_site_urls(site_url, faviconID) VALUES (?, ?)", withArgs: [site.url, faviconID])
+//                }
+//            }
+//
+//            deferred.fill(Maybe(success: faviconURL))
+//        }
 
         return deferred
     }
 
     // Scrapes an HTMLDocument DOM from a web page URL.
-    fileprivate func getHTMLDocumentFromWebPage(url: URL) -> Deferred<Maybe<HTMLDocument>> {
-        let deferred = CancellableDeferred<Maybe<HTMLDocument>>()
-
-        // getHTMLDocumentFromWebPage can be called from getFaviconURLsFromWebPage, and that function is off-main. 
-        DispatchQueue.main.async {
-            urlSession.dataTask(with: url) { (data, response, error) in
-                guard error == nil,
-                    let data = data,
-                    let document = try? HTMLDocument(data: data) else {
-                        deferred.fill(Maybe(failure: FaviconLookupError(siteURL: url.absoluteString)))
-                        return
-                }
-                deferred.fill(Maybe(success: document))
-            }.resume()
-        }
-
-        return deferred
-    }
-
-    // Scrapes the web page at the specified URL for its favicon URLs.
-    fileprivate func getFaviconURLsFromWebPage(url: URL) -> Deferred<Maybe<[URL]>> {
-        return getHTMLDocumentFromWebPage(url: url).bind { result in
-            guard let document = result.successValue else {
-                return deferMaybe(FaviconLookupError(siteURL: url.absoluteString))
-            }
-
-            // If we were redirected via a <meta> tag on the page to a different
-            // URL, go to the redirected page for the favicon instead.
-            for meta in document.xpath("//head/meta") {
-                if let refresh = meta["http-equiv"], refresh == "Refresh",
-                    let content = meta["content"],
-                    let index = content.range(of: "URL="),
-                    let reloadURL = URL(string: String(content[index.upperBound...])),
-                    reloadURL != url {
-                    return self.getFaviconURLsFromWebPage(url: reloadURL)
-                }
-            }
-
-            var icons = [URL]()
-
-            // Iterate over each <link rel="icon"> tag on the page.
-            for link in document.xpath("//head//link[contains(@rel, 'icon')]") {
-                // Only consider <link rel="icon"> tags with an [href] attribute.
-                if let href = link["href"], let faviconURL = URL(string: href, relativeTo: url) {
-                    icons.append(faviconURL)
-                }
-            }
-
-            // Also, consider a "/favicon.ico" icon at the root of the domain.
-            if let faviconURL = URL(string: "/favicon.ico", relativeTo: url) {
-                icons.append(faviconURL)
-            }
-
-            return deferMaybe(icons)
-        }
-    }
+//    fileprivate func getHTMLDocumentFromWebPage(url: URL) -> Deferred<Maybe<HTMLDocument>> {
+//        let deferred = CancellableDeferred<Maybe<HTMLDocument>>()
+//
+//        // getHTMLDocumentFromWebPage can be called from getFaviconURLsFromWebPage, and that function is off-main.
+//        DispatchQueue.main.async {
+//            urlSession.dataTask(with: url) { (data, response, error) in
+//                guard error == nil,
+//                    let data = data,
+//                    let document = try? HTMLDocument(data: data) else {
+//                        deferred.fill(Maybe(failure: FaviconLookupError(siteURL: url.absoluteString)))
+//                        return
+//                }
+//                deferred.fill(Maybe(success: document))
+//            }.resume()
+//        }
+//
+//        return deferred
+//    }
+//
+//    // Scrapes the web page at the specified URL for its favicon URLs.
+//    fileprivate func getFaviconURLsFromWebPage(url: URL) -> Deferred<Maybe<[URL]>> {
+//        return getHTMLDocumentFromWebPage(url: url).bind { result in
+//            guard let document = result.successValue else {
+//                return deferMaybe(FaviconLookupError(siteURL: url.absoluteString))
+//            }
+//
+//            // If we were redirected via a <meta> tag on the page to a different
+//            // URL, go to the redirected page for the favicon instead.
+//            for meta in document.xpath("//head/meta") {
+//                if let refresh = meta["http-equiv"], refresh == "Refresh",
+//                    let content = meta["content"],
+//                    let index = content.range(of: "URL="),
+//                    let reloadURL = URL(string: String(content[index.upperBound...])),
+//                    reloadURL != url {
+//                    return self.getFaviconURLsFromWebPage(url: reloadURL)
+//                }
+//            }
+//
+//            var icons = [URL]()
+//
+//            // Iterate over each <link rel="icon"> tag on the page.
+//            for link in document.xpath("//head//link[contains(@rel, 'icon')]") {
+//                // Only consider <link rel="icon"> tags with an [href] attribute.
+//                if let href = link["href"], let faviconURL = URL(string: href, relativeTo: url) {
+//                    icons.append(faviconURL)
+//                }
+//            }
+//
+//            // Also, consider a "/favicon.ico" icon at the root of the domain.
+//            if let faviconURL = URL(string: "/favicon.ico", relativeTo: url) {
+//                icons.append(faviconURL)
+//            }
+//
+//            return deferMaybe(icons)
+//        }
+//    }
 
     // Generates a "default" favicon based on the first character in the
     // site's domain name or gets an already-generated icon from the cache.
