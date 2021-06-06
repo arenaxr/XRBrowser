@@ -17,7 +17,6 @@
 		0BF0DB941A8545800039F300 /* URLBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0DB931A8545800039F300 /* URLBarView.swift */; };
 		0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF1B7E21AC60DEA00A7B407 /* InsetButton.swift */; };
 		19DE1F671EC13B6400428B8C /* LeanplumIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DE1F661EC13B6400428B8C /* LeanplumIntegration.swift */; };
-		1FCF5C2524351CB4003AB95D /* Glean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FCF5C2324351CB4003AB95D /* Glean.framework */; };
 		274A36C9239EB94000A21587 /* LibraryPanelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A36C8239EB94000A21587 /* LibraryPanelButton.swift */; };
 		274A36CC239EB99400A21587 /* LibraryPanelContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A36CB239EB99400A21587 /* LibraryPanelContextMenu.swift */; };
 		274A36CE239EB9EC00A21587 /* LibraryViewController+LibraryPanelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A36CD239EB9EC00A21587 /* LibraryViewController+LibraryPanelDelegate.swift */; };
@@ -176,13 +175,10 @@
 		7B3D9E651E4CBFDB007A50DA /* NSCoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D9E641E4CBFDB007A50DA /* NSCoderExtensions.swift */; };
 		7B42406E1CA04CAC009B5C28 /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B42406D1CA04CAC009B5C28 /* Menu.xcassets */; };
 		7B4980A81CE363ED0017547C /* Settings.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4980A71CE363ED0017547C /* Settings.xcassets */; };
-		7B6050011C49653B006EEEC3 /* AdjustSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6050001C49653B006EEEC3 /* AdjustSdk.framework */; };
 		7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
 		7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8A47F51D01D3B400C07734 /* PassKit.framework */; };
 		7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9BF91B1E43472E00CB24F4 /* JSONExtensions.swift */; };
 		7BA0601B1C0F4DE200DFADB6 /* TabPeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0601A1C0F4DE200DFADB6 /* TabPeekViewController.swift */; };
-		7BA4A9471C4CED900091D032 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A9451C4CED780091D032 /* GCDWebServers.framework */; };
-		7BA4A94A1C4CEFC70091D032 /* OnePasswordExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A9491C4CEFC70091D032 /* OnePasswordExtension.framework */; };
 		7BA4A94C1C4CF03B0091D032 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A94B1C4CF03B0091D032 /* SwiftKeychainWrapper.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7BA8D1C71BA037F500C8AE9E /* OpenInHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA8D1C61BA037F500C8AE9E /* OpenInHelper.swift */; };
 		7BEFC6801BFF68C30059C952 /* QuickActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFC67F1BFF68C30059C952 /* QuickActions.swift */; };
@@ -231,26 +227,33 @@
 		8E49C6BC24AF90A9004E851E /* XRSwitchInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49C69324AF90A9004E851E /* XRSwitchInputTableViewCell.swift */; };
 		8E63EE8F24AF94EE0022A76E /* Tab+WebXR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E63EE8E24AF94EE0022A76E /* Tab+WebXR.swift */; };
 		8EE5003924A54B4600248844 /* AppDelegate+WebXRViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5003824A54B4600248844 /* AppDelegate+WebXRViewer.swift */; };
-		8EF9B56A24AF73C100B2A3C2 /* Leanplum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF9B56924AF73C100B2A3C2 /* Leanplum.framework */; };
 		8EF9B56E24AF76E800B2A3C2 /* WebServerXrViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF9B56D24AF76E800B2A3C2 /* WebServerXrViewer.swift */; };
 		A83E5AB71C1D993D0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
 		A9072B801D07B34100459960 /* NoImageModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9072B7F1D07B34100459960 /* NoImageModeHelper.swift */; };
 		A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */; };
-		B1029AB5266B5E7C00799351 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B1029AB4266B5E7C00799351 /* SwiftyJSON */; };
-		B1029AC0266B5EFA00799351 /* ObjcExceptionBridging in Frameworks */ = {isa = PBXBuildFile; productRef = B1029ABF266B5EFA00799351 /* ObjcExceptionBridging */; };
-		B1029AC2266B5EFA00799351 /* XCGLogger in Frameworks */ = {isa = PBXBuildFile; productRef = B1029AC1266B5EFA00799351 /* XCGLogger */; };
-		B1029B12266B63C300799351 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B11266B63C300799351 /* SwiftyJSON */; };
-		B1029B14266B63C600799351 /* ObjcExceptionBridging in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B13266B63C600799351 /* ObjcExceptionBridging */; };
-		B1029B16266B63CA00799351 /* XCGLogger in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B15266B63CA00799351 /* XCGLogger */; };
-		B1029B64266B674D00799351 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B63266B674D00799351 /* SDWebImage */; };
-		B1029B66266B674D00799351 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B65266B674D00799351 /* SDWebImageMapKit */; };
-		B1029B70266B677100799351 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B1029B6F266B677100799351 /* SDWebImage */; };
-		B1029BA9266B6A4E00799351 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BA8266B6A4E00799351 /* SnapKit */; };
-		B1029BBE266B6B6200799351 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BBD266B6B6200799351 /* Fuzi */; };
-		B1029BD3266B6D8A00799351 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BD2266B6D8A00799351 /* SwiftProtobuf */; };
-		B1029BD5266B6D8A00799351 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BD4266B6D8A00799351 /* SwiftProtobufPluginLibrary */; };
-		B1029BE9266B6E0B00799351 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1029BE8266B6E0B00799351 /* SnapKit */; };
-		B1E64376266B7E02000C5F69 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCF403C221CBC9A00B38F28 /* MozillaAppServices.framework */; };
+		B1E6454F266D4449000C5F69 /* GCDWebServers.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */; };
+		B1E6455A266D44AB000C5F69 /* KIF.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64559266D44AB000C5F69 /* KIF.xcframework */; };
+		B1E64563266D44BC000C5F69 /* LeanplumSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64562266D44BC000C5F69 /* LeanplumSDK.xcframework */; };
+		B1E6456C266D44CD000C5F69 /* OnePasswordExtension.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6456B266D44CD000C5F69 /* OnePasswordExtension.xcframework */; };
+		B1E64575266D44D7000C5F69 /* Telemetry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64574266D44D7000C5F69 /* Telemetry.xcframework */; };
+		B1E6457E266D44EE000C5F69 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */; };
+		B1E64587266D44F7000C5F69 /* XCGLogger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */; };
+		B1E64590266D4502000C5F69 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */; };
+		B1E64599266D450C000C5F69 /* Sentry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; };
+		B1E645A2266D4518000C5F69 /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; };
+		B1E645B3266D4539000C5F69 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */; };
+		B1E645B4266D4539000C5F69 /* SwiftyJSON.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1E645BC266D4549000C5F69 /* XCGLogger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */; };
+		B1E645BD266D4549000C5F69 /* XCGLogger.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1E645C4266D4556000C5F69 /* Sentry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; };
+		B1E645C5266D4556000C5F69 /* Sentry.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1E645CC266D4565000C5F69 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */; };
+		B1E645CD266D4565000C5F69 /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1E645D4266D459D000C5F69 /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; };
+		B1E645D5266D459D000C5F69 /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1E645DD266D45BC000C5F69 /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */; };
+		B1E645E3266D45D6000C5F69 /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */; };
+		B1E645E4266D45D6000C5F69 /* SwiftProtobuf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
 		C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F44681D087DB600CB7EF0 /* TopTabsViewController.swift */; };
@@ -528,7 +531,6 @@
 		EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A179E20E6C1A200B12184 /* ThemedWidgets.swift */; };
 		EBA31D7B1F79990C0055463D /* SyncTelemetryEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA31D7A1F79990C0055463D /* SyncTelemetryEvents.swift */; };
 		EBA31D7D1F79996E0055463D /* SyncTelemetryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA31D7C1F79996E0055463D /* SyncTelemetryUtils.swift */; };
-		EBA31D861F799BE20055463D /* Telemetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA31D7E1F799BE20055463D /* Telemetry.framework */; };
 		EBA3B2C32268F16300728BDB /* PhotonActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */; };
 		EBA3B2CD2268F27500728BDB /* PhotonActionSheetWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */; };
 		EBA3B2D02268F40C00728BDB /* SyncMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2CF2268F40C00728BDB /* SyncMenuButton.swift */; };
@@ -734,6 +736,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		B1E645B5266D4539000C5F69 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1E645BD266D4549000C5F69 /* XCGLogger.xcframework in Embed Frameworks */,
+				B1E645CD266D4565000C5F69 /* SDWebImage.xcframework in Embed Frameworks */,
+				B1E645B4266D4539000C5F69 /* SwiftyJSON.xcframework in Embed Frameworks */,
+				B1E645C5266D4556000C5F69 /* Sentry.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E645D6266D459D000C5F69 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1E645D5266D459D000C5F69 /* SnapKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1E645E5266D45D6000C5F69 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1E645E4266D45D6000C5F69 /* SwiftProtobuf.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -985,14 +1023,11 @@
 		7B3D9E641E4CBFDB007A50DA /* NSCoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCoderExtensions.swift; sourceTree = "<group>"; };
 		7B42406D1CA04CAC009B5C28 /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		7B4980A71CE363ED0017547C /* Settings.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Settings.xcassets; sourceTree = "<group>"; };
-		7B604F981C494F74006EEEC3 /* KIF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KIF.framework; path = Carthage/Build/iOS/KIF.framework; sourceTree = "<group>"; };
 		7B6050001C49653B006EEEC3 /* AdjustSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdjustSdk.framework; path = Carthage/Build/iOS/AdjustSdk.framework; sourceTree = "<group>"; };
 		7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
 		7B8A47F51D01D3B400C07734 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		7B9BF91B1E43472E00CB24F4 /* JSONExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtensions.swift; sourceTree = "<group>"; };
 		7BA0601A1C0F4DE200DFADB6 /* TabPeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPeekViewController.swift; sourceTree = "<group>"; };
-		7BA4A9451C4CED780091D032 /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
-		7BA4A9491C4CEFC70091D032 /* OnePasswordExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnePasswordExtension.framework; path = Carthage/Build/iOS/OnePasswordExtension.framework; sourceTree = "<group>"; };
 		7BA4A94B1C4CF03B0091D032 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
 		7BA8D1C61BA037F500C8AE9E /* OpenInHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenInHelper.swift; sourceTree = "<group>"; };
 		7BBFEE731BB405D900A305AA /* TabManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabManagerTests.swift; sourceTree = "<group>"; };
@@ -1045,7 +1080,6 @@
 		8E49C69324AF90A9004E851E /* XRSwitchInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRSwitchInputTableViewCell.swift; sourceTree = "<group>"; };
 		8E63EE8E24AF94EE0022A76E /* Tab+WebXR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab+WebXR.swift"; sourceTree = "<group>"; };
 		8EE5003824A54B4600248844 /* AppDelegate+WebXRViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+WebXRViewer.swift"; sourceTree = "<group>"; };
-		8EF9B56924AF73C100B2A3C2 /* Leanplum.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Leanplum.framework; path = Carthage/Build/iOS/Leanplum.framework; sourceTree = "<group>"; };
 		8EF9B56D24AF76E800B2A3C2 /* WebServerXrViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServerXrViewer.swift; sourceTree = "<group>"; };
 		A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPasteboardExtensions.swift; path = Extensions/UIPasteboardExtensions.swift; sourceTree = "<group>"; };
 		A83E5B181C1DA8BF0026D912 /* image.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image.gif; sourceTree = "<group>"; };
@@ -1053,6 +1087,17 @@
 		A83E5B1C1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPasteboardExtensionsTests.swift; sourceTree = "<group>"; };
 		A9072B7F1D07B34100459960 /* NoImageModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageModeHelper.swift; sourceTree = "<group>"; };
 		A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeHelper.swift; sourceTree = "<group>"; };
+		B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GCDWebServers.xcframework; path = Carthage/Build/GCDWebServers.xcframework; sourceTree = "<group>"; };
+		B1E64559266D44AB000C5F69 /* KIF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KIF.xcframework; path = Carthage/Build/KIF.xcframework; sourceTree = "<group>"; };
+		B1E64562266D44BC000C5F69 /* LeanplumSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LeanplumSDK.xcframework; path = Carthage/Build/LeanplumSDK.xcframework; sourceTree = "<group>"; };
+		B1E6456B266D44CD000C5F69 /* OnePasswordExtension.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OnePasswordExtension.xcframework; path = Carthage/Build/OnePasswordExtension.xcframework; sourceTree = "<group>"; };
+		B1E64574266D44D7000C5F69 /* Telemetry.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Telemetry.xcframework; path = Carthage/Build/Telemetry.xcframework; sourceTree = "<group>"; };
+		B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = Carthage/Build/SDWebImage.xcframework; sourceTree = "<group>"; };
+		B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = XCGLogger.xcframework; path = Carthage/Build/XCGLogger.xcframework; sourceTree = "<group>"; };
+		B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftyJSON.xcframework; path = Carthage/Build/SwiftyJSON.xcframework; sourceTree = "<group>"; };
+		B1E64598266D450C000C5F69 /* Sentry.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sentry.xcframework; path = Carthage/Build/Sentry.xcframework; sourceTree = "<group>"; };
+		B1E645A1266D4518000C5F69 /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
+		B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftProtobuf.xcframework; path = Carthage/Build/SwiftProtobuf.xcframework; sourceTree = "<group>"; };
 		B615FA2F23A0252800724C0B /* XRViewerDevApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerDevApplication.entitlements; sourceTree = "<group>"; };
 		B615FA3023A0257500724C0B /* XRViewerApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerApplication.entitlements; sourceTree = "<group>"; };
 		B615FA3123A026D300724C0B /* XRViewerDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerDev.entitlements; sourceTree = "<group>"; };
@@ -1390,7 +1435,6 @@
 		EB9A179E20E6C1A200B12184 /* ThemedWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedWidgets.swift; sourceTree = "<group>"; };
 		EBA31D7A1F79990C0055463D /* SyncTelemetryEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTelemetryEvents.swift; sourceTree = "<group>"; };
 		EBA31D7C1F79996E0055463D /* SyncTelemetryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTelemetryUtils.swift; sourceTree = "<group>"; };
-		EBA31D7E1F799BE20055463D /* Telemetry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Telemetry.framework; path = Carthage/Build/iOS/Telemetry.framework; sourceTree = "<group>"; };
 		EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCell.swift; sourceTree = "<group>"; };
 		EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetWidgets.swift; sourceTree = "<group>"; };
 		EBA3B2CF2268F40C00728BDB /* SyncMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncMenuButton.swift; sourceTree = "<group>"; };
@@ -1450,11 +1494,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1029B70266B677100799351 /* SDWebImage in Frameworks */,
-				B1029B14266B63C600799351 /* ObjcExceptionBridging in Frameworks */,
-				B1029B12266B63C300799351 /* SwiftyJSON in Frameworks */,
 				7BA4A94C1C4CF03B0091D032 /* SwiftKeychainWrapper.framework in Frameworks */,
-				B1029B16266B63CA00799351 /* XCGLogger in Frameworks */,
+				B1E645BC266D4549000C5F69 /* XCGLogger.xcframework in Frameworks */,
+				B1E645CC266D4565000C5F69 /* SDWebImage.xcframework in Frameworks */,
+				B1E645C4266D4556000C5F69 /* Sentry.xcframework in Frameworks */,
+				B1E645B3266D4539000C5F69 /* SwiftyJSON.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,36 +1506,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E6455A266D44AB000C5F69 /* KIF.xcframework in Frameworks */,
 				C8E18F20222EDED000E30E52 /* SafariServices.framework in Frameworks */,
-				8EF9B56A24AF73C100B2A3C2 /* Leanplum.framework in Frameworks */,
-				B1029BBE266B6B6200799351 /* Fuzi in Frameworks */,
-				B1E64376266B7E02000C5F69 /* MozillaAppServices.framework in Frameworks */,
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
 				E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */,
+				B1E645A2266D4518000C5F69 /* SnapKit.xcframework in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
+				B1E64599266D450C000C5F69 /* Sentry.xcframework in Frameworks */,
 				E4A888161A95679500CDC337 /* FxA.framework in Frameworks */,
-				B1029B64266B674D00799351 /* SDWebImage in Frameworks */,
 				2FA436121ABB83B4008031D1 /* Account.framework in Frameworks */,
 				288A2D9D1AB8B3260023ABC3 /* Shared.framework in Frameworks */,
 				2FCAE2311ABB51F800877008 /* Storage.framework in Frameworks */,
+				B1E645DD266D45BC000C5F69 /* SwiftProtobuf.xcframework in Frameworks */,
 				282731751ABC9BE700AA1954 /* Sync.framework in Frameworks */,
 				E69DB08A1E97DEAA008A67E6 /* SyncTelemetry.framework in Frameworks */,
-				7B6050011C49653B006EEEC3 /* AdjustSdk.framework in Frameworks */,
+				B1E6454F266D4449000C5F69 /* GCDWebServers.xcframework in Frameworks */,
+				B1E6456C266D44CD000C5F69 /* OnePasswordExtension.xcframework in Frameworks */,
+				B1E64587266D44F7000C5F69 /* XCGLogger.xcframework in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
-				B1029B66266B674D00799351 /* SDWebImageMapKit in Frameworks */,
-				7BA4A9471C4CED900091D032 /* GCDWebServers.framework in Frameworks */,
-				B1029BA9266B6A4E00799351 /* SnapKit in Frameworks */,
+				B1E64590266D4502000C5F69 /* SwiftyJSON.xcframework in Frameworks */,
+				B1E64563266D44BC000C5F69 /* LeanplumSDK.xcframework in Frameworks */,
 				E4B334881BBF23F3004E2BFF /* iAd.framework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
-				7BA4A94A1C4CEFC70091D032 /* OnePasswordExtension.framework in Frameworks */,
+				B1E6457E266D44EE000C5F69 /* SDWebImage.xcframework in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
-				B1029BD5266B6D8A00799351 /* SwiftProtobufPluginLibrary in Frameworks */,
-				B1029BD3266B6D8A00799351 /* SwiftProtobuf in Frameworks */,
-				B1029AB5266B5E7C00799351 /* SwiftyJSON in Frameworks */,
-				EBA31D861F799BE20055463D /* Telemetry.framework in Frameworks */,
-				B1029AC0266B5EFA00799351 /* ObjcExceptionBridging in Frameworks */,
-				1FCF5C2524351CB4003AB95D /* Glean.framework in Frameworks */,
-				B1029AC2266B5EFA00799351 /* XCGLogger in Frameworks */,
+				B1E64575266D44D7000C5F69 /* Telemetry.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1511,6 +1550,7 @@
 			files = (
 				D09A0CD81FAA23F6009A0273 /* Shared.framework in Frameworks */,
 				C8E18F22222EE11B00E30E52 /* MozillaAppServices.framework in Frameworks */,
+				B1E645E3266D45D6000C5F69 /* SwiftProtobuf.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,7 +1559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39409A3F1C90E68300DAE683 /* Shared.framework in Frameworks */,
-				B1029BE9266B6E0B00799351 /* SnapKit in Frameworks */,
+				B1E645D4266D459D000C5F69 /* SnapKit.xcframework in Frameworks */,
 				3905274C1C874D35007E0BB7 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2013,27 +2053,33 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8EF9B56924AF73C100B2A3C2 /* Leanplum.framework */,
-				1FCF5C2324351CB4003AB95D /* Glean.framework */,
-				C8E18F1F222EDED000E30E52 /* SafariServices.framework */,
 				C8E18F1D222EDE4400E30E52 /* Accelerate.framework */,
-				EBCF403C221CBC9A00B38F28 /* MozillaAppServices.framework */,
-				392E18021FEC4D7B00EBA79C /* MappaMundi.framework */,
-				EBA31D7E1F799BE20055463D /* Telemetry.framework */,
-				E6231C041B90A472005ABB0D /* libxml2.2.tbd */,
-				E6231C001B90A44F005ABB0D /* libz.tbd */,
+				7B6050001C49653B006EEEC3 /* AdjustSdk.framework */,
+				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
 				D39FA16B1A83E17800EE869C /* CoreGraphics.framework */,
+				B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */,
+				1FCF5C2324351CB4003AB95D /* Glean.framework */,
+				E4B334871BBF23F3004E2BFF /* iAd.framework */,
 				0B8E0FF31A932BD500161DC3 /* ImageIO.framework */,
 				D36998881AD70A0A00650C6C /* IOKit.framework */,
-				7B8A47F51D01D3B400C07734 /* PassKit.framework */,
-				7BA4A94B1C4CF03B0091D032 /* SwiftKeychainWrapper.framework */,
-				7BA4A9491C4CEFC70091D032 /* OnePasswordExtension.framework */,
-				7BA4A9451C4CED780091D032 /* GCDWebServers.framework */,
-				7B6050001C49653B006EEEC3 /* AdjustSdk.framework */,
-				7B604F981C494F74006EEEC3 /* KIF.framework */,
-				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
-				E4B334871BBF23F3004E2BFF /* iAd.framework */,
+				B1E64559266D44AB000C5F69 /* KIF.xcframework */,
+				B1E64562266D44BC000C5F69 /* LeanplumSDK.xcframework */,
+				E6231C041B90A472005ABB0D /* libxml2.2.tbd */,
+				E6231C001B90A44F005ABB0D /* libz.tbd */,
+				392E18021FEC4D7B00EBA79C /* MappaMundi.framework */,
+				EBCF403C221CBC9A00B38F28 /* MozillaAppServices.framework */,
 				3905274B1C874D35007E0BB7 /* NotificationCenter.framework */,
+				B1E6456B266D44CD000C5F69 /* OnePasswordExtension.xcframework */,
+				7B8A47F51D01D3B400C07734 /* PassKit.framework */,
+				C8E18F1F222EDED000E30E52 /* SafariServices.framework */,
+				B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */,
+				B1E64598266D450C000C5F69 /* Sentry.xcframework */,
+				B1E645A1266D4518000C5F69 /* SnapKit.xcframework */,
+				7BA4A94B1C4CF03B0091D032 /* SwiftKeychainWrapper.framework */,
+				B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */,
+				B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */,
+				B1E64574266D44D7000C5F69 /* Telemetry.xcframework */,
+				B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3107,6 +3153,7 @@
 				288A2D821AB8B3260023ABC3 /* Frameworks */,
 				288A2D831AB8B3260023ABC3 /* Headers */,
 				288A2D841AB8B3260023ABC3 /* Resources */,
+				B1E645B5266D4539000C5F69 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3114,10 +3161,6 @@
 			);
 			name = Shared;
 			packageProductDependencies = (
-				B1029B11266B63C300799351 /* SwiftyJSON */,
-				B1029B13266B63C600799351 /* ObjcExceptionBridging */,
-				B1029B15266B63CA00799351 /* XCGLogger */,
-				B1029B6F266B677100799351 /* SDWebImage */,
 			);
 			productName = Shared;
 			productReference = 288A2D861AB8B3260023ABC3 /* Shared.framework */;
@@ -3152,6 +3195,7 @@
 				2FCAE2161ABB51F800877008 /* Frameworks */,
 				2FCAE2171ABB51F800877008 /* Headers */,
 				2FCAE2181ABB51F800877008 /* Resources */,
+				B1E645E5266D45D6000C5F69 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3170,6 +3214,7 @@
 				390527461C874D35007E0BB7 /* Sources */,
 				390527471C874D35007E0BB7 /* Frameworks */,
 				390527481C874D35007E0BB7 /* Resources */,
+				B1E645D6266D459D000C5F69 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3178,7 +3223,6 @@
 			);
 			name = Today;
 			packageProductDependencies = (
-				B1029BE8266B6E0B00799351 /* SnapKit */,
 			);
 			productName = Today;
 			productReference = 3905274A1C874D35007E0BB7 /* Today.appex */;
@@ -3227,7 +3271,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F84B21DD1A090F8100AAB793 /* Build configuration list for PBXNativeTarget "Client" */;
 			buildPhases = (
-				7B604F8F1C494AAA006EEEC3 /* Copy Carthage Dependencies */,
 				CDF3D3002461D92F00A93748 /* Glean SDK Generator Script */,
 				F84B21BA1A090F8100AAB793 /* Sources */,
 				F84B21BC1A090F8100AAB793 /* Resources */,
@@ -3235,7 +3278,6 @@
 				F84B22531A0920C600AAB793 /* Embed App Extensions */,
 				E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
-				B1E6438F266B80A3000C5F69 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3251,15 +3293,6 @@
 			);
 			name = Client;
 			packageProductDependencies = (
-				B1029AB4266B5E7C00799351 /* SwiftyJSON */,
-				B1029ABF266B5EFA00799351 /* ObjcExceptionBridging */,
-				B1029AC1266B5EFA00799351 /* XCGLogger */,
-				B1029B63266B674D00799351 /* SDWebImage */,
-				B1029B65266B674D00799351 /* SDWebImageMapKit */,
-				B1029BA8266B6A4E00799351 /* SnapKit */,
-				B1029BBD266B6B6200799351 /* Fuzi */,
-				B1029BD2266B6D8A00799351 /* SwiftProtobuf */,
-				B1029BD4266B6D8A00799351 /* SwiftProtobufPluginLibrary */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -3345,12 +3378,6 @@
 			);
 			mainGroup = F84B21B51A090F8100AAB793;
 			packageReferences = (
-				B1029AB3266B5E7C00799351 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
-				B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */,
-				B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				B1029BA7266B6A4E00799351 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				B1029BBC266B6B6200799351 /* XCRemoteSwiftPackageReference "Fuzi" */,
-				B1029BD1266B6D8A00799351 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -3513,53 +3540,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7B604F8F1C494AAA006EEEC3 /* Copy Carthage Dependencies */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AdjustSdk.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/GCDWebServers.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/OnePasswordExtension.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Sentry.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Telemetry.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Leanplum.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Glean.framework",
-			);
-			name = "Copy Carthage Dependencies";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		B1E6438F266B80A3000C5F69 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/MozillaAppServices.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		CDF3D3002461D92F00A93748 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5134,130 +5114,6 @@
 			defaultConfigurationName = XRViewerDev;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		B1029AB3266B5E7C00799351 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DaveWoodCom/XCGLogger.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.1;
-			};
-		};
-		B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.11.1;
-			};
-		};
-		B1029BA7266B6A4E00799351 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-		B1029BBC266B6B6200799351 /* XCRemoteSwiftPackageReference "Fuzi" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cezheng/Fuzi";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 3.1.1;
-			};
-		};
-		B1029BD1266B6D8A00799351 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-protobuf.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.17.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B1029AB4266B5E7C00799351 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029AB3266B5E7C00799351 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		B1029ABF266B5EFA00799351 /* ObjcExceptionBridging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */;
-			productName = ObjcExceptionBridging;
-		};
-		B1029AC1266B5EFA00799351 /* XCGLogger */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */;
-			productName = XCGLogger;
-		};
-		B1029B11266B63C300799351 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029AB3266B5E7C00799351 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		B1029B13266B63C600799351 /* ObjcExceptionBridging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */;
-			productName = ObjcExceptionBridging;
-		};
-		B1029B15266B63CA00799351 /* XCGLogger */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029ABE266B5EFA00799351 /* XCRemoteSwiftPackageReference "XCGLogger" */;
-			productName = XCGLogger;
-		};
-		B1029B63266B674D00799351 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		B1029B65266B674D00799351 /* SDWebImageMapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImageMapKit;
-		};
-		B1029B6F266B677100799351 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029B62266B674D00799351 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		B1029BA8266B6A4E00799351 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029BA7266B6A4E00799351 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		B1029BBD266B6B6200799351 /* Fuzi */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029BBC266B6B6200799351 /* XCRemoteSwiftPackageReference "Fuzi" */;
-			productName = Fuzi;
-		};
-		B1029BD2266B6D8A00799351 /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029BD1266B6D8A00799351 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
-		};
-		B1029BD4266B6D8A00799351 /* SwiftProtobufPluginLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029BD1266B6D8A00799351 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobufPluginLibrary;
-		};
-		B1029BE8266B6E0B00799351 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B1029BA7266B6A4E00799351 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F84B21B61A090F8100AAB793 /* Project object */;
 }
