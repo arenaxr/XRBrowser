@@ -3,14 +3,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Foundation
-import Leanplum
+//import Leanplum
 import Shared
 
 struct LPVariables {
     // Variable Used for AA test
-    static var showOnboardingScreenAA = LPVar.define("showOnboardingScreen", with: true)
+    static var showOnboardingScreenAA = false //LPVar.define("showOnboardingScreen", with: true)
     // Variable Used for AB test
-    static var showOnboardingScreenAB = LPVar.define("showOnboardingScreen_2", with: true)
+    static var showOnboardingScreenAB = false //LPVar.define("showOnboardingScreen_2", with: true)
 }
 
 // For LP variable below is the convention we follow
@@ -29,7 +29,7 @@ class OnboardingUserResearch {
     // Closure delegate
     var updatedLPVariable: (() -> Void)?
     // variable
-    var lpVariable: LPVar?
+    //var lpVariable: LPVar?
     // Constants
     private let onboardingScreenTypeKey = "onboardingScreenTypeKey"
     // Saving user defaults
@@ -52,9 +52,9 @@ class OnboardingUserResearch {
     }
     
     // MARK: Initializer
-    init(lpVariable: LPVar? = LPVariables.showOnboardingScreenAB) {
-        self.lpVariable = lpVariable
-    }
+//    init(lpVariable: LPVar? = LPVariables.showOnboardingScreenAB) {
+//        self.lpVariable = lpVariable
+//    }
     
     // MARK: public
     func lpVariableObserver() {
@@ -66,7 +66,7 @@ class OnboardingUserResearch {
         }
         // Condition: A/B test variables from leanplum server
         LeanPlumClient.shared.finishedStartingLeanplum = {
-            let showScreenA = LPVariables.showOnboardingScreenAB?.boolValue()
+            let showScreenA = false //LPVariables.showOnboardingScreenAB?.boolValue()
             LeanPlumClient.shared.finishedStartingLeanplum = nil
             self.updateTelemetry()
             let screenType = OnboardingScreenType.from(boolValue: (showScreenA ?? true))
@@ -81,8 +81,8 @@ class OnboardingUserResearch {
             let lpStartStatus = LeanPlumClient.shared.lpState
             var lpVariableValue: OnboardingScreenType = .versionV1
             // Condition: LP has already started but we missed onStartLPVariable callback
-            if case .started(startedState: _) = lpStartStatus , let boolValue = LPVariables.showOnboardingScreenAB?.boolValue() {
-                lpVariableValue = boolValue ? .versionV1 : .versionV2
+            if case .started(startedState: _) = lpStartStatus { //}, let boolValue = LPVariables.showOnboardingScreenAB?.boolValue() {
+                lpVariableValue = false ? .versionV1 : .versionV2
                 self.updateTelemetry()
             }
             self.onboardingScreenType = lpVariableValue
@@ -92,20 +92,20 @@ class OnboardingUserResearch {
     
     func updateTelemetry() {
         // Printing variant is good to know all details of A/B test fields
-        print("lp variant \(String(describing: Leanplum.variants()))")
-        guard let variants = Leanplum.variants(), let lpData = variants.first as? Dictionary<String, AnyObject> else {
-            return
-        }
-        var abTestId = ""
-        if let value = lpData["abTestId"] as? Int64 {
-                abTestId = "\(value)"
-        }
-        let abTestName = lpData["abTestName"] as? String ?? ""
-        let abTestVariant = lpData["name"] as? String ?? ""
-        let attributesExtras = [LPAttributeKey.experimentId: abTestId, LPAttributeKey.experimentName: abTestName, LPAttributeKey.experimentVariant: abTestVariant]
-        // Leanplum telemetry
-        LeanPlumClient.shared.set(attributes: attributesExtras)
-        // Legacy telemetry
-        UnifiedTelemetry.recordEvent(category: .enrollment, method: .add, object: .experimentEnrollment, extras: attributesExtras)
+//        print("lp variant \(String(describing: Leanplum.variants()))")
+//        guard let variants = Leanplum.variants(), let lpData = variants.first as? Dictionary<String, AnyObject> else {
+//            return
+//        }
+//        var abTestId = ""
+//        if let value = lpData["abTestId"] as? Int64 {
+//                abTestId = "\(value)"
+//        }
+//        let abTestName = lpData["abTestName"] as? String ?? ""
+//        let abTestVariant = lpData["name"] as? String ?? ""
+//        let attributesExtras = [LPAttributeKey.experimentId: abTestId, LPAttributeKey.experimentName: abTestName, LPAttributeKey.experimentVariant: abTestVariant]
+//        // Leanplum telemetry
+//        LeanPlumClient.shared.set(attributes: attributesExtras)
+//        // Legacy telemetry
+//        UnifiedTelemetry.recordEvent(category: .enrollment, method: .add, object: .experimentEnrollment, extras: attributesExtras)
     }
 }

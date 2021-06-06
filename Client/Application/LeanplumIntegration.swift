@@ -5,7 +5,7 @@
 import Foundation
 import AdSupport
 import Shared
-import Leanplum
+//import Leanplum
 import Account
 
 private let LPAppIdKey = "LeanplumAppId"
@@ -134,15 +134,15 @@ class LeanPlumClient {
     var finishedStartingLeanplum: (() -> Void)?
     // Comes from LeanPlum, used to show device ID in debug menu and finding user in LP dashboard"
     var leanplumDeviceId: String? {
-        return Leanplum.deviceId()
+        return nil //Leanplum.deviceId()
     }
     // Used for sentry logging to know about the current state of leanplum execution
     var lpState: LPState = .disabled
     // This defines an external Leanplum varible to enable/disable FxA prepush dialogs.
     // The primary result is having a feature flag controlled by Leanplum, and falling back
     // to prompting with native push permissions.
-    private var useFxAPrePush = LPVar.define("useFxAPrePush", with: false)
-    var enablePocketVideo = LPVar.define("pocketVideo", with: false)
+    private var useFxAPrePush = false //LPVar.define("useFxAPrePush", with: false)
+    var enablePocketVideo = false //LPVar.define("pocketVideo", with: false)
     private func isPrivateMode() -> Bool {
         // Need to be run on main thread since isInPrivateMode requires to be on the main thread.
         assert(Thread.isMainThread)
@@ -150,7 +150,7 @@ class LeanPlumClient {
     }
 
     func isLPEnabled() -> Bool {
-        return enabled && Leanplum.hasStarted()
+        return enabled // && Leanplum.hasStarted()
     }
 
     func lpSetupType() -> LPSetupType {
@@ -166,7 +166,7 @@ class LeanPlumClient {
     }
 
     func forceVariableUpdate() {
-        Leanplum.forceContentUpdate()
+//        Leanplum.forceContentUpdate()
     }
 
     func recordSyncedClients(with profile: Profile?) {
@@ -179,30 +179,30 @@ class LeanPlumClient {
                 self.track(event: .fxaSyncedNewDevice)
             }
             self.prefs?.setInt(Int32(clients.count), forKey: FxaDevicesCountPrefKey)
-            Leanplum.setUserAttributes([LPAttributeKey.fxaDeviceCount: clients.count])
+//            Leanplum.setUserAttributes([LPAttributeKey.fxaDeviceCount: clients.count])
         }
     }
 
     fileprivate func start() {
-        guard let settings = getSettings(), isLocaleSupported(), !Leanplum.hasStarted() else {
+        guard let settings = getSettings(), isLocaleSupported() else { //, !Leanplum.hasStarted() else {
             enabled = false
-            Sentry.shared.send(message: "LeanplumIntegration - Could not be started | isLocaleSupported: \(isLocaleSupported()) | Leanplum has not started: \(!Leanplum.hasStarted())")
+//            Sentry.shared.send(message: "LeanplumIntegration - Could not be started | isLocaleSupported: \(isLocaleSupported()) | Leanplum has not started: \(!Leanplum.hasStarted())")
             log.error("LeanplumIntegration - Could not be started")
             return
         }
 
         if UIDevice.current.name.contains("MozMMADev") {
             log.info("LeanplumIntegration - Setting up for Development")
-            Leanplum.setDeviceId(UIDevice.current.identifierForVendor?.uuidString)
-            Leanplum.setAppId(settings.appId, withDevelopmentKey: settings.developmentKey)
+//            Leanplum.setDeviceId(UIDevice.current.identifierForVendor?.uuidString)
+//            Leanplum.setAppId(settings.appId, withDevelopmentKey: settings.developmentKey)
             setupType = .debug
         } else {
             log.info("LeanplumIntegration - Setting up for Production")
-            Leanplum.setAppId(settings.appId, withProductionKey: settings.productionKey)
+//            Leanplum.setAppId(settings.appId, withProductionKey: settings.productionKey)
             setupType = .production
         }
 
-        Leanplum.syncResourcesAsync(true)
+//        Leanplum.syncResourcesAsync(true)
 
         let attributes: [AnyHashable: Any] = [
             LPAttributeKey.mailtoIsDefault: mailtoIsDefault(),
@@ -216,31 +216,31 @@ class LeanPlumClient {
         self.setupCustomTemplates()
 
         lpState = .willStart
-        Leanplum.start(withUserId: nil, userAttributes: attributes, responseHandler: { _ in
-            self.track(event: .openedApp)
-
-            assert(Thread.isMainThread)
-            self.lpState = .started(startedState: .normalRun)
-            // https://docs.leanplum.com/reference#callbacks
-            // According to the doc all variables should be synced when lp start finishes
-            // Relying on this fact and sending the updated AB test variable
-            self.finishedStartingLeanplum?()
-            // We need to check if the app is a clean install to use for
-            // preventing the What's New URL from appearing.
-            if self.prefs?.intForKey(PrefsKeys.IntroSeen) == nil {
-                self.prefs?.setString(AppInfo.appVersion, forKey: LatestAppVersionProfileKey)
-                self.track(event: .firstRun)
-                self.lpState = .started(startedState: .firstRun)
-            } else if self.prefs?.boolForKey("SecondRun") == nil {
-                self.prefs?.setBool(true, forKey: "SecondRun")
-                self.track(event: .secondRun)
-                self.lpState = .started(startedState: .secondRun)
-            }
-
-            self.checkIfAppWasInstalled(key: PrefsKeys.HasFocusInstalled, isAppInstalled: self.focusInstalled(), lpEvent: .downloadedFocus)
-            self.checkIfAppWasInstalled(key: PrefsKeys.HasPocketInstalled, isAppInstalled: self.pocketInstalled(), lpEvent: .downloadedPocket)
-            self.recordSyncedClients(with: self.profile)
-        })
+//        Leanplum.start(withUserId: nil, userAttributes: attributes, responseHandler: { _ in
+//            self.track(event: .openedApp)
+//
+//            assert(Thread.isMainThread)
+//            self.lpState = .started(startedState: .normalRun)
+//            // https://docs.leanplum.com/reference#callbacks
+//            // According to the doc all variables should be synced when lp start finishes
+//            // Relying on this fact and sending the updated AB test variable
+//            self.finishedStartingLeanplum?()
+//            // We need to check if the app is a clean install to use for
+//            // preventing the What's New URL from appearing.
+//            if self.prefs?.intForKey(PrefsKeys.IntroSeen) == nil {
+//                self.prefs?.setString(AppInfo.appVersion, forKey: LatestAppVersionProfileKey)
+//                self.track(event: .firstRun)
+//                self.lpState = .started(startedState: .firstRun)
+//            } else if self.prefs?.boolForKey("SecondRun") == nil {
+//                self.prefs?.setBool(true, forKey: "SecondRun")
+//                self.track(event: .secondRun)
+//                self.lpState = .started(startedState: .secondRun)
+//            }
+//
+//            self.checkIfAppWasInstalled(key: PrefsKeys.HasFocusInstalled, isAppInstalled: self.focusInstalled(), lpEvent: .downloadedFocus)
+//            self.checkIfAppWasInstalled(key: PrefsKeys.HasPocketInstalled, isAppInstalled: self.pocketInstalled(), lpEvent: .downloadedPocket)
+//            self.recordSyncedClients(with: self.profile)
+//        })
 
         NotificationCenter.default.addObserver(forName: .FirefoxAccountChanged, object: nil, queue: .main) { _ in
             if !RustFirefoxAccounts.shared.hasAccount() {
@@ -259,9 +259,9 @@ class LeanPlumClient {
                 return
             }
             if let params = parameters {
-                Leanplum.track(event.rawValue, withParameters: params)
+//                Leanplum.track(event.rawValue, withParameters: params)
             } else {
-                Leanplum.track(event.rawValue)
+//                Leanplum.track(event.rawValue)
             }
         }
     }
@@ -272,7 +272,7 @@ class LeanPlumClient {
         }
         ensureMainThread {
             if !self.isPrivateMode() {
-                Leanplum.setUserAttributes(attributes)
+//                Leanplum.setUserAttributes(attributes)
             }
         }
     }
@@ -281,15 +281,15 @@ class LeanPlumClient {
         // Setting up Test Mode stops sending things to server.
         if enabled { start() }
         self.enabled = enabled
-        Leanplum.setTestModeEnabled(!enabled)
+//        Leanplum.setTestModeEnabled(!enabled)
     }
 
     func isFxAPrePushEnabled() -> Bool {
-        return AppConstants.MOZ_FXA_LEANPLUM_AB_PUSH_TEST && (useFxAPrePush?.boolValue() ?? false)
+        return AppConstants.MOZ_FXA_LEANPLUM_AB_PUSH_TEST //&& (useFxAPrePush?.boolValue() ?? false)
     }
     
     func isRunning() -> Bool {
-        return Leanplum.hasStarted()
+        return false //Leanplum.hasStarted()
     }
     
     /*
@@ -343,51 +343,51 @@ class LeanPlumClient {
     private func setupCustomTemplates() {
         // These properties are exposed through the Leanplum web interface.
         // Ref: https://github.com/Leanplum/Leanplum-iOS-Samples/blob/master/iOS_customMessageTemplates/iOS_customMessageTemplates/LPMessageTemplates.m
-        let args: [LPActionArg] = [
-            LPActionArg(named: LPMessage.ArgTitleText, with: LPMessage.DefaultAskToAskTitle),
-            LPActionArg(named: LPMessage.ArgTitleColor, with: UIColor.black),
-            LPActionArg(named: LPMessage.ArgMessageText, with: LPMessage.DefaultAskToAskMessage),
-            LPActionArg(named: LPMessage.ArgMessageColor, with: UIColor.black),
-            LPActionArg(named: LPMessage.ArgAcceptButtonText, with: LPMessage.DefaultOkButtonText),
-            LPActionArg(named: LPMessage.ArgCancelAction, withAction: nil),
-            LPActionArg(named: LPMessage.ArgCancelButtonText, with: LPMessage.DefaultLaterButtonText),
-            LPActionArg(named: LPMessage.ArgCancelButtonTextColor, with: UIColor.Photon.Grey50)
-        ]
-
-        let responder: LeanplumActionBlock = { (context) -> Bool in
-            // Before proceeding, double check that Leanplum FxA prepush config value has been enabled.
-            if !self.isFxAPrePushEnabled() {
-                return false
-            }
-
-            // Don't display permission screen if they have already allowed/disabled push permissions
-//            if self.prefs?.boolForKey(applicationDidRequestUserNotificationPermissionPrefKey) ?? false {
+//        let args: [LPActionArg] = [
+//            LPActionArg(named: LPMessage.ArgTitleText, with: LPMessage.DefaultAskToAskTitle),
+//            LPActionArg(named: LPMessage.ArgTitleColor, with: UIColor.black),
+//            LPActionArg(named: LPMessage.ArgMessageText, with: LPMessage.DefaultAskToAskMessage),
+//            LPActionArg(named: LPMessage.ArgMessageColor, with: UIColor.black),
+//            LPActionArg(named: LPMessage.ArgAcceptButtonText, with: LPMessage.DefaultOkButtonText),
+//            LPActionArg(named: LPMessage.ArgCancelAction, withAction: nil),
+//            LPActionArg(named: LPMessage.ArgCancelButtonText, with: LPMessage.DefaultLaterButtonText),
+//            LPActionArg(named: LPMessage.ArgCancelButtonTextColor, with: UIColor.Photon.Grey50)
+//        ]
+//
+//        let responder: LeanplumActionBlock = { (context) -> Bool in
+//            // Before proceeding, double check that Leanplum FxA prepush config value has been enabled.
+//            if !self.isFxAPrePushEnabled() {
 //                return false
 //            }
-
-            // Present Alert View onto the current top view controller
-//            let rootViewController = UIApplication.topViewController()
-//            let alert = UIAlertController(title: context.stringNamed(LPMessage.ArgTitleText), message: context.stringNamed(LPMessage.ArgMessageText), preferredStyle: .alert)
 //
-//            alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgCancelButtonText), style: .cancel, handler: { (action) -> Void in
-//                // Log cancel event and call ready for syncing
-//                context.runTrackedActionNamed(LPMessage.ArgCancelAction)
-//                FxALoginHelper.sharedInstance.readyForSyncing()
-//            }))
+//            // Don't display permission screen if they have already allowed/disabled push permissions
+////            if self.prefs?.boolForKey(applicationDidRequestUserNotificationPermissionPrefKey) ?? false {
+////                return false
+////            }
 //
-//            alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgAcceptButtonText), style: .default, handler: { (action) -> Void in
-//                // Log accept event and present push permission modal
-//                context.runTrackedActionNamed(LPMessage.ArgAcceptAction)
-//                FxALoginHelper.sharedInstance.requestUserNotifications(UIApplication.shared)
-//                self.prefs?.setBool(true, forKey: applicationDidRequestUserNotificationPermissionPrefKey)
-//            }))
+//            // Present Alert View onto the current top view controller
+////            let rootViewController = UIApplication.topViewController()
+////            let alert = UIAlertController(title: context.stringNamed(LPMessage.ArgTitleText), message: context.stringNamed(LPMessage.ArgMessageText), preferredStyle: .alert)
+////
+////            alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgCancelButtonText), style: .cancel, handler: { (action) -> Void in
+////                // Log cancel event and call ready for syncing
+////                context.runTrackedActionNamed(LPMessage.ArgCancelAction)
+////                FxALoginHelper.sharedInstance.readyForSyncing()
+////            }))
+////
+////            alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgAcceptButtonText), style: .default, handler: { (action) -> Void in
+////                // Log accept event and present push permission modal
+////                context.runTrackedActionNamed(LPMessage.ArgAcceptAction)
+////                FxALoginHelper.sharedInstance.requestUserNotifications(UIApplication.shared)
+////                self.prefs?.setBool(true, forKey: applicationDidRequestUserNotificationPermissionPrefKey)
+////            }))
+////
+////            rootViewController?.present(alert, animated: true, completion: nil)
+//            return true
+//        }
 //
-//            rootViewController?.present(alert, animated: true, completion: nil)
-            return true
-        }
-
-        // Register or update the custom Leanplum message
-        Leanplum.defineAction(LPMessage.FxAPrePush, of: kLeanplumActionKindMessage, withArguments: args, withOptions: [:], withResponder: responder)
+//        // Register or update the custom Leanplum message
+//        Leanplum.defineAction(LPMessage.FxAPrePush, of: kLeanplumActionKindMessage, withArguments: args, withOptions: [:], withResponder: responder)
     }
 }
 
