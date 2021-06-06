@@ -250,10 +250,13 @@
 		B1620B8E266D718200689610 /* Telemetry.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64574266D44D7000C5F69 /* Telemetry.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1620BAA266D72E900689610 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; };
 		B1620BAB266D72EC00689610 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; };
-		B1620BAC266D72EC00689610 /* MozillaAppServices.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1620BB3266D72F400689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
-		B1620BB4266D72F800689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
-		B1620BB5266D72F800689610 /* SwiftKeychainWrapper.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1620BCC266D77C800689610 /* Glean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BCB266D77C800689610 /* Glean.framework */; };
+		B1620BCD266D77C900689610 /* Glean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BCB266D77C800689610 /* Glean.framework */; };
+		B1620BD2266D78A800689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
+		B1620BDF266D7A3D00689610 /* ObjcExceptionBridging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */; };
+		B1620BE4266D7A4100689610 /* ObjcExceptionBridging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */; };
+		B1620BE5266D7A4100689610 /* ObjcExceptionBridging.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645A2266D4518000C5F69 /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; };
 		B1E645A3266D4518000C5F69 /* SnapKit.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645B3266D4539000C5F69 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */; };
@@ -809,13 +812,12 @@
 				B1620B58266D6BD400689610 /* SwiftyJSON.xcframework in Copy Frameworks */,
 				B1620B8E266D718200689610 /* Telemetry.xcframework in Copy Frameworks */,
 				B1E645A3266D4518000C5F69 /* SnapKit.xcframework in Copy Frameworks */,
-				B1620BAC266D72EC00689610 /* MozillaAppServices.framework in Copy Frameworks */,
 				B1620B4B266D6BBC00689610 /* Sentry.xcframework in Copy Frameworks */,
 				B1620B88266D714700689610 /* OnePasswordExtension.xcframework in Copy Frameworks */,
 				B1620B52266D6BCE00689610 /* XCGLogger.xcframework in Copy Frameworks */,
+				B1620BE5266D7A4100689610 /* ObjcExceptionBridging.xcframework in Copy Frameworks */,
 				E60138671C89EB8300DF9756 /* Account.framework in Copy Frameworks */,
 				E60138661C89EB7D00DF9756 /* Storage.framework in Copy Frameworks */,
-				B1620BB5266D72F800689610 /* SwiftKeychainWrapper.framework in Copy Frameworks */,
 				E60138651C89EB7600DF9756 /* Shared.framework in Copy Frameworks */,
 				B1620B7C266D70E700689610 /* SwiftProtobuf.xcframework in Copy Frameworks */,
 			);
@@ -1120,6 +1122,8 @@
 		A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeHelper.swift; sourceTree = "<group>"; };
 		B1620BA8266D72E900689610 /* MozillaAppServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MozillaAppServices.framework; path = Carthage/Build/iOS/MozillaAppServices.framework; sourceTree = "<group>"; };
 		B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
+		B1620BCB266D77C800689610 /* Glean.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Glean.framework; path = Carthage/Build/iOS/Glean.framework; sourceTree = "<group>"; };
+		B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ObjcExceptionBridging.xcframework; path = Carthage/Build/ObjcExceptionBridging.xcframework; sourceTree = "<group>"; };
 		B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GCDWebServers.xcframework; path = Carthage/Build/GCDWebServers.xcframework; sourceTree = "<group>"; };
 		B1E64559266D44AB000C5F69 /* KIF.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = KIF.xcframework; path = Carthage/Build/KIF.xcframework; sourceTree = "<group>"; };
 		B1E6456B266D44CD000C5F69 /* OnePasswordExtension.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = OnePasswordExtension.xcframework; path = Carthage/Build/OnePasswordExtension.xcframework; sourceTree = "<group>"; };
@@ -1526,11 +1530,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E645BC266D4549000C5F69 /* XCGLogger.xcframework in Frameworks */,
+				B1620BDF266D7A3D00689610 /* ObjcExceptionBridging.xcframework in Frameworks */,
 				B1E645CC266D4565000C5F69 /* SDWebImage.xcframework in Frameworks */,
 				B1E645C4266D4556000C5F69 /* Sentry.xcframework in Frameworks */,
 				B1620BB3266D72F400689610 /* SwiftKeychainWrapper.framework in Frameworks */,
 				B1E645B3266D4539000C5F69 /* SwiftyJSON.xcframework in Frameworks */,
 				B1620BAA266D72E900689610 /* MozillaAppServices.framework in Frameworks */,
+				B1620BCD266D77C900689610 /* Glean.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1538,7 +1544,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1620BB4266D72F800689610 /* SwiftKeychainWrapper.framework in Frameworks */,
 				C8E18F20222EDED000E30E52 /* SafariServices.framework in Frameworks */,
 				B1620B51266D6BCE00689610 /* XCGLogger.xcframework in Frameworks */,
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
@@ -1554,15 +1559,18 @@
 				288A2D9D1AB8B3260023ABC3 /* Shared.framework in Frameworks */,
 				2FCAE2311ABB51F800877008 /* Storage.framework in Frameworks */,
 				282731751ABC9BE700AA1954 /* Sync.framework in Frameworks */,
+				B1620BD2266D78A800689610 /* SwiftKeychainWrapper.framework in Frameworks */,
 				B1620B7B266D70E700689610 /* SwiftProtobuf.xcframework in Frameworks */,
 				B1620B8D266D718200689610 /* Telemetry.xcframework in Frameworks */,
 				E69DB08A1E97DEAA008A67E6 /* SyncTelemetry.framework in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
 				E4B334881BBF23F3004E2BFF /* iAd.framework in Frameworks */,
+				B1620BE4266D7A4100689610 /* ObjcExceptionBridging.xcframework in Frameworks */,
 				B1620B87266D714700689610 /* OnePasswordExtension.xcframework in Frameworks */,
 				B1620B57266D6BD400689610 /* SwiftyJSON.xcframework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
+				B1620BCC266D77C800689610 /* Glean.framework in Frameworks */,
 				B1620B81266D713100689610 /* GCDWebServers.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2089,6 +2097,7 @@
 				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
 				D39FA16B1A83E17800EE869C /* CoreGraphics.framework */,
 				B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */,
+				B1620BCB266D77C800689610 /* Glean.framework */,
 				E4B334871BBF23F3004E2BFF /* iAd.framework */,
 				0B8E0FF31A932BD500161DC3 /* ImageIO.framework */,
 				D36998881AD70A0A00650C6C /* IOKit.framework */,
@@ -2098,6 +2107,7 @@
 				392E18021FEC4D7B00EBA79C /* MappaMundi.framework */,
 				B1620BA8266D72E900689610 /* MozillaAppServices.framework */,
 				3905274B1C874D35007E0BB7 /* NotificationCenter.framework */,
+				B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */,
 				B1E6456B266D44CD000C5F69 /* OnePasswordExtension.xcframework */,
 				7B8A47F51D01D3B400C07734 /* PassKit.framework */,
 				C8E18F1F222EDED000E30E52 /* SafariServices.framework */,
@@ -3308,6 +3318,7 @@
 				E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				B157C580266D5C6B00751BC4 /* CopyFiles */,
+				B1620BD8266D791000689610 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3570,6 +3581,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B1620BD8266D791000689610 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MozillaAppServices.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Glean.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		CDF3D3002461D92F00A93748 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
