@@ -1,7 +1,6 @@
 github "mozilla-mobile/onepassword-app-extension"    "add-framework-support"
 github "adjust/ios_sdk"                     "v4.18.3"
 github "jrendel/SwiftKeychainWrapper"       ~> 4.0.0
-github "kif-framework/KIF"                  "v3.7.11"
 github "mozilla-mobile/telemetry-ios"      ~> 1.1.3
 github "mozilla-services/shavar-prod-lists" "72.0"
 # Use release version of application-services
