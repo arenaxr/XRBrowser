@@ -46,13 +46,14 @@ class SearchEngines {
         self.orderedEngines = getOrderedEngines()
     }
 
-    var defaultEngine: OpenSearchEngine {
+    var defaultEngine: OpenSearchEngine? {
         get {
-            return self.orderedEngines[0]
+            return nil //self.orderedEngines[0]
         }
 
         set(defaultEngine) {
             // The default engine is always enabled.
+            guard let defaultEngine = defaultEngine else { return }
             self.enableEngine(defaultEngine)
             // The default engine is always first in the list.
             var orderedEngines = self.orderedEngines.filter { engine in engine.shortName != defaultEngine.shortName }
@@ -62,7 +63,7 @@ class SearchEngines {
     }
 
     func isEngineDefault(_ engine: OpenSearchEngine) -> Bool {
-        return defaultEngine.shortName == engine.shortName
+        return defaultEngine?.shortName == engine.shortName
     }
 
     // The keys of this dictionary are used as a set.

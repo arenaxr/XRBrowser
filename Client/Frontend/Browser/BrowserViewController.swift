@@ -1048,7 +1048,7 @@ class BrowserViewController: UIViewController {
     func openSearchNewTab(isPrivate: Bool = false, _ text: String) {
         popToBVC()
         let engine = profile.searchEngines.defaultEngine
-        if let searchURL = engine.searchURLForQuery(text) {
+        if let searchURL = engine?.searchURLForQuery(text) {
             openURLInNewTab(searchURL, isPrivate: isPrivate)
         } else {
             // We still don't have a valid URL, so something is broken. Give up.
@@ -1479,9 +1479,9 @@ extension BrowserViewController: URLBarDelegate {
     fileprivate func submitSearchText(_ text: String, forTab tab: Tab) {
         let engine = profile.searchEngines.defaultEngine
 
-        if let searchURL = engine.searchURLForQuery(text) {
+        if let searchURL = engine?.searchURLForQuery(text) {
             // We couldn't find a matching search keyword, so do a search query.
-            Telemetry.default.recordSearch(location: .actionBar, searchEngine: engine.engineID ?? "other")
+            Telemetry.default.recordSearch(location: .actionBar, searchEngine: engine?.engineID ?? "other")
             finishEditingAndSubmit(searchURL, visitType: VisitType.typed, forTab: tab)
         } else {
             // We still don't have a valid URL, so something is broken. Give up.
@@ -1659,7 +1659,7 @@ extension BrowserViewController: LibraryPanelDelegate {
     }
 
     func libraryPanel(didSelectURLString url: String, visitType: VisitType) {
-        guard let url = URIFixup.getURL(url) ?? profile.searchEngines.defaultEngine.searchURLForQuery(url) else {
+        guard let url = URIFixup.getURL(url) ?? profile.searchEngines.defaultEngine?.searchURLForQuery(url) else {
             Logger.browserLogger.warning("Invalid URL, and couldn't generate a search URL for it.")
             return
         }

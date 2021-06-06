@@ -772,7 +772,7 @@ class SearchSetting: Setting {
 
     override var style: UITableViewCell.CellStyle { return .value1 }
 
-    override var status: NSAttributedString { return NSAttributedString(string: profile.searchEngines.defaultEngine.shortName) }
+    override var status: NSAttributedString { return NSAttributedString(string: profile.searchEngines.defaultEngine?.shortName ?? "no default engine") }
 
     override var accessibilityIdentifier: String? { return "Search" }
 
