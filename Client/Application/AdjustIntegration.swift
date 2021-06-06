@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import AdjustSdk
+//import AdjustSdk
 
 private let AdjustIntegrationErrorDomain = "org.mozilla.ios.Firefox.AdjustIntegrationErrorDomain"
 
@@ -39,7 +39,7 @@ class AdjustIntegration: NSObject {
         super.init()
 
         // Move the "AdjustAttribution.json" file from the documents directory to the caches directory.
-        migratePathComponentInDocumentsDirectory(AdjustAttributionFileName, to: .cachesDirectory)
+//        migratePathComponentInDocumentsDirectory(AdjustAttributionFileName, to: .cachesDirectory)
     }
 
     /// Return an ADJConfig object if Adjust has been enabled. It is determined from the values in
@@ -47,18 +47,18 @@ class AdjustIntegration: NSObject {
     /// environment are. If those keys are either missing or empty in the Info.plist then it is
     /// assumed that Adjust is not enabled for this build.
 
-    fileprivate func getConfig() -> ADJConfig? {
-        guard let settings = getSettings() else {
-            return nil
-        }
-
-        let config = ADJConfig(appToken: settings.appToken, environment: settings.environment.rawValue)
-        if settings.environment == .Sandbox {
-            config?.logLevel = ADJLogLevelDebug
-        }
-        config?.delegate = self
-        return config
-    }
+//    fileprivate func getConfig() -> ADJConfig? {
+//        guard let settings = getSettings() else {
+//            return nil
+//        }
+//
+//        let config = ADJConfig(appToken: settings.appToken, environment: settings.environment.rawValue)
+//        if settings.environment == .Sandbox {
+//            config?.logLevel = ADJLogLevelDebug
+//        }
+//        config?.delegate = self
+//        return config
+//    }
 
     /// Returns the Adjust settings from our Info.plist. If the settings are missing or invalid, such as an unknown
     /// environment, then it will return nil.
@@ -89,14 +89,14 @@ class AdjustIntegration: NSObject {
     /// written is a JSON file with a single dictionary in it. We add one extra item to it that contains the current
     /// timestamp in seconds since the UNIX epoch.
 
-    fileprivate func saveAttribution(_ attribution: ADJAttribution) throws {
-        if let attributionDictionary = attribution.dictionary() {
-            let dictionary = NSMutableDictionary(dictionary: attributionDictionary)
-            dictionary["_timestamp"] = NSNumber(value: Int64(Date().timeIntervalSince1970) as Int64)
-            let data = try JSONSerialization.data(withJSONObject: dictionary, options: [JSONSerialization.WritingOptions.prettyPrinted])
-            try data.write(to: URL(fileURLWithPath: try getAttributionPath()), options: [])
-        }
-    }
+//    fileprivate func saveAttribution(_ attribution: ADJAttribution) throws {
+//        if let attributionDictionary = attribution.dictionary() {
+//            let dictionary = NSMutableDictionary(dictionary: attributionDictionary)
+//            dictionary["_timestamp"] = NSNumber(value: Int64(Date().timeIntervalSince1970) as Int64)
+//            let data = try JSONSerialization.data(withJSONObject: dictionary, options: [JSONSerialization.WritingOptions.prettyPrinted])
+//            try data.write(to: URL(fileURLWithPath: try getAttributionPath()), options: [])
+//        }
+//    }
 
     /// Return the path to the `AdjustAttribution.json` file. Throws an `NSError` if we could not build the path.
 
@@ -128,95 +128,95 @@ class AdjustIntegration: NSObject {
     }
 }
 
-extension AdjustIntegration: AdjustDelegate {
-    /// This is called as part of `UIApplication.didFinishLaunchingWithOptions()`. We always initialize the
-    /// Adjust SDK. We always let it send the initial attribution ping. Session tracking is only enabled if
-    /// the Send Anonymous Usage Data setting is turned on.
-
-    func triggerApplicationDidFinishLaunchingWithOptions(_ launchOptions: [AnyHashable: Any]?) {
-        do {
-            if let config = getConfig() {
-                // Always initialize Adjust - otherwise we cannot enable/disable it later. Their SDK must be
-                // initialized through appDidFinishLaunching otherwise it will be in a bad state.
-                Adjust.appDidLaunch(config)
-
-                // Disable it right now if we have the attribution and if the user has disabled session tracking. If
-                // we do not have attribution yet then we wait until it comes in and at that point make the decision
-                // to disable Adjust again.
-                if try hasAttribution() {
-                    if !shouldTrackRetention() {
-                        Logger.browserLogger.info("Adjust - Disabling because sending of usage data is not allowed")
-                        Adjust.setEnabled(false)
-                    }
-                }
-            } else {
-                Logger.browserLogger.info("Adjust - Skipping because no or invalid config found")
-            }
-        } catch let error {
-            Logger.browserLogger.error("Adjust - Disabling because we failed to configure: \(error)")
-            Adjust.setEnabled(false)
-        }
-    }
-
-    /// This is called when Adjust has figured out the attribution. It will call us with a summary
-    /// of all the things it knows. Like the campaign ID. We simply save this to a local file so
-    /// that we know we have done a single attribution ping to Adjust.
-    ///
-    /// Here we also disable Adjust based on the Send Anonymous Usage Data setting.
-
-    func adjustAttributionChanged(_ attribution: ADJAttribution?) {
-        do {
-            if let attribution = attribution {
-                Logger.browserLogger.info("Adjust - Saving attribution info to disk")
-                try saveAttribution(attribution)
-            }
-        } catch let error {
-            Logger.browserLogger.error("Adjust - Failed to save attribution: \(error)")
-        }
-        // Keep Adjust enabled only if the user has allowed this
-        if shouldTrackRetention() {
-            Logger.browserLogger.info("Adjust - Enabling because user allows anonymous usage data collection")
-            Adjust.setEnabled(true)
-        } else {
-            Logger.browserLogger.info("Adjust - Disabling because user does not allow anonymous usage data collection")
-            Adjust.setEnabled(false)
-        }
-    }
-
-    /// This is called from the Settings screen. The settings screen will remember the choice in the
-    /// profile and then use this method to disable or enable Adjust.
-
-    static func setEnabled(_ enabled: Bool) {
-        Adjust.setEnabled(enabled)
-    }
-
-    /// Store the deeplink url from Adjust SDK. Per Adjust documentation, any interstitial view launched could interfere
-    /// with launching the deeplink. We let the interstial view decide what to do with deeplink.
-    /// Ref: https://github.com/adjust/ios_sdk#deferred-deep-linking-scenario
-    func adjustDeeplinkResponse(_ deeplink: URL?) -> Bool {
-        if let link = deeplink {
-            profile.prefs.setString("\(link)", forKey: "AdjustDeeplinkKey")
-        }
-        return true
-    }
-
-    private func migratePathComponentInDocumentsDirectory(_ pathComponent: String, to destinationSearchPath: FileManager.SearchPathDirectory) {
-        guard let oldPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(pathComponent).path, FileManager.default.fileExists(atPath: oldPath) else {
-            return
-        }
-
-        print("Migrating \(pathComponent) from ~/Documents to \(destinationSearchPath)")
-        guard let newPath = try? FileManager.default.url(for: destinationSearchPath, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(pathComponent).path else {
-            print("Unable to get destination path \(destinationSearchPath) to move \(pathComponent)")
-            return
-        }
-
-        do {
-            try FileManager.default.moveItem(atPath: oldPath, toPath: newPath)
-
-            print("Migrated \(pathComponent) to \(destinationSearchPath) successfully")
-        } catch let error as NSError {
-            print("Unable to move \(pathComponent) to \(destinationSearchPath): \(error.localizedDescription)")
-        }
-    }
-}
+//extension AdjustIntegration: AdjustDelegate {
+//    /// This is called as part of `UIApplication.didFinishLaunchingWithOptions()`. We always initialize the
+//    /// Adjust SDK. We always let it send the initial attribution ping. Session tracking is only enabled if
+//    /// the Send Anonymous Usage Data setting is turned on.
+//
+//    func triggerApplicationDidFinishLaunchingWithOptions(_ launchOptions: [AnyHashable: Any]?) {
+//        do {
+//            if let config = getConfig() {
+//                // Always initialize Adjust - otherwise we cannot enable/disable it later. Their SDK must be
+//                // initialized through appDidFinishLaunching otherwise it will be in a bad state.
+//                Adjust.appDidLaunch(config)
+//
+//                // Disable it right now if we have the attribution and if the user has disabled session tracking. If
+//                // we do not have attribution yet then we wait until it comes in and at that point make the decision
+//                // to disable Adjust again.
+//                if try hasAttribution() {
+//                    if !shouldTrackRetention() {
+//                        Logger.browserLogger.info("Adjust - Disabling because sending of usage data is not allowed")
+//                        Adjust.setEnabled(false)
+//                    }
+//                }
+//            } else {
+//                Logger.browserLogger.info("Adjust - Skipping because no or invalid config found")
+//            }
+//        } catch let error {
+//            Logger.browserLogger.error("Adjust - Disabling because we failed to configure: \(error)")
+//            Adjust.setEnabled(false)
+//        }
+//    }
+//
+//    /// This is called when Adjust has figured out the attribution. It will call us with a summary
+//    /// of all the things it knows. Like the campaign ID. We simply save this to a local file so
+//    /// that we know we have done a single attribution ping to Adjust.
+//    ///
+//    /// Here we also disable Adjust based on the Send Anonymous Usage Data setting.
+//
+//    func adjustAttributionChanged(_ attribution: ADJAttribution?) {
+//        do {
+//            if let attribution = attribution {
+//                Logger.browserLogger.info("Adjust - Saving attribution info to disk")
+//                try saveAttribution(attribution)
+//            }
+//        } catch let error {
+//            Logger.browserLogger.error("Adjust - Failed to save attribution: \(error)")
+//        }
+//        // Keep Adjust enabled only if the user has allowed this
+//        if shouldTrackRetention() {
+//            Logger.browserLogger.info("Adjust - Enabling because user allows anonymous usage data collection")
+//            Adjust.setEnabled(true)
+//        } else {
+//            Logger.browserLogger.info("Adjust - Disabling because user does not allow anonymous usage data collection")
+//            Adjust.setEnabled(false)
+//        }
+//    }
+//
+//    /// This is called from the Settings screen. The settings screen will remember the choice in the
+//    /// profile and then use this method to disable or enable Adjust.
+//
+//    static func setEnabled(_ enabled: Bool) {
+//        Adjust.setEnabled(enabled)
+//    }
+//
+//    /// Store the deeplink url from Adjust SDK. Per Adjust documentation, any interstitial view launched could interfere
+//    /// with launching the deeplink. We let the interstial view decide what to do with deeplink.
+//    /// Ref: https://github.com/adjust/ios_sdk#deferred-deep-linking-scenario
+//    func adjustDeeplinkResponse(_ deeplink: URL?) -> Bool {
+//        if let link = deeplink {
+//            profile.prefs.setString("\(link)", forKey: "AdjustDeeplinkKey")
+//        }
+//        return true
+//    }
+//
+//    private func migratePathComponentInDocumentsDirectory(_ pathComponent: String, to destinationSearchPath: FileManager.SearchPathDirectory) {
+//        guard let oldPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(pathComponent).path, FileManager.default.fileExists(atPath: oldPath) else {
+//            return
+//        }
+//
+//        print("Migrating \(pathComponent) from ~/Documents to \(destinationSearchPath)")
+//        guard let newPath = try? FileManager.default.url(for: destinationSearchPath, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(pathComponent).path else {
+//            print("Unable to get destination path \(destinationSearchPath) to move \(pathComponent)")
+//            return
+//        }
+//
+//        do {
+//            try FileManager.default.moveItem(atPath: oldPath, toPath: newPath)
+//
+//            print("Migrated \(pathComponent) to \(destinationSearchPath) successfully")
+//        } catch let error as NSError {
+//            print("Unable to move \(pathComponent) to \(destinationSearchPath): \(error.localizedDescription)")
+//        }
+//    }
+//}
