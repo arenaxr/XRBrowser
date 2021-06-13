@@ -85,15 +85,15 @@ extension ARKController {
                 
                 let cameraIntrinsics = frame.camera.intrinsics
                 var resizedCameraIntrinsics = frame.camera.intrinsics
-                resizedCameraIntrinsics.columns.0.x = cameraIntrinsics.columns.0.x / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.0.y = cameraIntrinsics.columns.0.y / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.0.z = cameraIntrinsics.columns.0.z / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.1.x = cameraIntrinsics.columns.1.x / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.1.y = cameraIntrinsics.columns.1.y / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.1.z = cameraIntrinsics.columns.1.z / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.2.x = cameraIntrinsics.columns.2.x / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.2.y = cameraIntrinsics.columns.2.y / computerVisionImageScaleFactor
-                resizedCameraIntrinsics.columns.2.z = cameraIntrinsics.columns.2.z / computerVisionImageScaleFactor
+                resizedCameraIntrinsics.columns.0.x = cameraIntrinsics.columns.0.x
+                resizedCameraIntrinsics.columns.0.y = cameraIntrinsics.columns.0.y
+                resizedCameraIntrinsics.columns.0.z = cameraIntrinsics.columns.0.z
+                resizedCameraIntrinsics.columns.1.x = cameraIntrinsics.columns.1.x
+                resizedCameraIntrinsics.columns.1.y = cameraIntrinsics.columns.1.y
+                resizedCameraIntrinsics.columns.1.z = cameraIntrinsics.columns.1.z
+                resizedCameraIntrinsics.columns.2.x = cameraIntrinsics.columns.2.x
+                resizedCameraIntrinsics.columns.2.y = cameraIntrinsics.columns.2.y
+                resizedCameraIntrinsics.columns.2.z = cameraIntrinsics.columns.2.z
                 resizedCameraIntrinsics.columns.2.z = 1.0
                 cameraInformation["cameraIntrinsics"] = resizedCameraIntrinsics.array()
                 

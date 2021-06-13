@@ -276,7 +276,8 @@ extension ARKController {
         CVPixelBufferGetExtendedPixels(capturedImagePixelBuffer, &extraColumnsOnLeft, &extraColumnsOnRight, &extraColumnsOnTop, &extraColumnsOnBottom)
         
         if lumaBufferSize.width == 0.0 {
-            lumaBufferSize = downscaleByFactorOf2(untilLargestSideIsLessThan512AvoidingFractionalSides: CGSize(width: CGFloat(lumaBufferWidth), height: CGFloat(lumaBufferHeight)))
+            lumaBufferSize = CGSize(width: CGFloat(lumaBufferWidth),
+                                    height: CGFloat(lumaBufferHeight))
         }
         chromaBufferSize = CGSize(width: lumaBufferSize.width / 2.0, height: lumaBufferSize.height / 2.0)
         
@@ -339,29 +340,6 @@ extension ARKController {
         }
         
         CVPixelBufferUnlockBaseAddress(capturedImagePixelBuffer, CVPixelBufferLockFlags.readOnly)
-    }
-    
-    func downscaleByFactorOf2(untilLargestSideIsLessThan512AvoidingFractionalSides originalSize: CGSize) -> CGSize {
-        var result: CGSize = originalSize
-        
-        var largestSideLessThan512Found = false
-        var fractionalSideFound = false
-        computerVisionImageScaleFactor = 1.0
-        while !(largestSideLessThan512Found || fractionalSideFound) {
-            if Int(result.width) % 2 != 0 || Int(result.height) % 2 != 0 {
-                fractionalSideFound = true
-            } else {
-                result = CGSize(width: result.width / 2.0, height: result.height / 2.0)
-                computerVisionImageScaleFactor *= 2.0
-                
-                let largestSide = max(result.width, result.height)
-                if largestSide < 512 {
-                    largestSideLessThan512Found = true
-                }
-            }
-        }
-        
-        return result
     }
     
     func string(for type: OSType) -> String {

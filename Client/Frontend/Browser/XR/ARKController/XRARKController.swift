@@ -168,11 +168,7 @@ class ARKController: NSObject {
     var getWorldMapPromise: GetWorldMapCompletionBlock?
     var device: AVCaptureDevice?
     var controller: ARKControllerProtocol!
-    /// The CV image being sent to JS is downscaled using the metho
-    /// downscaleByFactorOf2UntilLargestSideIsLessThan512AvoidingFractionalSides
-    /// This call has a side effect on computerVisionImageScaleFactor, that's later used
-    /// in order to scale the intrinsics of the camera
-    var computerVisionImageScaleFactor: Float = 0.0
+
     /*
      Computer vision properties
      We hold different data structures, like accelerate, NSData, and NSString buffers,
@@ -304,7 +300,6 @@ class ARKController: NSObject {
         lumaBase64StringBuffer = ""
         chromaDataBuffer = nil
         chromaBase64StringBuffer = ""
-        computerVisionImageScaleFactor = 4.0
         lumaBufferSize = CGSize(width: 0.0, height: 0.0)
         
         detectionImageActivationPromises = NSMutableDictionary.init()
