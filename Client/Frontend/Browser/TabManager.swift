@@ -284,7 +284,10 @@ class TabManager: NSObject {
         let configuration: WKWebViewConfiguration = configuration ?? (isPrivate ? privateConfiguration : self.configuration)
 
         let bvc = BrowserViewController.foregroundBVC()
-        let tab = Tab(bvc: bvc, configuration: configuration, isPrivate: isPrivate)
+        let tab = Tab(bvc: bvc,
+                      configuration: configuration,
+                      isPrivate: isPrivate,
+                      profile: profile)
         configureTab(tab, request: request, afterTab: afterTab, flushToDisk: flushToDisk, zombie: zombie)
         return tab
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Shared
 
 #if WEBXR
 import ARKit
@@ -759,101 +760,91 @@ extension Tab {
 
         stateController.state.numberOfTimesSendNativeTimeWasCalled = 0
         stateController.setARRequest(request) { () -> () in
+            
+            let automaticallyGrantPermission = blockSelf?.profile?.prefs.boolForKey(PrefsKeys.KeyAutomaticallyGrantXRPermissions) ?? true
+            
             if request[WEB_AR_CV_INFORMATION_OPTION] as? Bool ?? false {
                 blockSelf?.messageController?.showMessageAboutEnteringXR(.videoCameraAccess, authorizationGranted: { access in
-                    
-                    blockSelf?.arkController?.geometryArrays = blockSelf?.stateController.state.geometryArrays ?? false
-                    blockSelf?.stateController.state.askedComputerVisionData = true
-                    blockSelf?.stateController.state.askedWorldStateData = true
-                    let grantedCameraAccess = access == .videoCameraAccess ? true : false
-                    let grantedWorldAccess = (access == .videoCameraAccess || access == .worldSensing || access == .lite) ? true : false
-                    
-                    blockSelf?.arkController?.computerVisionDataEnabled = grantedCameraAccess
-                    
-                    // Approving computer vision data implicitly approves the world sensing data
-                    blockSelf?.arkController?.webXRAuthorizationStatus = access
-                    
-                    blockSelf?.stateController.state.userGrantedSendingComputerVisionData = grantedCameraAccess
-                    blockSelf?.stateController.state.userGrantedSendingWorldStateData = access
-                    
-                    switch access {
-                    case .minimal, .lite, .worldSensing, .videoCameraAccess:
-                        blockSelf?.stateController.setWebXR(true)
-                    default:
-                        blockSelf?.stateController.setWebXR(false)
-                    }
-                    blockSelf?.webController?.userGrantedWebXRAuthorizationState(access)
-                    let permissions = [
-                        "cameraAccess": grantedCameraAccess,
-                        "worldAccess": grantedWorldAccess,
-                        "webXRAccess": blockSelf?.stateController.state.webXR ?? false
-                    ]
-                    grantedPermissionsBlock?(permissions)
-                }, url: url)
+                    blockSelf?.xrPermissionsLevel(requested: .videoCameraAccess,
+                                                  granted: access,
+                                                  grantedPermissionsBlock: grantedPermissionsBlock)
+                }, url: url, automaticallyGrantPermission: automaticallyGrantPermission)
             } else if request[WEB_AR_WORLD_SENSING_DATA_OPTION] as? Bool ?? false {
                 blockSelf?.messageController?.showMessageAboutEnteringXR(.worldSensing, authorizationGranted: { access in
-                    
-                    blockSelf?.arkController?.geometryArrays = blockSelf?.stateController.state.geometryArrays ?? false
-                    blockSelf?.stateController.state.askedWorldStateData = true
-                    blockSelf?.arkController?.webXRAuthorizationStatus = access
-                    blockSelf?.stateController.state.userGrantedSendingWorldStateData = access
-                    let grantedWorldAccess = (access == .worldSensing || access == .lite) ? true : false
-                    
-                    switch access {
-                    case .minimal, .lite, .worldSensing, .videoCameraAccess:
-                        blockSelf?.stateController.setWebXR(true)
-                    default:
-                        blockSelf?.stateController.setWebXR(false)
-                    }
-                    
-                    blockSelf?.webController?.userGrantedWebXRAuthorizationState(access)
-                    let permissions = [
-                        "cameraAccess": false,
-                        "worldAccess": grantedWorldAccess,
-                        "webXRAccess": blockSelf?.stateController.state.webXR ?? false
-                    ]
-                    grantedPermissionsBlock?(permissions)
-                    
-                    if access == .lite {
-                        blockSelf?.arkController?.controller.previewingSinglePlane = true
-//                        blockSelf?.chooseSinglePlaneButton.isHidden = false
-                        if blockSelf?.stateController.state.shouldShowLiteModePopup ?? false {
-                            blockSelf?.stateController.state.shouldShowLiteModePopup = false
-                            blockSelf?.messageController?.showMessage(withTitle: "Lite Mode Started", message: "Choose one plane to share with this website.", hideAfter: 2)
-                        }
-                    }
-                }, url: url)
+                    blockSelf?.xrPermissionsLevel(requested: .worldSensing,
+                                                  granted: access,
+                                                  grantedPermissionsBlock: grantedPermissionsBlock)
+                }, url: url, automaticallyGrantPermission: automaticallyGrantPermission)
             } else {
                 // if neither is requested, we'll request .minimal WebXR authorization!
                 blockSelf?.messageController?.showMessageAboutEnteringXR(.minimal, authorizationGranted: { access in
-                    
-                    blockSelf?.arkController?.geometryArrays = blockSelf?.stateController.state.geometryArrays ?? false
-                    blockSelf?.arkController?.webXRAuthorizationStatus = access
-                    
-                    switch access {
-                    case .minimal, .lite, .worldSensing, .videoCameraAccess:
-                        blockSelf?.stateController.setWebXR(true)
-                    case .denied, .notDetermined:
-                        blockSelf?.stateController.setWebXR(false)
-                    }
-                    
-                    blockSelf?.webController?.userGrantedWebXRAuthorizationState(access)
-                    let permissions = [
-                        "cameraAccess": false,
-                        "worldAccess": false,
-                        "webXRAccess": blockSelf?.stateController.state.webXR ?? false
-                    ]
-                    grantedPermissionsBlock?(permissions)
-                    
-                    if access == .lite {
-                        blockSelf?.arkController?.controller.previewingSinglePlane = true
-//                        blockSelf?.chooseSinglePlaneButton.isHidden = false
-                        if blockSelf?.stateController.state.shouldShowLiteModePopup ?? false {
-                            blockSelf?.stateController.state.shouldShowLiteModePopup = false
-                            blockSelf?.messageController?.showMessage(withTitle: "Lite Mode Started", message: "Choose one plane to share with this website.", hideAfter: 2)
-                        }
-                    }
-                }, url: url)
+                    blockSelf?.xrPermissionsLevel(requested: .minimal,
+                                                  granted: access,
+                                                  grantedPermissionsBlock: grantedPermissionsBlock)
+                }, url: url, automaticallyGrantPermission: automaticallyGrantPermission)
+            }
+        }
+    }
+    
+    private func xrPermissionsLevel(requested: WebXRAuthorizationState,
+                                    granted: WebXRAuthorizationState,
+                                    grantedPermissionsBlock: ResultBlock?)
+    {
+        arkController?.geometryArrays = stateController.state.geometryArrays
+        arkController?.webXRAuthorizationStatus = granted
+        webController?.userGrantedWebXRAuthorizationState(granted)
+        
+        let grantedCameraAccess = granted == .videoCameraAccess ? true : false
+        let grantedWorldAccess = (granted == .videoCameraAccess || granted == .worldSensing || granted == .lite) ? true : false
+        
+        switch granted {
+        case .minimal, .lite, .worldSensing, .videoCameraAccess:
+            stateController.setWebXR(true)
+        case .denied, .notDetermined:
+            stateController.setWebXR(false)
+        }
+        
+        switch requested {
+        case .videoCameraAccess:
+            stateController.state.askedComputerVisionData = true
+            stateController.state.askedWorldStateData = true
+            arkController?.computerVisionDataEnabled = grantedCameraAccess
+            stateController.state.userGrantedSendingComputerVisionData = grantedCameraAccess
+            stateController.state.userGrantedSendingWorldStateData = granted
+            let permissions = [
+                "cameraAccess": grantedCameraAccess,
+                "worldAccess": grantedWorldAccess,
+                "webXRAccess": stateController.state.webXR
+            ]
+            grantedPermissionsBlock?(permissions)
+        case .worldSensing:
+            stateController.state.askedWorldStateData = true
+            stateController.state.userGrantedSendingWorldStateData = granted
+            let permissions = [
+                "cameraAccess": false,
+                "worldAccess": grantedWorldAccess,
+                "webXRAccess": stateController.state.webXR
+            ]
+            grantedPermissionsBlock?(permissions)
+        case .minimal:
+            let permissions = [
+                "cameraAccess": false,
+                "worldAccess": false,
+                "webXRAccess": stateController.state.webXR
+            ]
+            grantedPermissionsBlock?(permissions)
+        default:
+            break
+        }
+        
+        if (requested == .worldSensing || requested == .minimal) && granted == .lite {
+            arkController?.controller.previewingSinglePlane = true
+            // chooseSinglePlaneButton.isHidden = false
+            if stateController.state.shouldShowLiteModePopup {
+                stateController.state.shouldShowLiteModePopup = false
+                messageController?.showMessage(withTitle: "Lite Mode Started",
+                                               message: "Choose one plane to share with this website",
+                                               hideAfter: 2)
             }
         }
     }

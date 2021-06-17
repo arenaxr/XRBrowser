@@ -52,6 +52,9 @@ public struct PrefsKeys {
     public static let AppExtensionTelemetryEventArray = "AppExtensionTelemetryEvents"
 
     public static let KeyBlockPopups = "blockPopups"
+    
+    // WebXR Preferences
+    public static let KeyAutomaticallyGrantXRPermissions = "automaticallyGrantXRPermissions"
 }
 
 public struct PrefsDefaults {

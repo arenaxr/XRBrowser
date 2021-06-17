@@ -182,18 +182,12 @@ class MessageController: NSObject, UITableViewDelegate, UITableViewDataSource {
 
         viewController?.present(popup, animated: true)
     }
-
-    func showPermissionsPopup() {
-        let storyboard = UIStoryboard(name: "RequestPermissionsViewController", bundle: nil)
-        let permissionsViewController = storyboard.instantiateViewController(withIdentifier: "requestAlert")
-        permissionsViewController.view.translatesAutoresizingMaskIntoConstraints = true
-        permissionsViewController.modalPresentationStyle = .overCurrentContext
-        permissionsViewController.modalTransitionStyle = .crossDissolve
-
-        viewController?.present(permissionsViewController, animated: true)
-    }
     
-    func showMessageAboutEnteringXR(_ authorizationRequested: WebXRAuthorizationState, authorizationGranted: @escaping (WebXRAuthorizationState) -> Void, url: URL) {
+    func showMessageAboutEnteringXR(_ authorizationRequested: WebXRAuthorizationState,
+                                    authorizationGranted: @escaping (WebXRAuthorizationState) -> Void,
+                                    url: URL,
+                                    automaticallyGrantPermission: Bool)
+    {
 
         weak var blockSelf: MessageController? = self
         let standardUserDefaults = UserDefaults.standard
@@ -237,6 +231,11 @@ class MessageController: NSObject, UITableViewDelegate, UITableViewDataSource {
             default:
                 break
             }
+        }
+        
+        if automaticallyGrantPermission {
+            authorizationGranted(authorizationRequested)
+            return
         }
 
         var height = CGFloat()
