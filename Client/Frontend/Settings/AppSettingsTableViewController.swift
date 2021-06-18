@@ -50,6 +50,11 @@ class AppSettingsTableViewController: SettingsTableViewController {
             ThemeSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.KeyBlockPopups, defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
+            BoolSetting(prefs: prefs,
+                        prefKey: PrefsKeys.KeyAutomaticallyGrantXRPermissions,
+                        defaultValue: true,
+                        titleText: NSLocalizedString("Automatically Grant XR Permissions",
+                                                     comment: "Automatically grant all requested XR permissions when entering XR"))
            ]
 
         if #available(iOS 12.0, *) {

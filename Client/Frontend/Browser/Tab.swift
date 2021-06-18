@@ -206,11 +206,18 @@ class Tab: NSObject {
     var savedRender: Block? = nil
     #endif
     
-    init(bvc: BrowserViewController, configuration: WKWebViewConfiguration, isPrivate: Bool = false) {
+    let profile: Profile?
+    
+    init(bvc: BrowserViewController,
+         configuration: WKWebViewConfiguration,
+         isPrivate: Bool = false,
+         profile: Profile? = nil)
+    {
         self.configuration = configuration
         self.nightMode = false
         self.noImageMode = false
         self.browserViewController = bvc
+        self.profile = profile
         super.init()
         self.isPrivate = isPrivate
 
