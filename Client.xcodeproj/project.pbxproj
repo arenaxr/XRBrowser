@@ -249,8 +249,6 @@
 		B1620BAA266D72E900689610 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; };
 		B1620BAB266D72EC00689610 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; };
 		B1620BB3266D72F400689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
-		B1620BCC266D77C800689610 /* Glean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BCB266D77C800689610 /* Glean.framework */; };
-		B1620BCD266D77C900689610 /* Glean.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BCB266D77C800689610 /* Glean.framework */; };
 		B1620BD2266D78A800689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
 		B1620BDF266D7A3D00689610 /* ObjcExceptionBridging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */; };
 		B1620BE4266D7A4100689610 /* ObjcExceptionBridging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */; };
@@ -282,7 +280,6 @@
 		C8399D9122DE5E5200EFA5CA /* disconnect-block-advertising.json in Resources */ = {isa = PBXBuildFile; fileRef = C8399D8F22DE5E5200EFA5CA /* disconnect-block-advertising.json */; };
 		C8399D9322DE5E5B00EFA5CA /* disconnect-block-analytics.json in Resources */ = {isa = PBXBuildFile; fileRef = C8399D9222DE5E5B00EFA5CA /* disconnect-block-analytics.json */; };
 		C8399D9522DE5E6200EFA5CA /* disconnect-block-social.json in Resources */ = {isa = PBXBuildFile; fileRef = C8399D9422DE5E6200EFA5CA /* disconnect-block-social.json */; };
-		C86E4F712493BA8E0087BFD9 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86E4F702493BA8E0087BFD9 /* Metrics.swift */; };
 		C892DA0D22D39A980080F1F7 /* TrackingProtectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C892DA0C22D39A980080F1F7 /* TrackingProtectionMenu.swift */; };
 		C8CFF4E422F9FDB6002CC6BD /* effective_tld_names.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CFF4E322F9FDB5002CC6BD /* effective_tld_names.swift */; };
 		C8DFFE492294AAB600296DB1 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */; };
@@ -1056,7 +1053,6 @@
 		A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeHelper.swift; sourceTree = "<group>"; };
 		B1620BA8266D72E900689610 /* MozillaAppServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MozillaAppServices.framework; path = Carthage/Build/iOS/MozillaAppServices.framework; sourceTree = "<group>"; };
 		B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
-		B1620BCB266D77C800689610 /* Glean.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Glean.framework; path = Carthage/Build/iOS/Glean.framework; sourceTree = "<group>"; };
 		B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ObjcExceptionBridging.xcframework; path = Carthage/Build/ObjcExceptionBridging.xcframework; sourceTree = "<group>"; };
 		B1620BFE266D7D4600689610 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GCDWebServers.xcframework; path = Carthage/Build/GCDWebServers.xcframework; sourceTree = "<group>"; };
@@ -1087,7 +1083,6 @@
 		C8399D8F22DE5E5200EFA5CA /* disconnect-block-advertising.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-block-advertising.json"; sourceTree = "<group>"; };
 		C8399D9222DE5E5B00EFA5CA /* disconnect-block-analytics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-block-analytics.json"; sourceTree = "<group>"; };
 		C8399D9422DE5E6200EFA5CA /* disconnect-block-social.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-block-social.json"; sourceTree = "<group>"; };
-		C86E4F702493BA8E0087BFD9 /* Metrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		C892DA0C22D39A980080F1F7 /* TrackingProtectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionMenu.swift; sourceTree = "<group>"; };
 		C8CFF4E322F9FDB5002CC6BD /* effective_tld_names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = effective_tld_names.swift; sourceTree = "<group>"; };
 		C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
@@ -1437,7 +1432,6 @@
 				B1620BB3266D72F400689610 /* SwiftKeychainWrapper.framework in Frameworks */,
 				B1E645B3266D4539000C5F69 /* SwiftyJSON.xcframework in Frameworks */,
 				B1620BAA266D72E900689610 /* MozillaAppServices.framework in Frameworks */,
-				B1620BCD266D77C900689610 /* Glean.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1470,7 +1464,6 @@
 				B1620B57266D6BD400689610 /* SwiftyJSON.xcframework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
-				B1620BCC266D77C800689610 /* Glean.framework in Frameworks */,
 				B1620B81266D713100689610 /* GCDWebServers.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1874,7 +1867,6 @@
 				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
 				D39FA16B1A83E17800EE869C /* CoreGraphics.framework */,
 				B1E6454E266D4449000C5F69 /* GCDWebServers.xcframework */,
-				B1620BCB266D77C800689610 /* Glean.framework */,
 				E4B334871BBF23F3004E2BFF /* iAd.framework */,
 				0B8E0FF31A932BD500161DC3 /* ImageIO.framework */,
 				D36998881AD70A0A00650C6C /* IOKit.framework */,
@@ -1985,14 +1977,6 @@
 				8E63EE8E24AF94EE0022A76E /* Tab+WebXR.swift */,
 			);
 			path = Tab;
-			sourceTree = "<group>";
-		};
-		C86E4F6F2493BA8E0087BFD9 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				C86E4F702493BA8E0087BFD9 /* Metrics.swift */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 		C8E2E80623D20FB3005AACE6 /* RustFxA */ = {
@@ -2627,7 +2611,6 @@
 		F84B21C01A090F8100AAB793 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				C86E4F6F2493BA8E0087BFD9 /* Generated */,
 				7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */,
 				F84B22431A09165600AAB793 /* Info.plist */,
 				F84B21EB1A0910F600AAB793 /* Assets */,
@@ -2987,7 +2970,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F84B21DD1A090F8100AAB793 /* Build configuration list for PBXNativeTarget "Client" */;
 			buildPhases = (
-				CDF3D3002461D92F00A93748 /* Glean SDK Generator Script */,
 				F84B21BA1A090F8100AAB793 /* Sources */,
 				F84B21BC1A090F8100AAB793 /* Resources */,
 				28CE83DE1A1D1E7C00576538 /* Frameworks */,
@@ -3275,26 +3257,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		CDF3D3002461D92F00A93748 /* Glean SDK Generator Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Client/metrics.yaml",
-			);
-			name = "Glean SDK Generator Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Client/Generated/Metrics.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash $PWD/Carthage/Checkouts/glean/glean-core/ios/sdk_generator.sh -m $SRCROOT/docs\n";
 		};
 		E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3612,7 +3574,6 @@
 				D3BA7E0E1B0E934F00153782 /* ContextMenuHelper.swift in Sources */,
 				E660BE061BB0666D009AC090 /* InnerStrokedView.swift in Sources */,
 				0BB5B30B1AC0AD1F0052877D /* LoginsHelper.swift in Sources */,
-				C86E4F712493BA8E0087BFD9 /* Metrics.swift in Sources */,
 				E69E06C91C76198000D0F926 /* AuthenticationManagerConstants.swift in Sources */,
 				8E49C6AF24AF90A9004E851E /* XRARKController+AppState.swift in Sources */,
 				392ED7E61D0AEFEF009D9B62 /* HomePageAccessors.swift in Sources */,
@@ -3927,7 +3888,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4011,6 +3972,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_ENTITLEMENTS = Client/Entitlements/XRViewerDevApplication.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -4157,7 +4119,6 @@
 		B6E46817239EB9DD007468EC /* XRViewerDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 25A3U75D5Z;
@@ -4365,7 +4326,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4446,6 +4407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Client/Entitlements/XRViewerApplication.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -4568,7 +4530,6 @@
 		B6E4682C239EB9E5007468EC /* XRViewer */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 25A3U75D5Z;
