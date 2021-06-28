@@ -180,18 +180,20 @@ class ARKMetalController: NSObject, ARKControllerProtocol, MTKViewDelegate {
         if let planeAnchor = anchor as? ARPlaneAnchor {
             let planeGeometry = planeAnchor.geometry
             
+            guard planeGeometry.triangleIndices.count > 2,
+                  planeGeometry.vertices.count > planeGeometry.triangleIndices[2]
+            else { return }
+            
             // check the count, sometimes there is no triangleIndicies array provided, presumably because it hasn't changed even if the verticies move?
             // probably should update the vertices and texCoords without rebuilding Plane at this point, but for now just ignore it!
-            if (planeGeometry.triangleIndices.count > 2) {
-                node.geometry = Plane(vertices: planeGeometry.vertices,
-                                      texCoords: planeGeometry.textureCoordinates,
-                                      indices: planeGeometry.triangleIndices,
-                                      bufferAllocator: bufferAllocator)
-                let material = node.geometry?.elements.first?.material
-                material?.diffuse.contents = UIColor.yellow
-    //            material?.fillMode = .solid
-                material?.fillMode = .wireframe
-            }
+            node.geometry = Plane(vertices: planeGeometry.vertices,
+                                  texCoords: planeGeometry.textureCoordinates,
+                                  indices: planeGeometry.triangleIndices,
+                                  bufferAllocator: bufferAllocator)
+            let material = node.geometry?.elements.first?.material
+            material?.diffuse.contents = UIColor.yellow
+            //            material?.fillMode = .solid
+            material?.fillMode = .wireframe
         }
     }
 }
