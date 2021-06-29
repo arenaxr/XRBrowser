@@ -6,7 +6,7 @@ This project is forked from Mozilla's WebXR Viewer. WebXR Viewer is an iOS WebXR
 This branch (WebXR-iOS-14.5)
 -----------
 
-This branch only works with Xcode 12.4, Swift 5.4 and supports iOS 12.0 and above.
+This branch only works with Xcode 12.5, Swift 5.4 and supports iOS 12.0 and above.
 
 Please make sure you aim your pull requests in the right direction.
 
@@ -18,7 +18,7 @@ Want to contribute but don't know where to start? Check out any open issues. Or 
 Building the code
 -----------------
 
-1. Install Xcode 12.4 from Apple.
+1. Install Xcode 12.5 from Apple.
 1. Install Carthage and Node
     ```shell
     brew update
