@@ -18,25 +18,31 @@ public class Plane : Geometry {
         let verticesPtr = vertexBuffer.contents().assumingMemoryBound(to: Vertex.self)
         let indicesPtr = indexBuffer.contents().assumingMemoryBound(to: UInt16.self)
         
-        assert(indices.count > 2)
+        //assert(indices.count > 2)
         
-        let v0 = vertices[Int(indices[0])]
-        let v1 = vertices[Int(indices[1])]
-        let v2 = vertices[Int(indices[2])]
-        let v10 = v1 - v0
-        let v20 = v2 - v0
-        let normal = normalize(simd_cross(v10, v20))
-        
-        for i in 0..<vertices.count {
-            verticesPtr[i].position = packed_float3(vertices[i])
-            verticesPtr[i].normal = packed_float3(normal)
-            verticesPtr[i].texCoords = texCoords[i]
+        // Frequent crash here
+        // I don't know enough swift to fix this correctly, but ever so often indices[2] seems to overflow the
+        // the vertices[] array. I just skip it for now and hope for the best! But the underlying issue remains
+        if(indices.count>2) {
+            if Int(indices[0])<vertices.count && Int(indices[1])<vertices.count && Int(indices[2])<vertices.count {
+                let v0 = vertices[Int(indices[0])]
+                let v1 = vertices[Int(indices[1])]
+                let v2 = vertices[Int(indices[2])]
+                let v10 = v1 - v0
+                let v20 = v2 - v0
+                let normal = normalize(simd_cross(v10, v20))
+                
+                for i in 0..<vertices.count {
+                    verticesPtr[i].position = packed_float3(vertices[i])
+                    verticesPtr[i].normal = packed_float3(normal)
+                    verticesPtr[i].texCoords = texCoords[i]
+                }
+                
+                for i in 0..<indices.count {
+                    indicesPtr[i] = UInt16(indices[i])
+                }
+            }
         }
-        
-        for i in 0..<indices.count {
-            indicesPtr[i] = UInt16(indices[i])
-        }
-
         let indexSource = GeometryElement(indexBuffer: indexBuffer, primitiveType: .triangle,
                                           indexCount: indices.count, indexType: .uint16)
         
