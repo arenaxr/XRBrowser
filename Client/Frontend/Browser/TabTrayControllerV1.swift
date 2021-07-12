@@ -683,7 +683,6 @@ extension TabTrayControllerV1: TabDisplayCompletionDelegate {
         switch type {
         case .addTab:
             dismissTabTray()
-            LeanPlumClient.shared.track(event: .openedNewTab, withParameters: ["Source": "Tab Tray"])
         case .removedLastTab:
             // when removing the last tab (only in normal mode) we will automatically open a new tab.
             // When that happens focus it by dismissing the tab tray

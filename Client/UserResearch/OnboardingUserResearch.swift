@@ -3,17 +3,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Foundation
-//import Leanplum
 import Shared
 
-struct LPVariables {
-    // Variable Used for AA test
-    static var showOnboardingScreenAA = false //LPVar.define("showOnboardingScreen", with: true)
-    // Variable Used for AB test
-    static var showOnboardingScreenAB = false //LPVar.define("showOnboardingScreen_2", with: true)
-}
-
-// For LP variable below is the convention we follow
+// Below is the convention we follow
 // True = Current Onboarding Screen
 // False = New Onboarding Screen
 enum OnboardingScreenType: String {
@@ -26,10 +18,6 @@ enum OnboardingScreenType: String {
 }
 
 class OnboardingUserResearch {
-    // Closure delegate
-    var updatedLPVariable: (() -> Void)?
-    // variable
-    //var lpVariable: LPVar?
     // Constants
     private let onboardingScreenTypeKey = "onboardingScreenTypeKey"
     // Saving user defaults
@@ -49,63 +37,5 @@ class OnboardingUserResearch {
             }
             return OnboardingScreenType(rawValue: value)
         }
-    }
-    
-    // MARK: Initializer
-//    init(lpVariable: LPVar? = LPVariables.showOnboardingScreenAB) {
-//        self.lpVariable = lpVariable
-//    }
-    
-    // MARK: public
-    func lpVariableObserver() {
-        // Condition: Leanplum is disabled; use default intro view
-        guard LeanPlumClient.shared.getSettings() != nil else {
-            self.onboardingScreenType = .versionV1
-            self.updatedLPVariable?()
-            return
-        }
-        // Condition: A/B test variables from leanplum server
-        LeanPlumClient.shared.finishedStartingLeanplum = {
-            let showScreenA = false //LPVariables.showOnboardingScreenAB?.boolValue()
-            LeanPlumClient.shared.finishedStartingLeanplum = nil
-            self.updateTelemetry()
-            let screenType = OnboardingScreenType.from(boolValue: showScreenA)
-            self.onboardingScreenType = screenType
-            self.updatedLPVariable?()
-        }
-        // Condition: Leanplum server too slow; Show default onboarding.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            guard LeanPlumClient.shared.finishedStartingLeanplum != nil else {
-                return
-            }
-            let lpStartStatus = LeanPlumClient.shared.lpState
-            var lpVariableValue: OnboardingScreenType = .versionV1
-            // Condition: LP has already started but we missed onStartLPVariable callback
-            if case .started(startedState: _) = lpStartStatus { //}, let boolValue = LPVariables.showOnboardingScreenAB?.boolValue() {
-                lpVariableValue = .versionV2
-                self.updateTelemetry()
-            }
-            self.onboardingScreenType = lpVariableValue
-            self.updatedLPVariable?()
-        }
-    }
-    
-    func updateTelemetry() {
-        // Printing variant is good to know all details of A/B test fields
-//        print("lp variant \(String(describing: Leanplum.variants()))")
-//        guard let variants = Leanplum.variants(), let lpData = variants.first as? Dictionary<String, AnyObject> else {
-//            return
-//        }
-//        var abTestId = ""
-//        if let value = lpData["abTestId"] as? Int64 {
-//                abTestId = "\(value)"
-//        }
-//        let abTestName = lpData["abTestName"] as? String ?? ""
-//        let abTestVariant = lpData["name"] as? String ?? ""
-//        let attributesExtras = [LPAttributeKey.experimentId: abTestId, LPAttributeKey.experimentName: abTestName, LPAttributeKey.experimentVariant: abTestVariant]
-//        // Leanplum telemetry
-//        LeanPlumClient.shared.set(attributes: attributesExtras)
-//        // Legacy telemetry
-//        UnifiedTelemetry.recordEvent(category: .enrollment, method: .add, object: .experimentEnrollment, extras: attributesExtras)
     }
 }

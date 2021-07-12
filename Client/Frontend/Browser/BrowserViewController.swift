@@ -1091,7 +1091,6 @@ class BrowserViewController: UIViewController {
         }
 
         present(controller, animated: true, completion: nil)
-        LeanPlumClient.shared.track(event: .userSharedWebpage)
     }
 
     @objc fileprivate func openSettings() {
@@ -1325,7 +1324,6 @@ extension BrowserViewController: URLBarDelegate {
         if let tab = self.tabManager.selectedTab {
             let trackingProtectionMenu = self.getTrackingSubMenu(for: tab)
             let title = String.localizedStringWithFormat(Strings.TPPageMenuTitle, tab.url?.host ?? "")
-            LeanPlumClient.shared.track(event: .trackingProtectionMenu)
             UnifiedTelemetry.recordEvent(category: .action, method: .press, object: .trackingProtectionMenu)
             self.presentSheetWith(title: title, actions: trackingProtectionMenu, on: self, from: urlBar)
         }
@@ -1349,7 +1347,6 @@ extension BrowserViewController: URLBarDelegate {
         case .available:
             enableReaderMode()
             UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .readerModeOpenButton)
-            LeanPlumClient.shared.track(event: .useReaderView)
         case .active:
             disableReaderMode()
             UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .readerModeCloseButton)
@@ -1505,8 +1502,6 @@ extension BrowserViewController: URLBarDelegate {
 
             showFirefoxHome(inline: false)
         }
-
-        LeanPlumClient.shared.track(event: .interactWithURLBar)
     }
 
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView) {
@@ -2019,11 +2014,6 @@ extension BrowserViewController {
             showProperIntroVC()
             return
         }
-        // Setup user research closure and observer to fetch the updated LP Variables
-        onboardingUserResearch?.updatedLPVariable =  {
-            self.showProperIntroVC()
-        }
-        onboardingUserResearch?.lpVariableObserver()
     }
     
     private func showProperIntroVC() {
@@ -2131,7 +2121,6 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 
             let addTab = { (rURL: URL, isPrivate: Bool) in
                     let tab = self.tabManager.addTab(URLRequest(url: rURL as URL), afterTab: currentTab, isPrivate: isPrivate)
-                    LeanPlumClient.shared.track(event: .openedNewTab, withParameters: ["Source": "Long Press Context Menu"])
                     guard !self.topTabsVisible else {
                         return
                     }
@@ -2311,7 +2300,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 extension BrowserViewController {
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if error == nil {
-            LeanPlumClient.shared.track(event: .saveImage)
+            print("Successfully saved image")
         }
     }
 }

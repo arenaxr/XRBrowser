@@ -231,11 +231,10 @@ extension FxAWebViewModel {
         
         // Use presence of key `offeredSyncEngines` to determine if this was a new sign-up.
         if let engines = data["offeredSyncEngines"] as? [String], engines.count > 0 {
-            LeanPlumClient.shared.track(event: .signsUpFxa)
+            print("Fxa sign up")
         } else {
-            LeanPlumClient.shared.track(event: .signsInFxa)
+            print("Fxa sign in")
         }
-        LeanPlumClient.shared.set(attributes: [LPAttributeKey.signedInSync: true])
         
         let auth = FxaAuthData(code: code, state: state, actionQueryParam: "signin")
         profile.rustFxA.accountManager.peek()?.finishAuthentication(authData: auth) { _ in
