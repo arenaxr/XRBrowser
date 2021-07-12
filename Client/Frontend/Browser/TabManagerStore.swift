@@ -50,17 +50,22 @@ class TabManagerStore {
                 return [SavedTab]()
         }
 
-        let unarchiver = NSKeyedUnarchiver(forReadingWith: tabData)
-        unarchiver.decodingFailurePolicy = .setErrorAndReturn
-        guard let tabs = unarchiver.decodeObject(forKey: "tabs") as? [SavedTab] else {
-            Sentry.shared.send(
-                message: "Failed to restore tabs",
-                tag: SentryTag.tabManager,
-                severity: .error,
-                description: "\(unarchiver.error ??? "nil")")
-            return [SavedTab]()
+        do {
+            let unarchiver = try NSKeyedUnarchiver(forReadingFrom: tabData)
+            unarchiver.decodingFailurePolicy = .setErrorAndReturn
+            guard let tabs = unarchiver.decodeObject(forKey: "tabs") as? [SavedTab] else {
+                Sentry.shared.send(
+                    message: "Failed to restore tabs",
+                    tag: SentryTag.tabManager,
+                    severity: .error,
+                    description: "\(unarchiver.error ??? "nil")")
+                return [SavedTab]()
+            }
+            return tabs
+        } catch {
+            print("Error encountered when finding tabsToRestore")
+            return []
         }
-        return tabs
     }
 
     fileprivate func prepareSavedTabs(fromTabs tabs: [Tab], selectedTab: Tab?) -> [SavedTab]? {

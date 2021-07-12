@@ -78,11 +78,11 @@ func dictFromVector3(_ vector: vector_float3) -> NSDictionary {
 }
 
 public extension float3x3 {
-    func decomposeToEulerAngles() -> float3 {
+    func decomposeToEulerAngles() -> SIMD3<Float> {
         let rotX = atan2( self[1][2], self[2][2])
         let rotY = atan2(-self[0][2], hypot(self[1][2], self[2][2]))
         let rotZ = atan2( self[0][1], self[0][0])
-        return float3(rotX, rotY, rotZ)
+        return SIMD3<Float>(rotX, rotY, rotZ)
     }
 }
 
@@ -95,7 +95,7 @@ public struct packed_float3 {
         self.z = z
     }
     
-    init(_ v: float3) {
+    init(_ v: SIMD3<Float>) {
         self.x = v.x
         self.y = v.y
         self.z = v.z
@@ -125,12 +125,12 @@ extension matrix_float4x4 {
     }
 }
 
-public extension float4 {
-    var xyz: float3 {
-        return float3(x, y, z)
+public extension SIMD4 {
+    var xyz: SIMD3<Scalar> {
+        return SIMD3<Scalar>(x, y, z)
     }
     
-    init(_ v: float3, _ w: Float) {
+    init(_ v: SIMD3<Scalar>, _ w: Scalar) {
         self.init(v.x, v.y, v.z, w)
     }
 }
@@ -160,29 +160,32 @@ extension Array {
 }
 
 public extension float4x4 {
-    init(translationBy t: float3) {
-        self.init(float4(1, 0, 0, 0),
-                  float4(0, 1, 0, 0),
-                  float4(0, 0, 1, 0),
-                  float4(t.x, t.y, t.z, 1))
+    init(translationBy t: SIMD3<Float>) {
+        self.init(SIMD4<Float>(1, 0, 0, 0),
+                  SIMD4<Float>(0, 1, 0, 0),
+                  SIMD4<Float>(0, 0, 1, 0),
+                  SIMD4<Float>(t.x, t.y, t.z, 1))
     }
     
-    init(rotationFromEulerAngles v: float3) {
+    init(rotationFromEulerAngles v: SIMD3<Float>) {
         let sx = sin(v.x)
         let cx = cos(v.x)
         let sy = sin(v.y)
         let cy = cos(v.y)
         let sz = sin(v.z)
         let cz = cos(v.z)
-        let columns = [ float4(           cy*cz,             cy*sz,   -sy, 0),
-                        float4(cz*sx*sy - cx*sz,  cx*cz + sx*sy*sz, cy*sx, 0),
-                        float4(cx*cz*sy + sx*sz, -cz*sx + cx*sy*sz, cx*cy, 0),
-                        float4(               0,                 0,     0, 1) ]
+        let columns = [ SIMD4<Float>(           cy*cz,             cy*sz,   -sy, 0),
+                        SIMD4<Float>(cz*sx*sy - cx*sz,  cx*cz + sx*sy*sz, cy*sx, 0),
+                        SIMD4<Float>(cx*cz*sy + sx*sz, -cz*sx + cx*sy*sz, cx*cy, 0),
+                        SIMD4<Float>(               0,                 0,     0, 1) ]
         self.init(columns)
     }
 
-    init(scaleBy s: float3) {
-        self.init([float4(s.x, 0, 0, 0), float4(0, s.y, 0, 0), float4(0, 0, s.z, 0), float4(0, 0, 0, 1)])
+    init(scaleBy s: SIMD3<Float>) {
+        self.init([SIMD4<Float>(s.x, 0, 0, 0),
+                   SIMD4<Float>(0, s.y, 0, 0),
+                   SIMD4<Float>(0, 0, s.z, 0),
+                   SIMD4<Float>(0, 0, 0, 1)])
     }
     
     var upperLeft: float3x3 {

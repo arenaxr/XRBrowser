@@ -101,6 +101,8 @@ extension ARCamera.TrackingState {
                 return "Initializing AR Session"
             case .relocalizing:
                 return "Relocalizing\nSlowly scan the space around you"
+            @unknown default:
+                return "Unknown ARCamera tracking state error"
             }
         }
     }

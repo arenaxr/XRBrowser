@@ -111,6 +111,7 @@ let WEB_AR_WORLDMAPPING_NOT_AVAILABLE = "ar_worldmapping_not_available"
 let WEB_AR_WORLDMAPPING_LIMITED = "ar_worldmapping_limited"
 let WEB_AR_WORLDMAPPING_EXTENDING = "ar_worldmapping_extending"
 let WEB_AR_WORLDMAPPING_MAPPED = "ar_worldmapping_mapped"
+let WEB_AR_WORLDMAPPING_UNKNOWN_ERROR = "ar_worldmapping_unknown_error"
 let PREFER_FPS = 60
 let REQUESTED_URL_KEY = "requestedURL"
 let MEMORY_ERROR_DOMAIN = "Memory"

@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         unifiedTelemetry = UnifiedTelemetry(profile: profile)
         
         // Get legacy telemetry ID
-        if let uuidString = UserDefaults.standard.string(forKey: "telemetry-key-prefix-clientId"), let uuid = UUID(uuidString: uuidString) {
+        if let uuidString = UserDefaults.standard.string(forKey: "telemetry-key-prefix-clientId"), let _ = UUID(uuidString: uuidString) {
 //            GleanMetrics.LegacyIds.clientId.set(uuid)
         }
         

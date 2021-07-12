@@ -164,7 +164,7 @@ class SearchViewController: SiteTableViewController, KeyboardHelperDelegate, Loa
 
             // Show the default search engine first.
             if !isPrivate {
-                let ua = SearchViewController.userAgent ?? "FxSearch"
+                let _ = SearchViewController.userAgent ?? "FxSearch"
 //                suggestClient = SearchSuggestClient(searchEngine: searchEngines.defaultEngine, userAgent: ua)
             }
 
@@ -174,7 +174,7 @@ class SearchViewController: SiteTableViewController, KeyboardHelperDelegate, Loa
     }
 
     fileprivate var quickSearchEngines: [OpenSearchEngine] {
-        var engines = searchEngines.quickSearchEngines
+        let engines = searchEngines.quickSearchEngines
 
         // If we're not showing search suggestions, the default search engine won't be visible
         // at the top of the table. Show it with the others in the bottom search bar.

@@ -892,7 +892,7 @@ open class BrowserProfile: Profile {
             log.debug("Syncing clients to storage.")
 
             if constellationStateUpdate == nil {
-                constellationStateUpdate = NotificationCenter.default.addObserver(forName: .constellationStateUpdate, object: nil, queue: .main) { [weak self] notification in
+//                constellationStateUpdate = NotificationCenter.default.addObserver(forName: .constellationStateUpdate, object: nil, queue: .main) { [weak self] notification in
 //                    guard let accountManager = self?.profile.rustFxA.accountManager.peek(), let state = accountManager.deviceConstellation()?.state() else {
 //                        return
 //                    }
@@ -902,7 +902,7 @@ open class BrowserProfile: Profile {
 //                        return RemoteDevice(id: d.id, name: d.displayName, type: t, isCurrentDevice: d.isCurrentDevice, lastAccessTime: d.lastAccessTime, availableCommands: nil)
 //                    }
 //                    let _ = self.profile.remoteClientsAndTabs.replaceRemoteDevices(devices)
-                }
+//                }
             }
 
             let clientSynchronizer = ready.synchronizer(ClientsSynchronizer.self, delegate: delegate, prefs: prefs, why: why)

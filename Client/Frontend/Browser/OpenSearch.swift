@@ -173,7 +173,7 @@ class OpenSearchParser {
     }
 
     func parse(_ file: String, engineID: String) -> OpenSearchEngine? {
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: file)) else {
+        guard (try? Data(contentsOf: URL(fileURLWithPath: file))) != nil else {
             print("Invalid search file")
             return nil
         }

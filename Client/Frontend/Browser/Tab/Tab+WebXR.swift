@@ -370,7 +370,7 @@ extension Tab {
 
         webController?.onError = { error in
             if let error = error {
-//                blockSelf?.showWebError(error as NSError)
+                print("WebController error: \(error.localizedDescription)")
             }
         }
 
@@ -608,7 +608,7 @@ extension Tab {
 
         weak var blockSelf: Tab? = self
 
-        guard let webView = webView else {
+        guard let _ = webView else {
             print("Unable to grab tab webView")
             return
         }
@@ -640,9 +640,9 @@ extension Tab {
         }
         arkController?.didChangeTrackingState = { camera in
             
-            if let camera = camera,
-                let webXR = blockSelf?.stateController.state.webXR,
-                webXR
+            if let _ = camera,
+               let webXR = blockSelf?.stateController.state.webXR,
+               webXR
             {
 //                blockSelf?.showTrackingQualityInfo(for: camera.trackingState, autoHide: true)
 //                blockSelf?.updateTrackingStatusIcon(for: camera.trackingState)

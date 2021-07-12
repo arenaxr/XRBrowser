@@ -465,11 +465,9 @@ extension ARKController {
         }
         var matrix = matrix_float4x4()
         matrix = transform.matrix()
-        if #available(iOS 12.0, *) {
-            let anchor = ARAnchor(name: userGeneratedAnchorID ?? "", transform: matrix)
-            session.add(anchor: anchor)
-            arkitGeneratedAnchorIDUserAnchorIDMap[anchor.identifier.uuidString] = userGeneratedAnchorID ?? ""
-        }
+        let anchor = ARAnchor(name: userGeneratedAnchorID ?? "", transform: matrix)
+        session.add(anchor: anchor)
+        arkitGeneratedAnchorIDUserAnchorIDMap[anchor.identifier.uuidString] = userGeneratedAnchorID ?? ""
 
         return true
     }

@@ -69,7 +69,7 @@ class OnboardingUserResearch {
             let showScreenA = false //LPVariables.showOnboardingScreenAB?.boolValue()
             LeanPlumClient.shared.finishedStartingLeanplum = nil
             self.updateTelemetry()
-            let screenType = OnboardingScreenType.from(boolValue: (showScreenA ?? true))
+            let screenType = OnboardingScreenType.from(boolValue: showScreenA)
             self.onboardingScreenType = screenType
             self.updatedLPVariable?()
         }
@@ -82,7 +82,7 @@ class OnboardingUserResearch {
             var lpVariableValue: OnboardingScreenType = .versionV1
             // Condition: LP has already started but we missed onStartLPVariable callback
             if case .started(startedState: _) = lpStartStatus { //}, let boolValue = LPVariables.showOnboardingScreenAB?.boolValue() {
-                lpVariableValue = false ? .versionV1 : .versionV2
+                lpVariableValue = .versionV2
                 self.updateTelemetry()
             }
             self.onboardingScreenType = lpVariableValue

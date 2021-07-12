@@ -70,8 +70,8 @@ class FxAWebViewModel {
 
     func setupFirstPage(completion: @escaping ((URLRequest, UnifiedTelemetry.EventMethod?) -> Void)) {
         profile.rustFxA.accountManager.uponQueue(.main) { accountManager in
-            accountManager.getManageAccountURL(entrypoint: "ios_settings_manage") { [weak self] result in
-                guard let self = self else { return }
+//            accountManager.getManageAccountURL(entrypoint: "ios_settings_manage") { [weak self] result in
+//                guard let self = self else { return }
 
                 // Handle authentication with either the QR code login flow, email login flow, or settings page flow
 //                switch self.pageType {
@@ -99,7 +99,7 @@ class FxAWebViewModel {
 //                        completion(self.makeRequest(url), nil)
 //                    }
 //                }
-            }
+//            }
         }
     }
     
