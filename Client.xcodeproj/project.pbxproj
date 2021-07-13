@@ -214,6 +214,8 @@
 		A83E5AB71C1D993D0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
 		A9072B801D07B34100459960 /* NoImageModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9072B7F1D07B34100459960 /* NoImageModeHelper.swift */; };
 		A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */; };
+		B15E05BE269E325500E345A5 /* Fuzi.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B15E05BC269E325500E345A5 /* Fuzi.xcframework */; };
+		B15E05BF269E325500E345A5 /* Fuzi.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B15E05BC269E325500E345A5 /* Fuzi.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1620B4A266D6BBC00689610 /* Sentry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; };
 		B1620B4B266D6BBC00689610 /* Sentry.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1620B51266D6BCE00689610 /* XCGLogger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */; };
@@ -730,6 +732,7 @@
 				E60138681C89EB8800DF9756 /* Sync.framework in Copy Frameworks */,
 				B1620B82266D713100689610 /* GCDWebServers.xcframework in Copy Frameworks */,
 				B1620B58266D6BD400689610 /* SwiftyJSON.xcframework in Copy Frameworks */,
+				B15E05BF269E325500E345A5 /* Fuzi.xcframework in Copy Frameworks */,
 				B1620B8E266D718200689610 /* Telemetry.xcframework in Copy Frameworks */,
 				B1E645A3266D4518000C5F69 /* SnapKit.xcframework in Copy Frameworks */,
 				B1620B4B266D6BBC00689610 /* Sentry.xcframework in Copy Frameworks */,
@@ -967,6 +970,7 @@
 		A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPasteboardExtensions.swift; path = Extensions/UIPasteboardExtensions.swift; sourceTree = "<group>"; };
 		A9072B7F1D07B34100459960 /* NoImageModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageModeHelper.swift; sourceTree = "<group>"; };
 		A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeHelper.swift; sourceTree = "<group>"; };
+		B15E05BC269E325500E345A5 /* Fuzi.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Fuzi.xcframework; path = Carthage/Build/Fuzi.xcframework; sourceTree = "<group>"; };
 		B1620BA8266D72E900689610 /* MozillaAppServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MozillaAppServices.framework; path = Carthage/Build/iOS/MozillaAppServices.framework; sourceTree = "<group>"; };
 		B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftKeychainWrapper.framework; path = Carthage/Build/iOS/SwiftKeychainWrapper.framework; sourceTree = "<group>"; };
 		B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ObjcExceptionBridging.xcframework; path = Carthage/Build/ObjcExceptionBridging.xcframework; sourceTree = "<group>"; };
@@ -1343,6 +1347,7 @@
 			files = (
 				C8E18F20222EDED000E30E52 /* SafariServices.framework in Frameworks */,
 				B1620B51266D6BCE00689610 /* XCGLogger.xcframework in Frameworks */,
+				B15E05BE269E325500E345A5 /* Fuzi.xcframework in Frameworks */,
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
 				E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */,
 				B1620B4A266D6BBC00689610 /* Sentry.xcframework in Frameworks */,
@@ -1724,6 +1729,7 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B15E05BC269E325500E345A5 /* Fuzi.xcframework */,
 				B1620BFE266D7D4600689610 /* XCTest.framework */,
 				C8E18F1D222EDE4400E30E52 /* Accelerate.framework */,
 				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,

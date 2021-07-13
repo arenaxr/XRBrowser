@@ -46,14 +46,13 @@ class SearchEngines {
         self.orderedEngines = getOrderedEngines()
     }
 
-    var defaultEngine: OpenSearchEngine? {
+    var defaultEngine: OpenSearchEngine {
         get {
-            return nil //self.orderedEngines[0]
+            return self.orderedEngines[0]
         }
 
         set(defaultEngine) {
             // The default engine is always enabled.
-            guard let defaultEngine = defaultEngine else { return }
             self.enableEngine(defaultEngine)
             // The default engine is always first in the list.
             var orderedEngines = self.orderedEngines.filter { engine in engine.shortName != defaultEngine.shortName }
@@ -63,7 +62,7 @@ class SearchEngines {
     }
 
     func isEngineDefault(_ engine: OpenSearchEngine) -> Bool {
-        return defaultEngine?.shortName == engine.shortName
+        return defaultEngine.shortName == engine.shortName
     }
 
     // The keys of this dictionary are used as a set.
@@ -151,11 +150,35 @@ class SearchEngines {
     }
 
     fileprivate lazy var customEngines: [OpenSearchEngine] = {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: self.customEngineFilePath()) as? [OpenSearchEngine] ?? []
+        do {
+            guard let url = URL(string: customEngineFilePath()) else {
+                print("Unable to access customEngineFilePath when initializing customEngines")
+                return []
+            }
+            let data = try Data(contentsOf: url)
+            let object = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [OpenSearchEngine.self],
+                                                                from: data)
+            guard let array = object as? [OpenSearchEngine] else { return [] }
+            return array
+        } catch {
+            print("Unable to unarchive OpenSearchEngine array as customEngines: \(error.localizedDescription)")
+            return []
+        }
     }()
 
     fileprivate func saveCustomEngines() {
-        NSKeyedArchiver.archiveRootObject(customEngines, toFile: self.customEngineFilePath())
+        do {
+            guard let url = URL(string: customEngineFilePath()) else {
+                print("Unable to access customEngineFilePath when trying to saveCustomEngines")
+                return
+            }
+            
+            let data = try NSKeyedArchiver.archivedData(withRootObject: customEngines,
+                                                        requiringSecureCoding: true)
+            try data.write(to: url)
+        } catch {
+            print("Unable to saveCustomEngines")
+        }
     }
 
     /// Return all possible language identifiers in the order of most specific to least specific.
