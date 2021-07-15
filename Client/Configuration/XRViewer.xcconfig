@@ -2,11 +2,11 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-MOZ_BUNDLE_DISPLAY_NAME = XRViewer
+BUNDLE_DISPLAY_NAME = XR Browser
 MOZ_TODAY_WIDGET_SEARCH_DISPLAY_NAME = XRViewer - Search
 
 // Bundle Identifier
-MOZ_BUNDLE_ID = org.mozilla.ios.XRViewer
+BUNDLE_ID = org.XRBrowser.${BUNDLE_IDENTIFIER_DISAMBIGUATOR}
 
 // Flag to indicate if we want to include the debug settings bundle or not
 INCLUDE_SETTINGS_BUNDLE = NO
@@ -17,3 +17,5 @@ ADJUST_APP_TOKEN =
 
 ENABLE_BITCODE = NO
 CLANG_MODULES_AUTOLINK = NO
+
+BUNDLE_IDENTIFIER_DISAMBIGUATOR=${DEVELOPMENT_TEAM}
