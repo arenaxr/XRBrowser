@@ -2010,10 +2010,7 @@ extension BrowserViewController {
     }
     
     private func onboardingUserResearchHelper(_ alwaysShow: Bool = false) {
-        if alwaysShow {
-            showProperIntroVC()
-            return
-        }
+        showProperIntroVC()
     }
     
     private func showProperIntroVC() {
