@@ -9,7 +9,8 @@ import Fuzi
 private let TypeSearch = "text/html"
 private let TypeSuggest = "application/x-suggestions+json"
 
-class OpenSearchEngine: NSObject, NSCoding {
+class OpenSearchEngine: NSObject, NSCoding, NSSecureCoding {
+    public static var supportsSecureCoding: Bool = true
     static let PreferredIconSize = 30
 
     let shortName: String
