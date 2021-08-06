@@ -13,10 +13,14 @@ extension Tab {
         } ()
 
         private static var baseDomainList: Set<String> = {
-            if let hosts = NSKeyedUnarchiver.unarchiveObject(withFile: ChangeUserAgent.file.path) as? Set<String> {
+            do {
+                let data = try Data(contentsOf: ChangeUserAgent.file)
+                guard let hosts = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Set<String> else { return Set<String>() }
                 return hosts
+            } catch {
+                print("Error unarchiving baseDomainList: \(error.localizedDescription)")
+                return Set<String>()
             }
-            return Set<String>()
         } ()
 
         static func clear() {

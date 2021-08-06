@@ -101,7 +101,7 @@ class TabManagerStore {
         writeOperation.cancel()
 
         let tabStateData = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: tabStateData)
+        let archiver = NSKeyedArchiver.init(requiringSecureCoding: true)
         archiver.encode(savedTabs, forKey: "tabs")
         archiver.finishEncoding()
 

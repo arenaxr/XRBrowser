@@ -15,10 +15,8 @@ open class ClosedTabsStore {
         }
         
         do {
-            let unarchivedArray = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [ClosedTab.self],
-                                                                         from: tabsArray)
-            guard let array = unarchivedArray as? [ClosedTab] else { return [] }
-            return array
+            guard let unarchivedArray = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(tabsArray) as? [ClosedTab] else { return [] }
+            return unarchivedArray
         } catch {
             print("Error unarchiving ClosedTab array: \(error.localizedDescription)")
             return []
