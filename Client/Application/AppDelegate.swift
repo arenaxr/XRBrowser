@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         unifiedTelemetry = UnifiedTelemetry(profile: profile)
         
         // Get legacy telemetry ID
-        if let uuidString = UserDefaults.standard.string(forKey: "telemetry-key-prefix-clientId"), let uuid = UUID(uuidString: uuidString) {
+        if let uuidString = UserDefaults.standard.string(forKey: "telemetry-key-prefix-clientId"), let _ = UUID(uuidString: uuidString) {
 //            GleanMetrics.LegacyIds.clientId.set(uuid)
         }
         
@@ -240,14 +240,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         pushNotificationSetup()
 
-        // Leanplum usersearch variable setup for onboarding research
+        // Variable setup for onboarding research
         _ = OnboardingUserResearch()
-        // Leanplum setup
-        // Turn off Leanplum marketing for XR Viewer
-        // if let profile = self.profile, LeanPlumClient.shouldEnable(profile: profile) {
-        //     LeanPlumClient.shared.setup(profile: profile)
-        //     LeanPlumClient.shared.set(enabled: true)
-        // }
 
         if #available(iOS 13.0, *) {
             BGTaskScheduler.shared.register(forTaskWithIdentifier: "org.mozilla.ios.sync.part1", using: DispatchQueue.global()) { task in

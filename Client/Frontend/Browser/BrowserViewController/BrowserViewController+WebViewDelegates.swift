@@ -120,7 +120,6 @@ extension BrowserViewController: WKUIDelegate {
             let isPrivate = currentTab.isPrivate
             let addTab = { (rURL: URL, isPrivate: Bool) in
                 let tab = self.tabManager.addTab(URLRequest(url: rURL as URL), afterTab: currentTab, isPrivate: isPrivate)
-                LeanPlumClient.shared.track(event: .openedNewTab, withParameters: ["Source": "Long Press Context Menu"])
                 guard !self.topTabsVisible else {
                     return
                 }
@@ -433,8 +432,6 @@ extension BrowserViewController: WKNavigationDelegate {
                 } else {
                     UIApplication.shared.open(url, options: [:])
                 }
-
-                LeanPlumClient.shared.track(event: .openedMailtoLink)
             }
 
             decisionHandler(.cancel)

@@ -354,7 +354,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
             navigationController?.pushViewController(nextController, animated: true)
         case let bookmarkItem as BookmarkItem:
             libraryPanelDelegate?.libraryPanel(didSelectURLString: bookmarkItem.url, visitType: .bookmark)
-            LeanPlumClient.shared.track(event: .openedBookmark)
             UnifiedTelemetry.recordEvent(category: .action, method: .open, object: .bookmark, value: .bookmarksPanel)
         default:
             return // Likely a separator was selected so do nothing.
@@ -529,7 +528,7 @@ extension BookmarksPanel: LibraryPanelContextMenu {
         }
 
         let pinTopSite = PhotonActionSheetItem(title: Strings.PinTopsiteActionTitle, iconString: "action_pin", handler: { _, _ in
-            _ = self.profile.history.addPinnedTopSite(site).uponQueue(.main) { result in
+            self.profile.history.addPinnedTopSite(site).uponQueue(.main) { result in
                 if result.isSuccess {
                     SimpleToast().showAlertWithText(Strings.AppMenuAddPinToTopSitesConfirmMessage, bottomContainer: self.view)
                 }

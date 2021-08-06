@@ -9,11 +9,18 @@ open class ClosedTabsStore {
     let prefs: Prefs
 
     lazy open var tabs: [ClosedTab] = {
-        guard let tabsArray: Data = self.prefs.objectForKey("recentlyClosedTabs") as Any? as? Data,
-              let unarchivedArray = NSKeyedUnarchiver.unarchiveObject(with: tabsArray) as? [ClosedTab] else {
+        guard let tabsArray: Data = self.prefs.objectForKey("recentlyClosedTabs") as Any? as? Data
+        else {
             return []
         }
-        return unarchivedArray
+        
+        do {
+            guard let unarchivedArray = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(tabsArray) as? [ClosedTab] else { return [] }
+            return unarchivedArray
+        } catch {
+            print("Error unarchiving ClosedTab array: \(error.localizedDescription)")
+            return []
+        }
     }()
 
     public init(prefs: Prefs) {
@@ -26,8 +33,13 @@ open class ClosedTabsStore {
         if tabs.count > 5 {
             tabs.removeLast()
         }
-        let archivedTabsArray = NSKeyedArchiver.archivedData(withRootObject: tabs)
-        prefs.setObject(archivedTabsArray, forKey: "recentlyClosedTabs")
+
+        do {
+            let archivedTabsArray = try NSKeyedArchiver.archivedData(withRootObject: tabs, requiringSecureCoding: true)
+            prefs.setObject(archivedTabsArray, forKey: "recentlyClosedTabs")
+        } catch {
+            print("Error archiving recentlyClosedTabs: \(error.localizedDescription)")
+        }
     }
 
     open func clearTabs() {
@@ -36,7 +48,9 @@ open class ClosedTabsStore {
     }
 }
 
-open class ClosedTab: NSObject, NSCoding {
+open class ClosedTab: NSObject, NSCoding, NSSecureCoding {
+    public static var supportsSecureCoding: Bool = true
+    
     public let url: URL
     public let title: String?
     public let faviconURL: String?

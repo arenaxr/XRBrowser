@@ -50,8 +50,18 @@ extension UIView {
      * Performs a deep copy of the view. Does not copy constraints.
      */
     @objc func clone() -> UIView {
-        let data = NSKeyedArchiver.archivedData(withRootObject: self)
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as! UIView
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: true)
+            let viewData = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIView.self, from: data)
+            guard let unarchivedView = viewData else {
+                print("Error unarchiving cloned UIView")
+                return UIView()
+            }
+            return unarchivedView
+        } catch {
+            print("Error cloning UIView")
+            return UIView()
+        }
     }
 
     /**

@@ -211,7 +211,7 @@ extension PhotonActionSheetProtocol {
             })
         }
         
-        let xrStopAR = PhotonActionSheetItem(title: "Stop AR", iconString: "menu-CloseTabs") { _, _ in
+        let _ = PhotonActionSheetItem(title: "Stop AR", iconString: "menu-CloseTabs") { _, _ in
             guard let bvc = presentableVC as? BrowserViewController,
                 let tab = bvc.tabManager.selectedTab
                 else {

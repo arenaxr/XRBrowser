@@ -6,7 +6,6 @@ import Foundation
 import UIKit
 import SnapKit
 import Shared
-//import Leanplum
 
 class IntroViewControllerV2: UIViewController {
     // Public constants

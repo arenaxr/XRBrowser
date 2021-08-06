@@ -176,6 +176,8 @@ extension ARKController {
             return WEB_AR_WORLDMAPPING_EXTENDING as NSString
         case .mapped:
             return WEB_AR_WORLDMAPPING_MAPPED as NSString
+        @unknown default:
+            return WEB_AR_WORLDMAPPING_UNKNOWN_ERROR as NSString
         }
     }
     

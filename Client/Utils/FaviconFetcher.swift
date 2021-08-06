@@ -6,7 +6,6 @@ import Storage
 import Shared
 import XCGLogger
 import SDWebImage
-//import Fuzi
 import SwiftyJSON
 
 private let log = Logger.browserLogger
@@ -114,7 +113,7 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
     // Loads and parses an html document and tries to find any known favicon-type tags for the page
     fileprivate func parseHTMLForFavicons(_ url: URL) -> Deferred<Maybe<[Favicon]>> {
         return fetchDataForURL(url).bind({ result -> Deferred<Maybe<[Favicon]>> in
-            var icons = [Favicon]()
+            let icons = [Favicon]()
 //            guard let data = result.successValue, result.isSuccess,
 ////                let root = try? HTMLDocument(data: data as Data) else {
 ////                    return deferMaybe([])

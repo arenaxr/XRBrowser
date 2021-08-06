@@ -561,31 +561,9 @@ class ToggleOnboarding: HiddenSetting {
     }
 }
 
-class LeanplumStatus: HiddenSetting {
-    let lplumSetupType = LeanPlumClient.shared.lpSetupType()
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: "LP Setup: \(lplumSetupType) | Started: \(LeanPlumClient.shared.isRunning()) | Device ID: \(LeanPlumClient.shared.leanplumDeviceId ?? "")", attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-    
-    override func onClick(_ navigationController: UINavigationController?) {
-        copyLeanplumDeviceIDAndPresentAlert(by: navigationController)
-    }
-    
-    func copyLeanplumDeviceIDAndPresentAlert(by navigationController: UINavigationController?) {
-        let alertTitle = Strings.SettingsCopyAppVersionAlertTitle
-        let alert = AlertController(title: alertTitle, message: nil, preferredStyle: .alert)
-        UIPasteboard.general.string = "\(LeanPlumClient.shared.leanplumDeviceId ?? "")"
-        navigationController?.topViewController?.present(alert, animated: true) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                alert.dismiss(animated: true)
-            }
-        }
-    }
-}
-
 class ClearOnboardingABVariables: HiddenSetting {
     override var title: NSAttributedString? {
-        // If we are running an A/B test this will also fetch the A/B test variables from leanplum. Re-open app to see the effect.
+        // If we are running an A/B test this will also fetch the A/B test variables. Re-open app to see the effect.
         return NSAttributedString(string: NSLocalizedString("Debug: Clear onboarding AB variables", comment: "Debug option"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
     }
 
@@ -730,12 +708,7 @@ class SendAnonymousUsageDataSetting: BoolSetting {
             prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true,
             attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle),
             attributedStatusText: statusText,
-            settingDidChange: {
-//                AdjustIntegration.setEnabled($0)
-                LeanPlumClient.shared.set(attributes: [LPAttributeKey.telemetryOptIn: $0])
-                LeanPlumClient.shared.set(enabled: $0)
-//                Glean.shared.setUploadEnabled($0)
-            }
+            settingDidChange: { _ in }
         )
     }
 
@@ -772,7 +745,7 @@ class SearchSetting: Setting {
 
     override var style: UITableViewCell.CellStyle { return .value1 }
 
-    override var status: NSAttributedString { return NSAttributedString(string: profile.searchEngines.defaultEngine?.shortName ?? "no default engine") }
+    override var status: NSAttributedString { return NSAttributedString(string: profile.searchEngines.defaultEngine.shortName) }
 
     override var accessibilityIdentifier: String? { return "Search" }
 
@@ -821,7 +794,6 @@ class LoginsSetting: Setting {
         guard let navController = navigationController else { return }
         LoginListViewController.create(authenticateInNavigationController: navController, profile: profile, settingsDelegate: BrowserViewController.foregroundBVC()).uponQueue(.main) { loginsVC in
             guard let loginsVC = loginsVC else { return }
-            LeanPlumClient.shared.track(event: .openedLogins)
             navController.pushViewController(loginsVC, animated: true)
         }
     }

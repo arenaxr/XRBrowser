@@ -4,12 +4,13 @@
 
 import UIKit
 import Shared
-//import Fuzi
+import Fuzi
 
 private let TypeSearch = "text/html"
 private let TypeSuggest = "application/x-suggestions+json"
 
-class OpenSearchEngine: NSObject, NSCoding {
+class OpenSearchEngine: NSObject, NSCoding, NSSecureCoding {
+    public static var supportsSecureCoding: Bool = true
     static let PreferredIconSize = 30
 
     let shortName: String
@@ -177,120 +178,120 @@ class OpenSearchParser {
             print("Invalid search file")
             return nil
         }
-        return nil
-//        guard let indexer = try? XMLDocument(data: data),
-//            let docIndexer = indexer.root else {
-//                print("Invalid XML document")
-//                return nil
-//        }
-//
-//        let shortNameIndexer = docIndexer.children(tag: "ShortName")
-//        if shortNameIndexer.count != 1 {
-//            print("ShortName must appear exactly once")
-//            return nil
-//        }
-//
-//        let shortName = shortNameIndexer[0].stringValue
-//        if shortName == "" {
-//            print("ShortName must contain text")
-//            return nil
-//        }
-//
-//        let urlIndexers = docIndexer.children(tag: "Url")
-//        if urlIndexers.isEmpty {
-//            print("Url must appear at least once")
-//            return nil
-//        }
-//
-//        var searchTemplate: String!
-//        var suggestTemplate: String?
-//        for urlIndexer in urlIndexers {
-//            let type = urlIndexer.attributes["type"]
-//            if type == nil {
-//                print("Url element requires a type attribute", terminator: "\n")
-//                return nil
-//            }
-//
-//            if type != TypeSearch && type != TypeSuggest {
-//                // Not a supported search type.
-//                continue
-//            }
-//
-//            var template = urlIndexer.attributes["template"]
-//            if template == nil {
-//                print("Url element requires a template attribute", terminator: "\n")
-//                return nil
-//            }
-//
-//            if pluginMode {
-//                let paramIndexers = urlIndexer.children(tag: "Param")
-//
-//                if !paramIndexers.isEmpty {
-//                    template! += "?"
-//                    var firstAdded = false
-//                    for paramIndexer in paramIndexers {
-//                        if firstAdded {
-//                            template! += "&"
-//                        } else {
-//                            firstAdded = true
-//                        }
-//
-//                        let name = paramIndexer.attributes["name"]
-//                        let value = paramIndexer.attributes["value"]
-//                        if name == nil || value == nil {
-//                            print("Param element must have name and value attributes", terminator: "\n")
-//                            return nil
-//                        }
-//                        template! += name! + "=" + value!
-//                    }
-//                }
-//            }
-//
-//            if type == TypeSearch {
-//                searchTemplate = template
-//            } else {
-//                suggestTemplate = template
-//            }
-//        }
-//
-//        if searchTemplate == nil {
-//            print("Search engine must have a text/html type")
-//            return nil
-//        }
-//
-//        let imageIndexers = docIndexer.children(tag: "Image")
-//        var largestImage = 0
-//        var largestImageElement: XMLElement?
-//
-//        // TODO: For now, just use the largest icon.
-//        for imageIndexer in imageIndexers {
-//            let imageWidth = Int(imageIndexer.attributes["width"] ?? "")
-//            let imageHeight = Int(imageIndexer.attributes["height"] ?? "")
-//
-//            // Only accept square images.
-//            if imageWidth != imageHeight {
-//                continue
-//            }
-//
-//            if let imageWidth = imageWidth {
-//                if imageWidth > largestImage {
-//                    largestImage = imageWidth
-//                    largestImageElement = imageIndexer
-//                }
-//            }
-//        }
-//
-//        let uiImage: UIImage
-//        if let imageElement = largestImageElement,
-//            let imageURL = URL(string: imageElement.stringValue),
-//            let imageData = try? Data(contentsOf: imageURL),
-//            let image = UIImage.imageFromDataThreadSafe(imageData) {
-//            uiImage = image
-//        } else {
-//            print("Error: Invalid search image data")
-//            return nil
-//        }
-//
-//        return OpenSearchEngine(engineID: engineID, shortName: shortName, image: uiImage, searchTemplate: searchTemplate, suggestTemplate: suggestTemplate, isCustomEngine: false)
+
+        guard let indexer = try? XMLDocument(data: data),
+            let docIndexer = indexer.root else {
+                print("Invalid XML document")
+                return nil
+        }
+
+        let shortNameIndexer = docIndexer.children(tag: "ShortName")
+        if shortNameIndexer.count != 1 {
+            print("ShortName must appear exactly once")
+            return nil
+        }
+
+        let shortName = shortNameIndexer[0].stringValue
+        if shortName == "" {
+            print("ShortName must contain text")
+            return nil
+        }
+
+        let urlIndexers = docIndexer.children(tag: "Url")
+        if urlIndexers.isEmpty {
+            print("Url must appear at least once")
+            return nil
+        }
+
+        var searchTemplate: String!
+        var suggestTemplate: String?
+        for urlIndexer in urlIndexers {
+            let type = urlIndexer.attributes["type"]
+            if type == nil {
+                print("Url element requires a type attribute", terminator: "\n")
+                return nil
+            }
+
+            if type != TypeSearch && type != TypeSuggest {
+                // Not a supported search type.
+                continue
+            }
+
+            var template = urlIndexer.attributes["template"]
+            if template == nil {
+                print("Url element requires a template attribute", terminator: "\n")
+                return nil
+            }
+
+            if pluginMode {
+                let paramIndexers = urlIndexer.children(tag: "Param")
+
+                if !paramIndexers.isEmpty {
+                    template! += "?"
+                    var firstAdded = false
+                    for paramIndexer in paramIndexers {
+                        if firstAdded {
+                            template! += "&"
+                        } else {
+                            firstAdded = true
+                        }
+
+                        let name = paramIndexer.attributes["name"]
+                        let value = paramIndexer.attributes["value"]
+                        if name == nil || value == nil {
+                            print("Param element must have name and value attributes", terminator: "\n")
+                            return nil
+                        }
+                        template! += name! + "=" + value!
+                    }
+                }
+            }
+
+            if type == TypeSearch {
+                searchTemplate = template
+            } else {
+                suggestTemplate = template
+            }
+        }
+
+        if searchTemplate == nil {
+            print("Search engine must have a text/html type")
+            return nil
+        }
+
+        let imageIndexers = docIndexer.children(tag: "Image")
+        var largestImage = 0
+        var largestImageElement: XMLElement?
+
+        // TODO: For now, just use the largest icon.
+        for imageIndexer in imageIndexers {
+            let imageWidth = Int(imageIndexer.attributes["width"] ?? "")
+            let imageHeight = Int(imageIndexer.attributes["height"] ?? "")
+
+            // Only accept square images.
+            if imageWidth != imageHeight {
+                continue
+            }
+
+            if let imageWidth = imageWidth {
+                if imageWidth > largestImage {
+                    largestImage = imageWidth
+                    largestImageElement = imageIndexer
+                }
+            }
+        }
+
+        let uiImage: UIImage
+        if let imageElement = largestImageElement,
+            let imageURL = URL(string: imageElement.stringValue),
+            let imageData = try? Data(contentsOf: imageURL),
+            let image = UIImage.imageFromDataThreadSafe(imageData) {
+            uiImage = image
+        } else {
+            print("Error: Invalid search image data")
+            return nil
+        }
+
+        return OpenSearchEngine(engineID: engineID, shortName: shortName, image: uiImage, searchTemplate: searchTemplate, suggestTemplate: suggestTemplate, isCustomEngine: false)
     }
 }

@@ -1048,7 +1048,7 @@ class BrowserViewController: UIViewController {
     func openSearchNewTab(isPrivate: Bool = false, _ text: String) {
         popToBVC()
         let engine = profile.searchEngines.defaultEngine
-        if let searchURL = engine?.searchURLForQuery(text) {
+        if let searchURL = engine.searchURLForQuery(text) {
             openURLInNewTab(searchURL, isPrivate: isPrivate)
         } else {
             // We still don't have a valid URL, so something is broken. Give up.
@@ -1091,7 +1091,6 @@ class BrowserViewController: UIViewController {
         }
 
         present(controller, animated: true, completion: nil)
-        LeanPlumClient.shared.track(event: .userSharedWebpage)
     }
 
     @objc fileprivate func openSettings() {
@@ -1325,7 +1324,6 @@ extension BrowserViewController: URLBarDelegate {
         if let tab = self.tabManager.selectedTab {
             let trackingProtectionMenu = self.getTrackingSubMenu(for: tab)
             let title = String.localizedStringWithFormat(Strings.TPPageMenuTitle, tab.url?.host ?? "")
-            LeanPlumClient.shared.track(event: .trackingProtectionMenu)
             UnifiedTelemetry.recordEvent(category: .action, method: .press, object: .trackingProtectionMenu)
             self.presentSheetWith(title: title, actions: trackingProtectionMenu, on: self, from: urlBar)
         }
@@ -1349,7 +1347,6 @@ extension BrowserViewController: URLBarDelegate {
         case .available:
             enableReaderMode()
             UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .readerModeOpenButton)
-            LeanPlumClient.shared.track(event: .useReaderView)
         case .active:
             disableReaderMode()
             UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .readerModeCloseButton)
@@ -1479,9 +1476,9 @@ extension BrowserViewController: URLBarDelegate {
     fileprivate func submitSearchText(_ text: String, forTab tab: Tab) {
         let engine = profile.searchEngines.defaultEngine
 
-        if let searchURL = engine?.searchURLForQuery(text) {
+        if let searchURL = engine.searchURLForQuery(text) {
             // We couldn't find a matching search keyword, so do a search query.
-            Telemetry.default.recordSearch(location: .actionBar, searchEngine: engine?.engineID ?? "other")
+            Telemetry.default.recordSearch(location: .actionBar, searchEngine: engine.engineID ?? "other")
             finishEditingAndSubmit(searchURL, visitType: VisitType.typed, forTab: tab)
         } else {
             // We still don't have a valid URL, so something is broken. Give up.
@@ -1505,8 +1502,6 @@ extension BrowserViewController: URLBarDelegate {
 
             showFirefoxHome(inline: false)
         }
-
-        LeanPlumClient.shared.track(event: .interactWithURLBar)
     }
 
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView) {
@@ -1659,7 +1654,7 @@ extension BrowserViewController: LibraryPanelDelegate {
     }
 
     func libraryPanel(didSelectURLString url: String, visitType: VisitType) {
-        guard let url = URIFixup.getURL(url) ?? profile.searchEngines.defaultEngine?.searchURLForQuery(url) else {
+        guard let url = URIFixup.getURL(url) ?? profile.searchEngines.defaultEngine.searchURLForQuery(url) else {
             Logger.browserLogger.warning("Invalid URL, and couldn't generate a search URL for it.")
             return
         }
@@ -2015,15 +2010,7 @@ extension BrowserViewController {
     }
     
     private func onboardingUserResearchHelper(_ alwaysShow: Bool = false) {
-        if alwaysShow {
-            showProperIntroVC()
-            return
-        }
-        // Setup user research closure and observer to fetch the updated LP Variables
-        onboardingUserResearch?.updatedLPVariable =  {
-            self.showProperIntroVC()
-        }
-        onboardingUserResearch?.lpVariableObserver()
+        showProperIntroVC()
     }
     
     private func showProperIntroVC() {
@@ -2131,7 +2118,6 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 
             let addTab = { (rURL: URL, isPrivate: Bool) in
                     let tab = self.tabManager.addTab(URLRequest(url: rURL as URL), afterTab: currentTab, isPrivate: isPrivate)
-                    LeanPlumClient.shared.track(event: .openedNewTab, withParameters: ["Source": "Long Press Context Menu"])
                     guard !self.topTabsVisible else {
                         return
                     }
@@ -2311,7 +2297,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 extension BrowserViewController {
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if error == nil {
-            LeanPlumClient.shared.track(event: .saveImage)
+            print("Successfully saved image")
         }
     }
 }

@@ -70,8 +70,8 @@ class FxAWebViewModel {
 
     func setupFirstPage(completion: @escaping ((URLRequest, UnifiedTelemetry.EventMethod?) -> Void)) {
         profile.rustFxA.accountManager.uponQueue(.main) { accountManager in
-            accountManager.getManageAccountURL(entrypoint: "ios_settings_manage") { [weak self] result in
-                guard let self = self else { return }
+//            accountManager.getManageAccountURL(entrypoint: "ios_settings_manage") { [weak self] result in
+//                guard let self = self else { return }
 
                 // Handle authentication with either the QR code login flow, email login flow, or settings page flow
 //                switch self.pageType {
@@ -99,7 +99,7 @@ class FxAWebViewModel {
 //                        completion(self.makeRequest(url), nil)
 //                    }
 //                }
-            }
+//            }
         }
     }
     
@@ -231,11 +231,10 @@ extension FxAWebViewModel {
         
         // Use presence of key `offeredSyncEngines` to determine if this was a new sign-up.
         if let engines = data["offeredSyncEngines"] as? [String], engines.count > 0 {
-            LeanPlumClient.shared.track(event: .signsUpFxa)
+            print("Fxa sign up")
         } else {
-            LeanPlumClient.shared.track(event: .signsInFxa)
+            print("Fxa sign in")
         }
-        LeanPlumClient.shared.set(attributes: [LPAttributeKey.signedInSync: true])
         
         let auth = FxaAuthData(code: code, state: state, actionQueryParam: "signin")
         profile.rustFxA.accountManager.peek()?.finishAuthentication(authData: auth) { _ in

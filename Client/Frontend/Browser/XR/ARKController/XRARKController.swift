@@ -73,7 +73,7 @@ enum WebXRAuthorizationState {
 struct ShowOptions: OptionSet {
     let rawValue: Int
     
-    static let none = ShowOptions(rawValue: 0)
+    static let none = ShowOptions([])
     static let browser = ShowOptions(rawValue: 1 << 0)
     static let arWarnings = ShowOptions(rawValue: 1 << 1)
     static let arFocus = ShowOptions(rawValue: 1 << 2)

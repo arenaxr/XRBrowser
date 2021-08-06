@@ -65,7 +65,9 @@ extension FxAPushMessageHandler {
         RustFirefoxAccounts.reconfig(prefs: profile.prefs).uponQueue(.main) { accountManager in
             accountManager.deviceConstellation()?.processRawIncomingAccountEvent(pushPayload: string) {
                 result in
-                guard case .success(let events) = result, let firstEvent = events.first else {
+                guard case .success(let events) = result,
+                      let _ = events.first
+                else {
                     let err: PushMessageError
                     if case .failure(let error) = result {
                         err = PushMessageError.messageIncomplete(error.localizedDescription)
