@@ -6,7 +6,7 @@ This project is forked from Mozilla's WebXR Viewer. WebXR Viewer is an iOS WebXR
 This branch (WebXR-iOS-14.5)
 -----------
 
-This branch only works with Xcode 12.5 (it does not presently work with Xcode 12.5.1), Swift 5.4 and supports iOS 12.0 and above.
+This branch only works with Xcode 12.5.1, Swift 5, and iOS 12.0+.
 
 Please make sure you aim your pull requests in the right direction.
 
@@ -18,7 +18,7 @@ Want to contribute but don't know where to start? Check out any open issues. Or 
 Building the code
 -----------------
 
-1. Install Xcode 12.5 from Apple.
+1. Install Xcode 12.5.1 from Apple
 1. Install Carthage and Node
     ```shell
     brew update
@@ -71,8 +71,8 @@ Troubleshooting
 ---------------
 This repository's current architecture and usage of the Carthage dependency manager often leads to build issues when new versions of Xcode, iOS, and/or Swift are released. Until improvements are made, here is a troubleshooting process that has helped:
 
-1. Confirm you're using Xcode 12.5 (not Xcode 12.5.1 nor other versions of Xcode)
-1. Confirm you're using Xcode 12.5 Command Line Tools (not Xcode 12.5.1 Command Line Tools nor other versions of Xcode Command Line Tools) in the menu: Xcode → Preferences → Locations → Command Line Tools
+1. Confirm you're using Xcode 12.5.1 (not Xcode 12.5 nor other versions of Xcode)
+1. Confirm you're using Xcode 12.5.1 Command Line Tools (not Xcode 12.5 Command Line Tools nor other versions of Xcode Command Line Tools) in the menu: Xcode → Preferences → Locations → Command Line Tools
 1. Clean Xcode's build folder: ⌘ + ⇧ + K
 1. Delete Xcode's Derived Data folder, navigate there from the menu: Xcode → Preferences → Locations → click the arrow next to the DerivedData folder path to navigate there in Finder → delete the DerivedData folder
 1. Delete the Carthage system cache folder: Finder → open up the Go to Folder command (⌘ + ⇧ + G) → Go to `~/Library/Caches` → delete the folder `org.carthage.CarthageKit`
