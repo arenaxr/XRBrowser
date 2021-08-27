@@ -70,11 +70,6 @@ class TestAppDelegate: AppDelegate {
             profile.prefs.setInt(1, forKey: PrefsKeys.KeyLastVersionNumber)
         }
 
-        // Skip the intro when requested by for example tests or automation
-        if launchArguments.contains(LaunchArguments.SkipIntro) {
-            profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
-        }
-
         if launchArguments.contains(LaunchArguments.StageServer) {
             profile.prefs.setInt(1, forKey: PrefsKeys.UseStageServer)
         }

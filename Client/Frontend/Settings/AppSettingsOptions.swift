@@ -568,7 +568,6 @@ class ClearOnboardingABVariables: HiddenSetting {
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
-        settings.profile.prefs.removeObjectForKey(PrefsKeys.IntroSeen)
         OnboardingUserResearch().onboardingScreenType = nil
     }
 }
@@ -661,24 +660,6 @@ class YourRightsSetting: Setting {
 
     override func onClick(_ navigationController: UINavigationController?) {
         setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
-// Opens the on-boarding screen again
-class ShowIntroductionSetting: Setting {
-    let profile: Profile
-
-    override var accessibilityIdentifier: String? { return "ShowTour" }
-
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-        super.init(title: NSAttributedString(string: NSLocalizedString("Show Tour", comment: "Show the on-boarding screen again from the settings"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        navigationController?.dismiss(animated: true, completion: {
-            BrowserViewController.foregroundBVC().presentIntroViewController(true)
-        })
     }
 }
 

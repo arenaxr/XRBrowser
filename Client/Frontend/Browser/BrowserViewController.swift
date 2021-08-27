@@ -550,12 +550,6 @@ class BrowserViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // On iPhone, if we are about to show the On-Boarding, blank out the tab so that it does
-        // not flash before we present. This change of alpha also participates in the animation when
-        // the intro view is dismissed.
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            self.view.alpha = (profile.prefs.intForKey(PrefsKeys.IntroSeen) != nil) ? 1.0 : 0.0
-        }
 
         if !displayedRestoreTabsAlert && !cleanlyBackgrounded() && crashedLastLaunch() {
             displayedRestoreTabsAlert = true
@@ -596,7 +590,6 @@ class BrowserViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        presentIntroViewController()
         presentETPCoverSheetViewController()
         presentUpdateViewController()
         screenshotHelper.viewIsVisible = true
@@ -1928,15 +1921,6 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 }
 
 extension BrowserViewController {
-    func presentIntroViewController(_ alwaysShow: Bool = false) {
-        if let deeplink = self.profile.prefs.stringForKey("AdjustDeeplinkKey"), let url = URL(string: deeplink) {
-            self.launchFxAFromDeeplinkURL(url)
-            return
-        }
-        if alwaysShow || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
-            onboardingUserResearchHelper(alwaysShow)
-        }
-    }
     
     func presentETPCoverSheetViewController(_ force: Bool = false) {
         guard !hasTriedToPresentETPAlready else {
@@ -1950,7 +1934,7 @@ extension BrowserViewController {
         }
         let etpCoverSheetViewController = ETPCoverSheetViewController()
         if topTabsVisible {
-            etpCoverSheetViewController.preferredContentSize = CGSize(width: ViewControllerConsts.PreferredSize.UpdateViewController.width, height: ViewControllerConsts.PreferredSize.UpdateViewController.height)
+            etpCoverSheetViewController.preferredContentSize = CGSize(width: 375, height: 667)
             etpCoverSheetViewController.modalPresentationStyle = .formSheet
         } else {
             etpCoverSheetViewController.modalPresentationStyle = .fullScreen
@@ -1989,7 +1973,7 @@ extension BrowserViewController {
             }
             
             if topTabsVisible {
-                updateViewController.preferredContentSize = CGSize(width: ViewControllerConsts.PreferredSize.UpdateViewController.width, height: ViewControllerConsts.PreferredSize.UpdateViewController.height)
+                updateViewController.preferredContentSize = CGSize(width: 375, height: 667)
                 updateViewController.modalPresentationStyle = .formSheet
             } else {
                 updateViewController.modalPresentationStyle = .fullScreen
@@ -2007,43 +1991,6 @@ extension BrowserViewController {
         }
         
         return false
-    }
-    
-    private func onboardingUserResearchHelper(_ alwaysShow: Bool = false) {
-        showProperIntroVC()
-    }
-    
-    private func showProperIntroVC() {
-        let introViewController = IntroViewControllerV2()
-        introViewController.didFinishClosure = { controller, fxaLoginFlow in
-            self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
-            controller.dismiss(animated: true) {
-                if self.navigationController?.viewControllers.count ?? 0 > 1 {
-                    _ = self.navigationController?.popToRootViewController(animated: true)
-                }
-                if let flow = fxaLoginFlow {
-                    let fxaParams = FxALaunchParams(query: ["entrypoint": "firstrun"])
-                    self.presentSignInViewController(fxaParams, flowType: flow, referringPage: .onboarding)
-                }
-            }
-        }
-        self.introVCPresentHelper(introViewController: introViewController)
-    }
-    
-    private func introVCPresentHelper(introViewController: UIViewController) {
-        // On iPad we present it modally in a controller
-        if topTabsVisible {
-            introViewController.preferredContentSize = CGSize(width: ViewControllerConsts.PreferredSize.IntroViewController.width, height: ViewControllerConsts.PreferredSize.IntroViewController.height)
-            introViewController.modalPresentationStyle = .formSheet
-        } else {
-            introViewController.modalPresentationStyle = .fullScreen
-        }
-        present(introViewController, animated: true) {
-            // On first run (and forced) open up the homepage in the background.
-            if let homePageURL = NewTabHomePageAccessors.getHomePage(self.profile.prefs), let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
-                tab.loadRequest(URLRequest(url: homePageURL))
-            }
-        }
     }
 
     func launchFxAFromDeeplinkURL(_ url: URL) {
