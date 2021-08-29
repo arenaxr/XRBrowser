@@ -8,6 +8,7 @@ import UIKit
 open class UserAgent {
     public static let uaBitSafari = "Safari/605.1.15"
     public static let uaBitMobile = "Mobile/15E148"
+    // ATM NOTE 8/29/21: Injected polyfill may rely on WebXRViewer UserAgent
     public static let uaBitFx = "WebXRViewer/\(AppInfo.appVersion)"
     public static let product = "Mozilla/5.0"
     public static let platform = "AppleWebKit/605.1.15"

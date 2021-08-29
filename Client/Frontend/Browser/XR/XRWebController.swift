@@ -771,6 +771,7 @@ WKScriptMessageHandler {
         let conf = WKWebViewConfiguration()
         let contentController = WKUserContentController()
         let version = versionBuild() ?? "unknown"
+        // ATM NOTE 8/29/21: Injected polyfill may rely on WebXRViewer UserAgent
         conf.applicationNameForUserAgent = " Mobile WebXRViewer/" + version
 
         conf.userContentController = contentController
