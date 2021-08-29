@@ -38,7 +38,7 @@
 			<string>org.mozilla.Client</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>xrviewer</string>
+				<string>xrbrowser</string>
 				<string>$(MOZ_INTERNAL_URL_SCHEME)</string>
 			</array>
 		</dict>
@@ -80,7 +80,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This lets you take and upload photos.</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>XRViewer requires Face ID to access your saved logins.</string>
+	<string>XR Browser requires Face ID to access your saved logins.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Websites you visit may request your location.</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -91,7 +91,7 @@
 	<string>This lets you save and upload photos.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>org.mozilla.ios.xrviewer.browsing</string>
+		<string>org.xrbrowser.browsing</string>
 	</array>
 	<key>PocketEnvironmentAPIKey</key>
 	<string>$(POCKET_API_KEY)</string>

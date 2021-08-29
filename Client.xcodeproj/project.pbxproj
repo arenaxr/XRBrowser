@@ -973,8 +973,8 @@
 		B1E64598266D450C000C5F69 /* Sentry.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Sentry.xcframework; path = Carthage/Build/Sentry.xcframework; sourceTree = "<group>"; };
 		B1E645A1266D4518000C5F69 /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
 		B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftProtobuf.xcframework; path = Carthage/Build/SwiftProtobuf.xcframework; sourceTree = "<group>"; };
-		B615FA2F23A0252800724C0B /* XRViewerDevApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerDevApplication.entitlements; sourceTree = "<group>"; };
-		B615FA3023A0257500724C0B /* XRViewerApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerApplication.entitlements; sourceTree = "<group>"; };
+		B615FA2F23A0252800724C0B /* XRBrowserDevApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRBrowserDevApplication.entitlements; sourceTree = "<group>"; };
+		B615FA3023A0257500724C0B /* XRBrowserApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRBrowserApplication.entitlements; sourceTree = "<group>"; };
 		B6E4680E239EB969007468EC /* XRBrowser.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XRBrowser.xcconfig; path = Configuration/XRBrowser.xcconfig; sourceTree = "<group>"; };
 		B6E46811239EB99B007468EC /* XRBrowserDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XRBrowserDev.xcconfig; path = Configuration/XRBrowserDev.xcconfig; sourceTree = "<group>"; };
 		C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackForwardListViewController.swift; sourceTree = "<group>"; };
@@ -2221,8 +2221,8 @@
 		E689C6FF1E0C716F008BAADB /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				B615FA3023A0257500724C0B /* XRViewerApplication.entitlements */,
-				B615FA2F23A0252800724C0B /* XRViewerDevApplication.entitlements */,
+				B615FA3023A0257500724C0B /* XRBrowserApplication.entitlements */,
+				B615FA2F23A0252800724C0B /* XRBrowserDevApplication.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -3623,7 +3623,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Client/Entitlements/XRViewerDevApplication.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -3978,7 +3978,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Client/Entitlements/XRViewerApplication.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -4004,7 +4004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MOZ_INTERNAL_URL_SCHEME = "xrviewer-internal";
+				MOZ_INTERNAL_URL_SCHEME = "xrbrowser-internal";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",

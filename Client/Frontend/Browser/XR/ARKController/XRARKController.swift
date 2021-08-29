@@ -321,7 +321,7 @@ class ARKController: NSObject {
             worldSaveURL = nil
             log.debug("Couldn't create map save directory")
         }
-        worldSaveURL = newDir.appendingPathComponent("webxrviewer")
+        worldSaveURL = newDir.appendingPathComponent("webxrbrowser")
     }
     
     deinit {

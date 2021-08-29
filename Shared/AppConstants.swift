@@ -50,8 +50,8 @@ public struct AppConstants {
         if scheme == "FirefoxNightly.enterprise" {
             return "FirefoxNightly"
         }
-        if scheme.starts(with: "XRViewer") {
-            return "XRViewer"
+        if scheme.starts(with: "XRBrowser") {
+            return "XRBrowser"
         }
         return scheme
     }()
