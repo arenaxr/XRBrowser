@@ -584,7 +584,7 @@ class VersionSetting: Setting {
     }
 
     override var title: NSAttributedString? {
-        return NSAttributedString(string: String(format: NSLocalizedString("Version %@ (%@)", comment: "Version number of XRViewer shown in settings"),  VersionSetting.appVersion, VersionSetting.appBuildNumber), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
+        return NSAttributedString(string: String(format: NSLocalizedString("Version %@ (%@)", comment: "Version number of XR Browser shown in settings"),  VersionSetting.appVersion, VersionSetting.appBuildNumber), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
     }
     
     public static var appVersion: String {
@@ -860,7 +860,7 @@ class ClearPrivateDataSetting: Setting {
 
 class PrivacyPolicySetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Privacy Policy", comment: "Show XRViewer Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
+        return NSAttributedString(string: NSLocalizedString("Privacy Policy", comment: "Show XR Browser Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
     }
 
     override var url: URL? {

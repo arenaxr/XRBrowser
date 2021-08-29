@@ -1,5 +1,5 @@
 //
-//  AppDelegate+WebXRViewer.swift
+//  AppDelegate+WebXRBrowser.swift
 //  Client
 //
 //  Created by Blair MacIntyre on 6/25/20.

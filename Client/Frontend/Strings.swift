@@ -23,6 +23,7 @@ extension Strings {
     public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", value: "Open App Store", comment: "Open App Store button")
     public static let UndoString = NSLocalizedString("Toasts.Undo", value: "Undo", comment: "Label for button to undo the action just performed")
     public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
+    public static let StartBrowsingButtonTitle = NSLocalizedString("Start Browsing", tableName: "Intro", comment: "See http://mzl.la/1T8gxwo")
 }
 
 // Table date section titles.
@@ -109,7 +110,7 @@ extension Strings {
     public static let SettingsDeleteWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDelete", value: "Delete", comment: "Button to delete website in search results")
     public static let SettingsDoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", value: "Done", comment: "Button to exit edit website search results")
     public static let SettingsDisconnectSyncAlertTitle = NSLocalizedString("Settings.Disconnect.Title", value: "Disconnect Sync?", comment: "Title of the alert when prompting the user asking to disconnect.")
-    public static let SettingsDisconnectSyncAlertBody = NSLocalizedString("Settings.Disconnect.Body", value: "XRViewer will stop syncing with your account, but won’t delete any of your browsing data on this device.", comment: "Body of the alert when prompting the user asking to disconnect.")
+    public static let SettingsDisconnectSyncAlertBody = NSLocalizedString("Settings.Disconnect.Body", value: "XR Browser will stop syncing with your account, but won’t delete any of your browsing data on this device.", comment: "Body of the alert when prompting the user asking to disconnect.")
     public static let SettingsDisconnectSyncButton = NSLocalizedString("Settings.Disconnect.Button", value: "Disconnect Sync", comment: "Button displayed at the bottom of settings page allowing users to Disconnect from FxA")
     public static let SettingsDisconnectCancelAction = NSLocalizedString("Settings.Disconnect.CancelButton", value: "Cancel", comment: "Cancel action button in alert when user is prompted for disconnect")
     public static let SettingsDisconnectDestructiveAction = NSLocalizedString("Settings.Disconnect.DestructiveButton", value: "Disconnect", comment: "Destructive action button in alert when user is prompted for disconnect")
@@ -125,7 +126,7 @@ extension Strings {
     public static let ErrorPagesAdvancedButton = NSLocalizedString("ErrorPages.Advanced.Button", value: "Advanced", comment: "Label for button to perform advanced actions on the error page")
     public static let ErrorPagesAdvancedWarning1 = NSLocalizedString("ErrorPages.AdvancedWarning1.Text", value: "Warning: we can’t confirm your connection to this website is secure.", comment: "Warning text when clicking the Advanced button on error pages")
     public static let ErrorPagesAdvancedWarning2 = NSLocalizedString("ErrorPages.AdvancedWarning2.Text", value: "It may be a misconfiguration or tampering by an attacker. Proceed if you accept the potential risk.", comment: "Additional warning text when clicking the Advanced button on error pages")
-    public static let ErrorPagesCertWarningDescription = NSLocalizedString("ErrorPages.CertWarning.Description", value: "The owner of %@ has configured their website improperly. To protect your information from being stolen, XRViewer has not connected to this website.", comment: "Warning text on the certificate error page")
+    public static let ErrorPagesCertWarningDescription = NSLocalizedString("ErrorPages.CertWarning.Description", value: "The owner of %@ has configured their website improperly. To protect your information from being stolen, XR Browser has not connected to this website.", comment: "Warning text on the certificate error page")
     public static let ErrorPagesCertWarningTitle = NSLocalizedString("ErrorPages.CertWarning.Title", value: "This Connection is Untrusted", comment: "Title on the certificate error page")
     public static let ErrorPagesGoBackButton = NSLocalizedString("ErrorPages.GoBack.Button", value: "Go Back", comment: "Label for button to go back from the error page")
     public static let ErrorPagesVisitOnceButton = NSLocalizedString("ErrorPages.VisitOnce.Button", value: "Visit site anyway", comment: "Button label to temporarily continue to the site from the certificate error page")
@@ -161,7 +162,7 @@ extension Strings {
     public static let RecentlyClosedTabsButtonTitle = NSLocalizedString("HistoryPanel.RecentlyClosedTabsButton.Title", value: "Recently Closed", comment: "Title for the Recently Closed button in the History Panel")
     public static let RecentlyClosedTabsPanelTitle = NSLocalizedString("RecentlyClosedTabsPanel.Title", value: "Recently Closed", comment: "Title for the Recently Closed Tabs Panel")
     public static let HistoryPanelClearHistoryButtonTitle = NSLocalizedString("HistoryPanel.ClearHistoryButtonTitle", value: "Clear Recent History…", comment: "Title for button in the history panel to clear recent history")
-    public static let FirefoxHomePage = NSLocalizedString("Firefox.HomePage.Title", value: "XRViewer Home Page", comment: "Title for XRViewer about:home page in tab history list")
+    public static let FirefoxHomePage = NSLocalizedString("Firefox.HomePage.Title", value: "XR Browser Home Page", comment: "Title for XR Browser about:home page in tab history list")
 }
 
 // Clear recent history action menu
@@ -260,7 +261,7 @@ extension Strings {
     public static let FxAResendEmail = NSLocalizedString("FxA.ResendEmail", value: "Resend Email", comment: "Button label to resend email")
     public static let FxAAccountVerifyEmail = NSLocalizedString("Verify your email address", comment: "Text message in the settings table view")
     public static let FxAAccountVerifyPassword = NSLocalizedString("Enter your password to connect", comment: "Text message in the settings table view")
-    public static let FxAAccountUpgradeFirefox = NSLocalizedString("Upgrade XRViewer to connect", comment: "Text message in the settings table view")
+    public static let FxAAccountUpgradeFirefox = NSLocalizedString("Upgrade XR Browser to connect", comment: "Text message in the settings table view")
 }
 
 //Hotkey Titles
@@ -289,7 +290,7 @@ extension Strings {
     public static let SettingsNewTabTitle = NSLocalizedString("Settings.NewTab.Title", value: "New Tab", comment: "Title displayed in header of the setting panel.")
     public static let NewTabSectionNameFooter =
         NSLocalizedString("Settings.NewTab.TopSectionNameFooter", value: "Choose what to load when opening a new tab", comment: "Footer at the bottom of the New Tab screen after entering New Tab in settings")
-    public static let SettingsNewTabTopSites = NSLocalizedString("Settings.NewTab.Option.FirefoxHome", value: "XRViewer Home", comment: "Option in settings to show XRViewer Home when you open a new tab")
+    public static let SettingsNewTabTopSites = NSLocalizedString("Settings.NewTab.Option.FirefoxHome", value: "XR Browser Home", comment: "Option in settings to show XR Browser Home when you open a new tab")
     public static let SettingsNewTabBookmarks = NSLocalizedString("Settings.NewTab.Option.Bookmarks", value: "Bookmarks", comment: "Option in settings to show bookmarks when you open a new tab")
     public static let SettingsNewTabHistory = NSLocalizedString("Settings.NewTab.Option.History", value: "History", comment: "Option in settings to show history when you open a new tab")
     public static let SettingsNewTabReadingList = NSLocalizedString("Settings.NewTab.Option.ReadingList", value: "Show your Reading List", comment: "Option in settings to show reading list when you open a new tab")
@@ -302,7 +303,7 @@ extension Strings {
     public static let SettingsNewTabPocketFooter = NSLocalizedString("Settings.NewTab.Option.PocketFooter", value: "Great content from around the web.", comment: "Footer caption for pocket settings")
     public static let SettingsNewTabHiglightsHistory = NSLocalizedString("Settings.NewTab.Option.HighlightsHistory", value: "Visited", comment: "Option in settings to turn off history in the highlights section")
     public static let SettingsNewTabHighlightsBookmarks = NSLocalizedString("Settings.NewTab.Option.HighlightsBookmarks", value: "Recent Bookmarks", comment: "Option in the settings to turn off recent bookmarks in the Highlights section")
-    public static let SettingsTopSitesCustomizeTitle = NSLocalizedString("Settings.NewTab.Option.CustomizeTitle", value: "Customize XRViewer Home", comment: "The title for the section to customize top sites in the new tab settings page.")
+    public static let SettingsTopSitesCustomizeTitle = NSLocalizedString("Settings.NewTab.Option.CustomizeTitle", value: "Customize XR Browser Home", comment: "The title for the section to customize top sites in the new tab settings page.")
     public static let SettingsTopSitesCustomizeFooter = NSLocalizedString("Settings.NewTab.Option.CustomizeFooter", value: "The sites you visit most", comment: "The footer for the section to customize top sites in the new tab settings page.")
 
 }
@@ -382,7 +383,7 @@ extension Strings {
     public static let GoButtonTittle = NSLocalizedString("ClipboardToast.GoToCopiedLink.Button", value: "Go", comment: "The button to open a new tab with the copied link")
 
     public static let SettingsOfferClipboardBarTitle = NSLocalizedString("Settings.OfferClipboardBar.Title", value: "Offer to Open Copied Links", comment: "Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
-    public static let SettingsOfferClipboardBarStatus = NSLocalizedString("Settings.OfferClipboardBar.Status", value: "When Opening XRViewer", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
+    public static let SettingsOfferClipboardBarStatus = NSLocalizedString("Settings.OfferClipboardBar.Status", value: "When Opening XR Browser", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
 }
 
 // Link Previews
@@ -393,11 +394,11 @@ extension Strings {
 
 // errors
 extension Strings {
-    public static let UnableToDownloadError = NSLocalizedString("Downloads.Error.Message", value: "Downloads aren’t supported in XRViewer yet.", comment: "The message displayed to a user when they try and perform the download of an asset that XRViewer cannot currently handle.")
+    public static let UnableToDownloadError = NSLocalizedString("Downloads.Error.Message", value: "Downloads aren’t supported in XR Browser yet.", comment: "The message displayed to a user when they try and perform the download of an asset that XR Browser cannot currently handle.")
     public static let UnableToAddPassErrorTitle = NSLocalizedString("AddPass.Error.Title", value: "Failed to Add Pass", comment: "Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet.")
     public static let UnableToAddPassErrorMessage = NSLocalizedString("AddPass.Error.Message", value: "An error occured while adding the pass to Wallet. Please try again later.", comment: "Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
     public static let UnableToAddPassErrorDismiss = NSLocalizedString("AddPass.Error.Dismiss", value: "OK", comment: "Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
-    public static let UnableToOpenURLError = NSLocalizedString("OpenURL.Error.Message", value: "XRViewer cannot open the page because it has an invalid address.", comment: "The message displayed to a user when they try to open a URL that cannot be handled by XRViewer, or any external app.")
+    public static let UnableToOpenURLError = NSLocalizedString("OpenURL.Error.Message", value: "XR Browser cannot open the page because it has an invalid address.", comment: "The message displayed to a user when they try to open a URL that cannot be handled by XR Browser, or any external app.")
     public static let UnableToOpenURLErrorTitle = NSLocalizedString("OpenURL.Error.Title", value: "Cannot Open Page", comment: "Title of the message shown when the user attempts to navigate to an invalid link.")
 }
 
@@ -451,7 +452,7 @@ extension Strings {
 
 // Photo Library access.
 extension Strings {
-    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessTitle", value: "XRViewer would like to access your Photos", comment: "See http://mzl.la/1G7uHo7")
+    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessTitle", value: "XR Browser would like to access your Photos", comment: "See http://mzl.la/1G7uHo7")
     public static let PhotoLibraryFirefoxWouldLikeAccessMessage = NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessMessage", value: "This allows you to save the image to your Camera Roll.", comment: "See http://mzl.la/1G7uHo7")
 }
 
@@ -498,7 +499,7 @@ extension Strings {
     public static let ScanQRCodeViewTitle = NSLocalizedString("ScanQRCode.View.Title", value: "Scan QR Code", comment: "Title for the QR code scanner view.")
     public static let ScanQRCodeInstructionsLabel = NSLocalizedString("ScanQRCode.Instructions.Label", value: "Align QR code within frame to scan", comment: "Text for the instructions label, displayed in the QR scanner view")
     public static let ScanQRCodeInvalidDataErrorMessage = NSLocalizedString("ScanQRCode.InvalidDataError.Message", value: "The data is invalid", comment: "Text of the prompt that is shown to the user when the data is invalid")
-    public static let ScanQRCodePermissionErrorMessage = NSLocalizedString("ScanQRCode.PermissionError.Message", value: "Please allow XRViewer to access your device’s camera in ‘Settings’ -> ‘Privacy’ -> ‘Camera’.", comment: "Text of the prompt user to setup the camera authorization.")
+    public static let ScanQRCodePermissionErrorMessage = NSLocalizedString("ScanQRCode.PermissionError.Message", value: "Please allow XR Browser to access your device’s camera in ‘Settings’ -> ‘Privacy’ -> ‘Camera’.", comment: "Text of the prompt user to setup the camera authorization.")
     public static let ScanQRCodeErrorOKButton = NSLocalizedString("ScanQRCode.Error.OK.Button", value: "OK", comment: "OK button to dismiss the error prompt.")
 }
 
@@ -527,7 +528,7 @@ extension Strings {
     public static let AppMenuHistoryTitleString = NSLocalizedString("Menu.OpenHistoryAction.AccessibilityLabel.v2", tableName: "Menu", value: "History", comment: "Accessibility label for the button, displayed in the menu, used to open the History home panel. Please keep as short as possible, <15 chars of space available.")
     public static let AppMenuDownloadsTitleString = NSLocalizedString("Menu.OpenDownloadsAction.AccessibilityLabel.v2", tableName: "Menu", value: "Downloads", comment: "Accessibility label for the button, displayed in the menu, used to open the Downloads home panel. Please keep as short as possible, <15 chars of space available.")
     public static let AppMenuSyncedTabsTitleString = NSLocalizedString("Menu.OpenSyncedTabsAction.AccessibilityLabel.v2", tableName: "Menu", value: "Synced Tabs", comment: "Accessibility label for the button, displayed in the menu, used to open the Synced Tabs home panel. Please keep as short as possible, <15 chars of space available.")
-    public static let AppMenuLibrarySeeAllTitleString = NSLocalizedString("Menu.SeeAllAction.Title", tableName: "Menu", value: "See All", comment: "Label for the button, displayed in XRViewer Home, used to see all Library panels.")
+    public static let AppMenuLibrarySeeAllTitleString = NSLocalizedString("Menu.SeeAllAction.Title", tableName: "Menu", value: "See All", comment: "Label for the button, displayed in XR Browser Home, used to see all Library panels.")
     public static let AppMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.AccessibilityLabel", value: "Menu", comment: "Accessibility label for the Menu button.")
     public static let TabTrayDeleteMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.CloseAllTabs", value: "Close All Tabs", comment: "Accessibility label for the Close All Tabs menu button.")
     public static let AppMenuNightMode = NSLocalizedString("Menu.NightModeTurnOn.Label", value: "Enable Night Mode", comment: "Label for the button, displayed in the menu, turns on night mode.")
@@ -559,7 +560,7 @@ extension Strings {
 
     public static let TrackingProtectionOptionOnOffFooter = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateFooterLabel", value: "Tracking is the collection of your browsing data across multiple websites.", comment: "Description label shown on tracking protection options screen.")
     public static let TrackingProtectionOptionProtectionLevelTitle = NSLocalizedString("Settings.TrackingProtection.ProtectionLevelTitle", value: "Protection Level", comment: "Title for tracking protection options section where level can be selected.")
-    public static let TrackingProtectionOptionBlockListsHeader = NSLocalizedString("Settings.TrackingProtection.BlockListsHeader", value: "You can choose which list XRViewer will use to block Web elements that may track your browsing activity.", comment: "Header description for tracking protection options section where Basic/Strict block list can be selected")
+    public static let TrackingProtectionOptionBlockListsHeader = NSLocalizedString("Settings.TrackingProtection.BlockListsHeader", value: "You can choose which list XR Browser will use to block Web elements that may track your browsing activity.", comment: "Header description for tracking protection options section where Basic/Strict block list can be selected")
     public static let TrackingProtectionOptionBlockListLevelStandard = NSLocalizedString("Settings.TrackingProtectionOption.BasicBlockList", value: "Standard (default)", comment: "Tracking protection settings option for using the basic blocklist.")
    // public static let TrackingProtectionOptionBlockListLevelStandardDescription = NSLocalizedString("Settings.TrackingProtectionOption.BlockListBasicDescription", value: "Allows some trackers so websites function properly.", comment: "Tracking protection settings option description for using the basic blocklist.")
     public static let TrackingProtectionOptionBlockListLevelStrict = NSLocalizedString("Settings.TrackingProtectionOption.BlockListStrict", value: "Strict", comment: "Tracking protection settings option for using the strict blocklist.")
@@ -580,7 +581,7 @@ extension Strings {
 
 // Tracking Protection menu
 extension Strings {
-    public static let TPBlockingDescription = NSLocalizedString("Menu.TrackingProtectionBlocking.Description", value: "XRViewer is blocking parts of the page that may track your browsing.", comment: "Description of the Tracking protection menu when TP is blocking parts of the page")
+    public static let TPBlockingDescription = NSLocalizedString("Menu.TrackingProtectionBlocking.Description", value: "XR Browser is blocking parts of the page that may track your browsing.", comment: "Description of the Tracking protection menu when TP is blocking parts of the page")
     public static let TPNoBlockingDescription = NSLocalizedString("Menu.TrackingProtectionNoBlocking.Description", value: "No tracking elements detected on this page.", comment: "The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled.")
     public static let TPBlockingDisabledDescription = NSLocalizedString("Menu.TrackingProtectionBlockingDisabled.Description", value: "Block online trackers", comment: "The description of the Tracking Protection menu item when tracking is enabled")
     public static let TPBlockingMoreInfo = NSLocalizedString("Menu.TrackingProtectionMoreInfo.Description", value: "Learn more about how Tracking Protection blocks online trackers that collect your browsing data across multiple websites.", comment: "more info about what tracking protection is about")
@@ -594,7 +595,7 @@ extension Strings {
 
     // TP Page menu title
     public static let TPPageMenuTitle = NSLocalizedString("Menu.TrackingProtection.TitlePrefix", value: "Protections for %@", comment: "Title on tracking protection menu showing the domain. eg. Protections for mozilla.org")
-    public static let TPPageMenuNoTrackersBlocked = NSLocalizedString("Menu.TrackingProtection.NoTrackersBlockedTitle", value: "No trackers known to XRViewer were detected on this page.", comment: "Message in menu when no trackers blocked.")
+    public static let TPPageMenuNoTrackersBlocked = NSLocalizedString("Menu.TrackingProtection.NoTrackersBlockedTitle", value: "No trackers known to XR Browser were detected on this page.", comment: "Message in menu when no trackers blocked.")
     public static let TPPageMenuBlockedTitle = NSLocalizedString("Menu.TrackingProtection.BlockedTitle", value: "Blocked", comment: "Title on tracking protection menu for blocked items.")
 
     // Category Titles
@@ -644,9 +645,9 @@ extension Strings {
 extension Strings {
     public static let SendUsageSettingTitle = NSLocalizedString("Settings.SendUsage.Title", value: "Send Usage Data", comment: "The title for the setting to send usage data.")
     public static let SendUsageSettingLink = NSLocalizedString("Settings.SendUsage.Link", value: "Learn More.", comment: "title for a link that explains how mozilla collects telemetry")
-    public static let SendUsageSettingMessage = NSLocalizedString("Settings.SendUsage.Message", value: "Mozilla strives to only collect what we need to provide and improve XRViewer for everyone.", comment: "A short description that explains why mozilla collects usage data.")
+    public static let SendUsageSettingMessage = NSLocalizedString("Settings.SendUsage.Message", value: "We strive to only collect what we need to provide and improve XR Browser for everyone.", comment: "A short description that explains why XR Browser collects usage data.")
     public static let SettingsSiriSectionName = NSLocalizedString("Settings.Siri.SectionName", value: "Siri Shortcuts", comment: "The option that takes you to the siri shortcuts settings page")
-    public static let SettingsSiriSectionDescription = NSLocalizedString("Settings.Siri.SectionDescription", value: "Use Siri shortcuts to quickly open XRViewer via Siri", comment: "The description that describes what siri shortcuts are")
+    public static let SettingsSiriSectionDescription = NSLocalizedString("Settings.Siri.SectionDescription", value: "Use Siri shortcuts to quickly open XR Browser via Siri", comment: "The description that describes what siri shortcuts are")
     public static let SettingsSiriOpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", value: "Open New Tab", comment: "The description of the open new tab siri shortcut")
 }
 
@@ -677,7 +678,7 @@ extension Strings {
     public static let SendToErrorMessage = NSLocalizedString("SendTo.Error.Message", bundle: applicationBundle(), value: "Only HTTP and HTTPS links can be shared.", comment: "Message in error prompt explaining why the URL is invalid.")
     public static let SendToCloseButton = NSLocalizedString("SendTo.Cancel.Button", bundle: applicationBundle(), value: "Close", comment: "Close button in top navigation bar")
     public static let SendToNotSignedInText = NSLocalizedString("SendTo.NotSignedIn.Title", bundle: applicationBundle(), value: "You are not signed in to your Firefox Account.", comment: "See http://mzl.la/1ISlXnU")
-    public static let SendToNotSignedInMessage = NSLocalizedString("SendTo.NotSignedIn.Message", bundle: applicationBundle(), value: "Please open XRViewer, go to Settings and sign in to continue.", comment: "See http://mzl.la/1ISlXnU")
+    public static let SendToNotSignedInMessage = NSLocalizedString("SendTo.NotSignedIn.Message", bundle: applicationBundle(), value: "Please open XR Browser, go to Settings and sign in to continue.", comment: "See http://mzl.la/1ISlXnU")
     public static let SendToNoDevicesFound = NSLocalizedString("SendTo.NoDevicesFound.Message", bundle: applicationBundle(), value: "You don’t have any other devices connected to this Firefox Account available to sync.", comment: "Error message shown in the remote tabs panel")
     public static let SendToTitle = NSLocalizedString("SendTo.NavBar.Title", bundle: applicationBundle(), value: "Send Tab", comment: "Title of the dialog that allows you to send a tab to a different device")
     public static let SendToSendButtonTitle = NSLocalizedString("SendTo.SendAction.Text", bundle: applicationBundle(), value: "Send", comment: "Navigation bar button to Send the current page to a device")
@@ -686,17 +687,17 @@ extension Strings {
 
     // The above items are re-used strings from the old extension. New strings below.
 
-    public static let ShareAddToReadingList = NSLocalizedString("ShareExtension.AddToReadingListAction.Title", value: "Add to Reading List", comment: "Action label on share extension to add page to the XRViewer reading list.")
+    public static let ShareAddToReadingList = NSLocalizedString("ShareExtension.AddToReadingListAction.Title", value: "Add to Reading List", comment: "Action label on share extension to add page to the XR Browser reading list.")
     public static let ShareAddToReadingListDone = NSLocalizedString("ShareExtension.AddToReadingListActionDone.Title", value: "Added to Reading List", comment: "Share extension label shown after user has performed 'Add to Reading List' action.")
-    public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", value: "Bookmark This Page", comment: "Action label on share extension to bookmark the page in XRViewer.")
+    public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", value: "Bookmark This Page", comment: "Action label on share extension to bookmark the page in XR Browser.")
     public static let ShareBookmarkThisPageDone = NSLocalizedString("ShareExtension.BookmarkThisPageActionDone.Title", value: "Bookmarked", comment: "Share extension label shown after user has performed 'Bookmark this Page' action.")
 
-    public static let ShareOpenInFirefox = NSLocalizedString("ShareExtension.OpenInFirefoxAction.Title", value: "Open in XRViewer", comment: "Action label on share extension to immediately open page in XRViewer.")
-    public static let ShareSearchInFirefox = NSLocalizedString("ShareExtension.SeachInFirefoxAction.Title", value: "Search in XRViewer", comment: "Action label on share extension to search for the selected text in XRViewer.")
-    public static let ShareOpenInPrivateModeNow = NSLocalizedString("ShareExtension.OpenInPrivateModeAction.Title", value: "Open in Private Mode", comment: "Action label on share extension to immediately open page in XRViewer in private mode.")
+    public static let ShareOpenInFirefox = NSLocalizedString("ShareExtension.OpenInFirefoxAction.Title", value: "Open in XR Browser", comment: "Action label on share extension to immediately open page in XR Browser.")
+    public static let ShareSearchInFirefox = NSLocalizedString("ShareExtension.SeachInFirefoxAction.Title", value: "Search in XR Browser", comment: "Action label on share extension to search for the selected text in XR Browser.")
+    public static let ShareOpenInPrivateModeNow = NSLocalizedString("ShareExtension.OpenInPrivateModeAction.Title", value: "Open in Private Mode", comment: "Action label on share extension to immediately open page in XR Browser in private mode.")
 
-    public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", value: "Load in Background", comment: "Action label on share extension to load the page in XRViewer when user switches apps to bring it to foreground.")
-    public static let ShareLoadInBackgroundDone = NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", value: "Loading in XRViewer", comment: "Share extension label shown after user has performed 'Load in Background' action.")
+    public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", value: "Load in Background", comment: "Action label on share extension to load the page in XR Browser when user switches apps to bring it to foreground.")
+    public static let ShareLoadInBackgroundDone = NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", value: "Loading in XR Browser", comment: "Share extension label shown after user has performed 'Load in Background' action.")
 
 }
 
@@ -743,7 +744,7 @@ extension Strings {
 extension Strings {
     // Dark Mode Cover Sheet
     public static let CoverSheetV22DarkModeTitle = NSLocalizedString("CoverSheet.v22.DarkMode.Title", value: "Dark theme now includes a dark keyboard and dark splash screen.", comment: "Title for the new dark mode change in the version 22 app release.")
-    public static let CoverSheetV22DarkModeDescription = NSLocalizedString("CoverSheet.v22.DarkMode.Description", value: "For iOS 13 users, XRViewer now automatically switches to a dark theme when your phone is set to Dark Mode. To change this behavior, go to Settings > Theme.", comment: "Description for the new dark mode change in the version 22 app release. It describes the new automatic dark theme and how to change the theme settings.")
+    public static let CoverSheetV22DarkModeDescription = NSLocalizedString("CoverSheet.v22.DarkMode.Description", value: "For iOS 13 users, XR Browser now automatically switches to a dark theme when your phone is set to Dark Mode. To change this behavior, go to Settings > Theme.", comment: "Description for the new dark mode change in the version 22 app release. It describes the new automatic dark theme and how to change the theme settings.")
     
     // ETP Cover Sheet
     public static let CoverSheetETPTitle = NSLocalizedString("CoverSheet.v24.ETP.Title", value: "Protection Against Ad Tracking", comment: "Title for the new ETP mode i.e. standard vs strict")

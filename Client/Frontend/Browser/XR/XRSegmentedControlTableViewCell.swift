@@ -1,6 +1,6 @@
 //
 //  SegmentedControlTableViewCell.swift
-//  XRViewer
+//  XR Browser
 //
 //  Created by Anthony Morales on 2/28/19.
 //  Copyright © 2019 Mozilla. All rights reserved.

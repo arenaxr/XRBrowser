@@ -1,6 +1,6 @@
 //
 //  RequestXRPermissionsViewController.swift
-//  XRViewer
+//  XR Browser
 //
 //  Created by Anthony Morales on 4/16/19.
 //  Copyright © 2019 Mozilla. All rights reserved.

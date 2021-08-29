@@ -1,6 +1,6 @@
 //
 //  SwitchInputTableViewCell.swift
-//  XRViewer
+//  XR Browser
 //
 //  Created by Roberto Garrido on 29/1/18.
 //  Copyright © 2018 Mozilla. All rights reserved.
