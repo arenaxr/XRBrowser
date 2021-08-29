@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 BUNDLE_DISPLAY_NAME = XR Browser
-MOZ_TODAY_WIDGET_SEARCH_DISPLAY_NAME = XRViewer - Search
+MOZ_TODAY_WIDGET_SEARCH_DISPLAY_NAME = XRBrowser - Search
 
 // Bundle Identifier
 BUNDLE_ID = org.XRBrowser.${BUNDLE_IDENTIFIER_DISAMBIGUATOR}

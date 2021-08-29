@@ -975,8 +975,8 @@
 		B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftProtobuf.xcframework; path = Carthage/Build/SwiftProtobuf.xcframework; sourceTree = "<group>"; };
 		B615FA2F23A0252800724C0B /* XRViewerDevApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerDevApplication.entitlements; sourceTree = "<group>"; };
 		B615FA3023A0257500724C0B /* XRViewerApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XRViewerApplication.entitlements; sourceTree = "<group>"; };
-		B6E4680E239EB969007468EC /* XRViewer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XRViewer.xcconfig; path = Configuration/XRViewer.xcconfig; sourceTree = "<group>"; };
-		B6E46811239EB99B007468EC /* XRViewerDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XRViewerDev.xcconfig; path = Configuration/XRViewerDev.xcconfig; sourceTree = "<group>"; };
+		B6E4680E239EB969007468EC /* XRBrowser.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XRBrowser.xcconfig; path = Configuration/XRBrowser.xcconfig; sourceTree = "<group>"; };
+		B6E46811239EB99B007468EC /* XRBrowserDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = XRBrowserDev.xcconfig; path = Configuration/XRBrowserDev.xcconfig; sourceTree = "<group>"; };
 		C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackForwardListViewController.swift; sourceTree = "<group>"; };
 		C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackForwardListAnimator.swift; sourceTree = "<group>"; };
 		C45F44681D087DB600CB7EF0 /* TopTabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopTabsViewController.swift; sourceTree = "<group>"; };
@@ -2153,8 +2153,8 @@
 		E60961841B62B7E100DD640F /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				B6E4680E239EB969007468EC /* XRViewer.xcconfig */,
-				B6E46811239EB99B007468EC /* XRViewerDev.xcconfig */,
+				B6E4680E239EB969007468EC /* XRBrowser.xcconfig */,
+				B6E46811239EB99B007468EC /* XRBrowserDev.xcconfig */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -3530,9 +3530,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B6E46812239EB9DD007468EC /* XRViewerDev */ = {
+		B6E46812239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6E46811239EB99B007468EC /* XRViewerDev.xcconfig */;
+			baseConfigurationReference = B6E46811239EB99B007468EC /* XRBrowserDev.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3615,9 +3615,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E46813239EB9DD007468EC /* XRViewerDev */ = {
+		B6E46813239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -3682,9 +3682,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E46817239EB9DD007468EC /* XRViewerDev */ = {
+		B6E46817239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -3707,9 +3707,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Shared/Shared-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E46818239EB9DD007468EC /* XRViewerDev */ = {
+		B6E46818239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -3738,9 +3738,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Storage/Storage-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E46819239EB9DD007468EC /* XRViewerDev */ = {
+		B6E46819239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -3775,9 +3775,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Account/Account-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E4681A239EB9DD007468EC /* XRViewerDev */ = {
+		B6E4681A239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -3807,9 +3807,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Sync/Sync-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E4681B239EB9DD007468EC /* XRViewerDev */ = {
+		B6E4681B239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -3886,11 +3886,11 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = XRViewerDev;
+			name = XRBrowserDev;
 		};
-		B6E46827239EB9E5007468EC /* XRViewer */ = {
+		B6E46827239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6E4680E239EB969007468EC /* XRViewer.xcconfig */;
+			baseConfigurationReference = B6E4680E239EB969007468EC /* XRBrowser.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -3970,9 +3970,9 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
-		B6E46828239EB9E5007468EC /* XRViewer */ = {
+		B6E46828239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -4017,9 +4017,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
-		B6E4682C239EB9E5007468EC /* XRViewer */ = {
+		B6E4682C239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -4043,9 +4043,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Shared/Shared-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
-		B6E4682D239EB9E5007468EC /* XRViewer */ = {
+		B6E4682D239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -4076,9 +4076,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
-		B6E4682E239EB9E5007468EC /* XRViewer */ = {
+		B6E4682E239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -4115,9 +4115,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Account/Account-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
-		B6E4682F239EB9E5007468EC /* XRViewer */ = {
+		B6E4682F239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -4149,9 +4149,9 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Sync/Sync-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
-		B6E46830239EB9E5007468EC /* XRViewer */ = {
+		B6E46830239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -4221,7 +4221,7 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = XRViewer;
+			name = XRBrowser;
 		};
 /* End XCBuildConfiguration section */
 
@@ -4229,65 +4229,65 @@
 		282731971ABC9BE800AA1954 /* Build configuration list for PBXNativeTarget "Sync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E4681A239EB9DD007468EC /* XRViewerDev */,
-				B6E4682F239EB9E5007468EC /* XRViewer */,
+				B6E4681A239EB9DD007468EC /* XRBrowserDev */,
+				B6E4682F239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 		288A2D9F1AB8B3260023ABC3 /* Build configuration list for PBXNativeTarget "Shared" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E46817239EB9DD007468EC /* XRViewerDev */,
-				B6E4682C239EB9E5007468EC /* XRViewer */,
+				B6E46817239EB9DD007468EC /* XRBrowserDev */,
+				B6E4682C239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 		2FA436141ABB83B4008031D1 /* Build configuration list for PBXNativeTarget "Account" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E46819239EB9DD007468EC /* XRViewerDev */,
-				B6E4682E239EB9E5007468EC /* XRViewer */,
+				B6E46819239EB9DD007468EC /* XRBrowserDev */,
+				B6E4682E239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 		2FCAE2331ABB51F900877008 /* Build configuration list for PBXNativeTarget "Storage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E46818239EB9DD007468EC /* XRViewerDev */,
-				B6E4682D239EB9E5007468EC /* XRViewer */,
+				B6E46818239EB9DD007468EC /* XRBrowserDev */,
+				B6E4682D239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 		E69DB08C1E97DEAA008A67E6 /* Build configuration list for PBXNativeTarget "SyncTelemetry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E4681B239EB9DD007468EC /* XRViewerDev */,
-				B6E46830239EB9E5007468EC /* XRViewer */,
+				B6E4681B239EB9DD007468EC /* XRBrowserDev */,
+				B6E46830239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 		F84B21B91A090F8100AAB793 /* Build configuration list for PBXProject "Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E46812239EB9DD007468EC /* XRViewerDev */,
-				B6E46827239EB9E5007468EC /* XRViewer */,
+				B6E46812239EB9DD007468EC /* XRBrowserDev */,
+				B6E46827239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 		F84B21DD1A090F8100AAB793 /* Build configuration list for PBXNativeTarget "Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6E46813239EB9DD007468EC /* XRViewerDev */,
-				B6E46828239EB9E5007468EC /* XRViewer */,
+				B6E46813239EB9DD007468EC /* XRBrowserDev */,
+				B6E46828239EB9E5007468EC /* XRBrowser */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = XRViewerDev;
+			defaultConfigurationName = XRBrowserDev;
 		};
 /* End XCConfigurationList section */
 	};
