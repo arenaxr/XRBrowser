@@ -277,8 +277,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             }
         }
 
-        #if XRVIEWERDEV
-             let server = WebServerXrViewer.sharedInstance
+        #if XRBROWSERDEV
+             let server = WebServerXRBrowser.sharedInstance
              do {
                  try server.start()
              } catch let err as NSError {

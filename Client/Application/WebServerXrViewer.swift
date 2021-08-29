@@ -10,14 +10,14 @@ import Foundation
 import GCDWebServers
 import Shared
 
-class WebServerXrViewer {
-#if XRVIEWERDEV
-
+class WebServerXRBrowser {
+#if XRBROWSERDEV
+    
     private let log = Logger.browserLogger
 
-    static let WebServerSharedInstance = WebServerXrViewer()
+    static let WebServerSharedInstance = WebServerXRBrowser()
 
-    class var sharedInstance: WebServerXrViewer {
+    class var sharedInstance: WebServerXRBrowser {
         return WebServerSharedInstance
     }
 
