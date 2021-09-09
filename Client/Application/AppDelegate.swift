@@ -212,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
 
-        // Turn off Adjust link attribution for XR Viewer
+        // Turn off Adjust link attribution for XR Browser
 //        adjustIntegration?.triggerApplicationDidFinishLaunchingWithOptions(launchOptions)
 
         UIScrollView.doBadSwizzleStuff()
@@ -282,7 +282,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
              do {
                  try server.start()
              } catch let err as NSError {
-                 print("Error: Unable to start Local WebServer in WebXR Viewer \(err)")
+                 print("Error: Unable to start Local WebServer in XR Browser \(err)")
              }
         #endif
 
