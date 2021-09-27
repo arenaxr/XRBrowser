@@ -13,7 +13,6 @@ public struct ClientAndTabs: Equatable, CustomStringConvertible {
         return "<Client guid: \(client.guid ?? "nil"), \(tabs.count) tabs.>"
     }
 
-    // See notes in RemoteTabsPanel.swift.
     public func approximateLastSyncTime() -> Timestamp {
         if tabs.isEmpty {
             return client.modified
