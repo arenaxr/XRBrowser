@@ -663,61 +663,6 @@ class YourRightsSetting: Setting {
     }
 }
 
-class SendFeedbackSetting: Setting {
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Send Feedback", comment: "Menu item in settings used to open input.mozilla.org where people can submit feedback"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override var url: URL? {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        return URL(string: "https://input.mozilla.org/feedback/fxios/\(appVersion)")
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
-class SendAnonymousUsageDataSetting: BoolSetting {
-    init(prefs: Prefs, delegate: SettingsDelegate?) {
-        let statusText = NSMutableAttributedString()
-        statusText.append(NSAttributedString(string: Strings.SendUsageSettingMessage, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight]))
-        statusText.append(NSAttributedString(string: " "))
-        statusText.append(NSAttributedString(string: Strings.SendUsageSettingLink, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.general.highlightBlue]))
-
-        super.init(
-            prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true,
-            attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle),
-            attributedStatusText: statusText,
-            settingDidChange: { _ in }
-        )
-    }
-
-    override var url: URL? {
-        return SupportUtils.URLForTopic("adjust")
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
-// Opens the SUMO page in a new tab
-class OpenSupportPageSetting: Setting {
-    init(delegate: SettingsDelegate?) {
-        super.init(title: NSAttributedString(string: NSLocalizedString("Help", comment: "Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]),
-            delegate: delegate)
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        navigationController?.dismiss(animated: true) {
-            if let url = URL(string: "https://support.mozilla.org/products/ios") {
-                self.delegate?.settingsOpenURLInNewTab(url)
-            }
-        }
-    }
-}
-
 // Opens the search settings pane
 class SearchSetting: Setting {
     let profile: Profile

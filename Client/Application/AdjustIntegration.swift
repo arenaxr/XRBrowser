@@ -114,17 +114,16 @@ class AdjustIntegration: NSObject {
     /// data yet.
 
     fileprivate func shouldEnable() throws -> Bool {
-        if profile.prefs.boolForKey(AppConstants.PrefSendUsageData) ?? true {
-            return true
-        }
-        return try hasAttribution() == false
+        // ATM NOTE 9/27/21: No longer using AppConstants.PrefSendUsageData, set to false for now
+        return false
     }
 
     /// Return true if retention (session) tracking should be enabled. This follows the Send Anonymous Usage Data
     /// setting.
 
     fileprivate func shouldTrackRetention() -> Bool {
-        return profile.prefs.boolForKey(AppConstants.PrefSendUsageData) ?? true
+        // ATM NOTE 9/27/21: No longer using AppConstants.PrefSendUsageData, set to false for now
+        return false
     }
 }
 

@@ -654,7 +654,8 @@ open class BrowserProfile: Profile {
         }
 
         func canSendUsageData() -> Bool {
-            return profile.prefs.boolForKey(AppConstants.PrefSendUsageData) ?? true
+            // ATM NOTE 9/27/21: No longer using AppConstants.PrefSendUsageData, set to false for now
+            return false
         }
 
         private func notifySyncing(notification: Notification.Name) {

@@ -50,7 +50,8 @@ class UnifiedTelemetry {
         telemetryConfig.userDefaultsSuiteName = AppInfo.sharedContainerIdentifier
         telemetryConfig.dataDirectory = .cachesDirectory
         telemetryConfig.updateChannel = AppConstants.BuildChannel.rawValue
-        let sendUsageData = profile.prefs.boolForKey(AppConstants.PrefSendUsageData) ?? true
+        // ATM NOTE 9/27/21: No longer using AppConstants.PrefSendUsageData, set to false for now
+        let sendUsageData = false
         telemetryConfig.isCollectionEnabled = sendUsageData
         telemetryConfig.isUploadEnabled = sendUsageData
 

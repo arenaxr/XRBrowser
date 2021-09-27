@@ -643,9 +643,6 @@ extension Strings {
 
 // Settings Home
 extension Strings {
-    public static let SendUsageSettingTitle = NSLocalizedString("Settings.SendUsage.Title", value: "Send Usage Data", comment: "The title for the setting to send usage data.")
-    public static let SendUsageSettingLink = NSLocalizedString("Settings.SendUsage.Link", value: "Learn More.", comment: "title for a link that explains how mozilla collects telemetry")
-    public static let SendUsageSettingMessage = NSLocalizedString("Settings.SendUsage.Message", value: "We strive to only collect what we need to provide and improve XR Browser for everyone.", comment: "A short description that explains why XR Browser collects usage data.")
     public static let SettingsSiriSectionName = NSLocalizedString("Settings.Siri.SectionName", value: "Siri Shortcuts", comment: "The option that takes you to the siri shortcuts settings page")
     public static let SettingsSiriSectionDescription = NSLocalizedString("Settings.Siri.SectionDescription", value: "Use Siri shortcuts to quickly open XR Browser via Siri", comment: "The description that describes what siri shortcuts are")
     public static let SettingsSiriOpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", value: "Open New Tab", comment: "The description of the open new tab siri shortcut")
