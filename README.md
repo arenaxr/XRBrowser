@@ -1,7 +1,7 @@
-Untitled iOS WebXR Project
+XR Browser
 ===============
 
-This project is forked from Mozilla's WebXR Viewer. WebXR Viewer is an iOS WebXR browser available on the App Store.
+This project is forked from Mozilla's WebXR Viewer. [WebXR Viewer](https://apps.apple.com/us/app/webxr-viewer/id1295998056) is an iOS WebXR browser available on the App Store. XR Browser will soon be available on the App Store.
 
 This branch (WebXR-iOS-14.5)
 -----------
