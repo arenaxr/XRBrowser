@@ -22,7 +22,8 @@ class UpdateViewModel {
     }
 
     private func setupUpdateModel() {
-        updateCoverSheetModel = UpdateCoverSheetModel(titleImage: #imageLiteral(resourceName: "splash"), titleText: Strings.WhatsNewString, updates: updates)
+        // ATM NOTE 9/27/21: Avoiding any What's New logic, used to call that string here for titleText, display the text "Error" for now
+        updateCoverSheetModel = UpdateCoverSheetModel(titleImage: #imageLiteral(resourceName: "splash"), titleText: "Error", updates: updates)
     }
     
     static func isCleanInstall(userPrefs: Prefs) -> Bool {
