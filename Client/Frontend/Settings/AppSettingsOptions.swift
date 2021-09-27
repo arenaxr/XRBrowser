@@ -36,31 +36,6 @@ class HiddenSetting: Setting {
     }
 }
 
-// Sync setting for connecting a Firefox Account.  Shown when we don't have an account.
-class ConnectSetting: WithoutAccountSetting {
-    override var accessoryView: UIImageView? { return disclosureIndicator }
-
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: Strings.FxASignInToSync, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override var accessibilityIdentifier: String? { return "SignInToSync" }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = FirefoxAccountSignInViewController(profile: profile, parentType: .settings, deepLinkParams: nil)
-        UnifiedTelemetry.recordEvent(category: .firefoxAccount, method: .view, object: .settings)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    override func onConfigureCell(_ cell: UITableViewCell) {
-        super.onConfigureCell(cell)
-        cell.imageView?.image = UIImage.templateImageNamed("FxA-Default")
-        cell.imageView?.tintColor = UIColor.theme.tableView.disabledRowText
-        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.size.width)! / 2
-        cell.imageView?.layer.masksToBounds = true
-    }
-}
-
 class SyncNowSetting: WithAccountSetting {
     let imageView = UIImageView(frame: CGRect(width: 30, height: 30))
     let syncIconWrapper = UIImage.createWithColor(CGSize(width: 30, height: 30), color: UIColor.clear)

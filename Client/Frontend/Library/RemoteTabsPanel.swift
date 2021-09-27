@@ -340,7 +340,6 @@ class RemoteTabsNotLoggedInCell: UITableViewCell {
     static let Identifier = "RemoteTabsNotLoggedInCell"
     var libraryPanel: LibraryPanel?
     let instructionsLabel = UILabel()
-    let signInButton = UIButton()
     let titleLabel = UILabel()
     let emptyStateImageView = UIImageView()
 
@@ -365,14 +364,6 @@ class RemoteTabsNotLoggedInCell: UITableViewCell {
         instructionsLabel.numberOfLines = 0
         contentView.addSubview(instructionsLabel)
 
-        signInButton.setTitle(Strings.FxASignInToSync, for: [])
-        signInButton.setTitleColor(UIColor.Photon.White100, for: [])
-        signInButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        signInButton.layer.cornerRadius = RemoteTabsPanelUX.EmptyStateSignInButtonCornerRadius
-        signInButton.clipsToBounds = true
-        signInButton.addTarget(self, action: #selector(signIn), for: .touchUpInside)
-        contentView.addSubview(signInButton)
-
         createAnAccountButton.setTitle(NSLocalizedString("Create an account", comment: "See http://mzl.la/1Qtkf0j"), for: [])
         createAnAccountButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .caption1)
         createAnAccountButton.addTarget(self, action: #selector(createAnAccount), for: .touchUpInside)
@@ -393,11 +384,6 @@ class RemoteTabsNotLoggedInCell: UITableViewCell {
             make.centerX.equalTo(emptyStateImageView)
         }
 
-        createAnAccountButton.snp.makeConstraints { (make) -> Void in
-            make.centerX.equalTo(signInButton)
-            make.top.equalTo(signInButton.snp.bottom).offset(RemoteTabsPanelUX.EmptyStateTopPaddingInBetweenItems)
-        }
-
         applyTheme()
     }
 
@@ -409,7 +395,6 @@ class RemoteTabsNotLoggedInCell: UITableViewCell {
         emptyStateImageView.tintColor = UIColor.theme.tableView.rowText
         titleLabel.textColor = UIColor.theme.tableView.headerTextDark
         instructionsLabel.textColor = UIColor.theme.tableView.headerTextDark
-        signInButton.backgroundColor = RemoteTabsPanelUX.EmptyStateSignInButtonColor
         backgroundColor = UIColor.theme.homePanel.panelBackground
     }
 
@@ -437,30 +422,11 @@ class RemoteTabsNotLoggedInCell: UITableViewCell {
                 // Sets proper landscape layout for smaller phones: iPhone 4 & 5.
                 make.right.lessThanOrEqualTo(contentView.snp.centerX).offset(-30).priority(1000)
             }
-
-            signInButton.snp.remakeConstraints { make in
-                make.height.equalTo(RemoteTabsPanelUX.EmptyStateSignInButtonHeight)
-                make.width.equalTo(RemoteTabsPanelUX.EmptyStateSignInButtonWidth)
-                make.centerY.equalTo(emptyStateImageView).offset(2*RemoteTabsPanelUX.EmptyStateTopPaddingInBetweenItems)
-
-                // Sets proper landscape layout for bigger phones: iPhone 6 and on.
-                make.right.greaterThanOrEqualTo(contentView.snp.right).offset(-70).priority(100)
-
-                // Sets proper landscape layout for smaller phones: iPhone 4 & 5.
-                make.left.greaterThanOrEqualTo(contentView.snp.centerX).offset(10).priority(1000)
-            }
         } else {
             instructionsLabel.snp.remakeConstraints { make in
                 make.top.equalTo(titleLabel.snp.bottom).offset(RemoteTabsPanelUX.EmptyStateTopPaddingInBetweenItems)
                 make.centerX.equalTo(contentView)
                 make.width.equalTo(RemoteTabsPanelUX.EmptyStateInstructionsWidth)
-            }
-
-            signInButton.snp.remakeConstraints { make in
-                make.centerX.equalTo(contentView)
-                make.top.equalTo(instructionsLabel.snp.bottom).offset(RemoteTabsPanelUX.EmptyStateTopPaddingInBetweenItems)
-                make.height.equalTo(RemoteTabsPanelUX.EmptyStateSignInButtonHeight)
-                make.width.equalTo(RemoteTabsPanelUX.EmptyStateSignInButtonWidth)
             }
         }
         super.updateConstraints()
