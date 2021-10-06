@@ -1,5 +1,5 @@
 github "DaveWoodCom/XCGLogger" "7.0.1"
-github "SDWebImage/SDWebImage" "5.11.1"
+github "SDWebImage/SDWebImage" "5.12.0"
 github "SnapKit/SnapKit" "5.0.1"
 github "SwiftyJSON/SwiftyJSON" "5.0.1"
 github "adjust/ios_sdk" "v4.18.3"

@@ -227,7 +227,6 @@
 		B1620B8D266D718200689610 /* Telemetry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64574266D44D7000C5F69 /* Telemetry.xcframework */; };
 		B1620B8E266D718200689610 /* Telemetry.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64574266D44D7000C5F69 /* Telemetry.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1620BAA266D72E900689610 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; };
-		B1620BAB266D72EC00689610 /* MozillaAppServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BA8266D72E900689610 /* MozillaAppServices.framework */; };
 		B1620BB3266D72F400689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
 		B1620BD2266D78A800689610 /* SwiftKeychainWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BB1266D72F400689610 /* SwiftKeychainWrapper.framework */; };
 		B1620BDF266D7A3D00689610 /* ObjcExceptionBridging.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1620BDD266D7A3D00689610 /* ObjcExceptionBridging.xcframework */; };
@@ -236,15 +235,10 @@
 		B1E645A2266D4518000C5F69 /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; };
 		B1E645A3266D4518000C5F69 /* SnapKit.xcframework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645A1266D4518000C5F69 /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645B3266D4539000C5F69 /* SwiftyJSON.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */; };
-		B1E645B4266D4539000C5F69 /* SwiftyJSON.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6458F266D4502000C5F69 /* SwiftyJSON.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645BC266D4549000C5F69 /* XCGLogger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */; };
-		B1E645BD266D4549000C5F69 /* XCGLogger.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64586266D44F7000C5F69 /* XCGLogger.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645C4266D4556000C5F69 /* Sentry.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; };
-		B1E645C5266D4556000C5F69 /* Sentry.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E64598266D450C000C5F69 /* Sentry.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645CC266D4565000C5F69 /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */; };
-		B1E645CD266D4565000C5F69 /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E6457D266D44EE000C5F69 /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1E645E3266D45D6000C5F69 /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */; };
-		B1E645E4266D45D6000C5F69 /* SwiftProtobuf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1E645DC266D45BC000C5F69 /* SwiftProtobuf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
 		C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F44681D087DB600CB7EF0 /* TopTabsViewController.swift */; };
@@ -685,31 +679,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B1E645B5266D4539000C5F69 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B1E645BD266D4549000C5F69 /* XCGLogger.xcframework in Embed Frameworks */,
-				B1E645CD266D4565000C5F69 /* SDWebImage.xcframework in Embed Frameworks */,
-				B1E645B4266D4539000C5F69 /* SwiftyJSON.xcframework in Embed Frameworks */,
-				B1E645C5266D4556000C5F69 /* Sentry.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B1E645E5266D45D6000C5F69 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B1E645E4266D45D6000C5F69 /* SwiftProtobuf.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */ = {
@@ -1332,7 +1301,6 @@
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				E4A888161A95679500CDC337 /* FxA.framework in Frameworks */,
 				2FA436121ABB83B4008031D1 /* Account.framework in Frameworks */,
-				B1620BAB266D72EC00689610 /* MozillaAppServices.framework in Frameworks */,
 				288A2D9D1AB8B3260023ABC3 /* Shared.framework in Frameworks */,
 				2FCAE2311ABB51F800877008 /* Storage.framework in Frameworks */,
 				282731751ABC9BE700AA1954 /* Sync.framework in Frameworks */,
@@ -2628,7 +2596,6 @@
 				288A2D821AB8B3260023ABC3 /* Frameworks */,
 				288A2D831AB8B3260023ABC3 /* Headers */,
 				288A2D841AB8B3260023ABC3 /* Resources */,
-				B1E645B5266D4539000C5F69 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2670,7 +2637,6 @@
 				2FCAE2161ABB51F800877008 /* Frameworks */,
 				2FCAE2171ABB51F800877008 /* Headers */,
 				2FCAE2181ABB51F800877008 /* Resources */,
-				B1E645E5266D45D6000C5F69 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2765,7 +2731,6 @@
 					F84B21BD1A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3673,13 +3638,17 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = XRBrowserDev;
 		};
 		B6E46817239EB9DD007468EC /* XRBrowserDev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3706,6 +3675,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3737,6 +3707,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3774,6 +3745,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3827,7 +3799,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -3913,6 +3885,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_ACTIVITY_MODE = "";
@@ -3971,8 +3944,9 @@
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Automatic;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4009,13 +3983,17 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = XRBrowser;
 		};
 		B6E4682C239EB9E5007468EC /* XRBrowser */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -4043,6 +4021,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -4076,6 +4055,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -4115,6 +4095,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -4168,8 +4149,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
