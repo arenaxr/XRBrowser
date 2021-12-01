@@ -27,15 +27,15 @@ Building the code
     ```
 1. Clone the repository:
     ```shell
-    git clone https://github.com/robomex/WebXR-iOS
+    git clone https://github.com/conix-center/XRBrowser
     ```
 1. Pull in the project dependencies:
     ```shell
-    cd WebXR-iOS
+    cd XRBrowser
     sh ./bootstrap.sh
     ```
 1. Open `Client.xcodeproj` in Xcode.
-1. Build the `XRViewer` scheme in Xcode.
+1. Build the `XRBrowser` scheme in Xcode.
 
 ## Building User Scripts
 
@@ -78,4 +78,4 @@ This repository's current architecture and usage of the Carthage dependency mana
 1. Delete the Carthage system cache folder: Finder → open up the Go to Folder command (⌘ + ⇧ + G) → Go to `~/Library/Caches` → delete the folder `org.carthage.CarthageKit`
 1. In this repo's location on your computer delete the `Carthage` folder
 1. In this repo's location on your computer delete the `Cartfile.resolved` file
-1. In this repo's location on your computer run the `sh ./bootstrap.sh` command to try to pull in the depedencies again
+1. In this repo's location on your computer run the `sh ./bootstrap.sh` command to try to pull in the dependencies again
