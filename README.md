@@ -31,11 +31,11 @@ Building the code
     ```
 1. Pull in the project dependencies:
     ```shell
-    cd WebXR-iOS
+    cd XRBrowser
     sh ./bootstrap.sh
     ```
 1. Open `Client.xcodeproj` in Xcode.
-1. Build the `XRViewer` scheme in Xcode.
+1. Build the `XRBrowser` scheme in Xcode.
 
 ## Building User Scripts
 
