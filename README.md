@@ -27,7 +27,7 @@ Building the code
     ```
 1. Clone the repository:
     ```shell
-    git clone https://github.com/robomex/WebXR-iOS
+    git clone https://github.com/conix-center/XRBrowser
     ```
 1. Pull in the project dependencies:
     ```shell
