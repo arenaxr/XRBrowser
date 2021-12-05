@@ -764,11 +764,11 @@ class ClearPrivateDataSetting: Setting {
 
 class PrivacyPolicySetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Privacy Policy", comment: "Show XR Browser Browser Privacy Policy, see https://arenaxr.org/terms.html#arena-privacy-statement"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
+        return NSAttributedString(string: NSLocalizedString("Privacy Policy", comment: "Show XR Browser Browser Privacy Policy, see https://github.com/conix-center/XRBrowser/blob/main-XRBrowser/PRIVACY_POLICY.md"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
     }
 
     override var url: URL? {
-        return URL(string: "https://arenaxr.org/terms.html#arena-privacy-statement")
+        return URL(string: "https://github.com/conix-center/XRBrowser/blob/main-XRBrowser/PRIVACY_POLICY.md")
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
