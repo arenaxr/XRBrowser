@@ -154,7 +154,6 @@ class Constant: NSObject {
     static func allowedMinimalSitesKey() -> String { return "allowedMinimalSites" }
     static func allowedWorldSensingSitesKey() -> String { return "allowedWorldSensingSites" }
     static func allowedVideoCameraSitesKey() -> String { return "allowedVideoCameraSites" }
-    static func alwaysAllowWorldSensingKey() -> String { return "alwaysAllowWorldSensing" }
     static func liteModeWebXREnabled() -> String { return "liteModeWebXREnabled" }
     static func recordSize() -> CGFloat { return 60.5 }
     static func recordOffsetX() -> CGFloat { return 25.5 }

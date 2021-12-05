@@ -82,16 +82,6 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Always Allow World Sensing</string>
-			<key>Key</key>
-			<string>alwaysAllowWorldSensing</string>
-			<key>DefaultValue</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
 			<string>Expose WebXR API (restart required)</string>
 			<key>Key</key>
 			<string>exposeWebXRAPI</string>

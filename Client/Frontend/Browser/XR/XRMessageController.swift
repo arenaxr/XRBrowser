@@ -214,9 +214,7 @@ class MessageController: NSObject, UITableViewDelegate, UITableViewDataSource {
             case .worldSensing:
                 standardUserDefaults.set(true, forKey: Constant.minimalWebXREnabled())
                 standardUserDefaults.set(true, forKey: Constant.worldSensingWebXREnabled())
-                if standardUserDefaults.bool(forKey: Constant.alwaysAllowWorldSensingKey())
-                    || allowedWorldSensingSites?[currentSite] != nil
-                {
+                if allowedWorldSensingSites?[currentSite] != nil {
                     authorizationGranted(.worldSensing)
                     return
                 }
