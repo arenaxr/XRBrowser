@@ -2,7 +2,7 @@ import Foundation
 import ARKit
 
 // URL
-let WEB_URL = "https://webxr-ios.webxrexperiments.com/splash.html"
+let WEB_URL = "https://arenaxr.org/"
 let LAST_URL_KEY = "lastURL"
 
 // MESSAGES
