@@ -496,7 +496,7 @@ class Tab: NSObject {
                     let path = Bundle.main.path(forResource: "webxrShim", ofType: "js"),
                     var source = try? String(contentsOfFile: path)
                 {
-                    let polyfillURL = UserDefaults.standard.string(forKey: Constant.polyfillURLKey()) ?? "https://webxr-ios.webxrexperiments.com/dist/webxr-2.0.js"
+                    let polyfillURL = UserDefaults.standard.string(forKey: Constant.polyfillURLKey()) ?? "https://arenaxr.org/webxrios.js"
                     source = "{ const REALAPI_URL = '\(polyfillURL)'; " + source
                     let userScript = WKUserScript(source: source, injectionTime: .atDocumentStart, forMainFrameOnly: true)
                     webView.configuration.userContentController.addUserScript(userScript)
